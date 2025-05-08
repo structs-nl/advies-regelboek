@@ -5,18 +5,20 @@
 <title>Toeslagen | Proefberekening</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_import/custom-style.c4e9a7a9.css">
+<link rel="preload" as="style" href="./_import/custom-style.38815a6d.css">
 <link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_import/custom-style.c4e9a7a9.css">
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.38815a6d.css">
 <link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
-<link rel="modulepreload" href="./_observablehq/client.11c45270.js">
+<link rel="modulepreload" href="./_observablehq/client.1b9a870b.js">
 <link rel="modulepreload" href="./_observablehq/runtime.ff688eaa.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.4d34ce26.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/dot.13e15508.js">
 <link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/8d03128a.js">
 <link rel="modulepreload" href="./_observablehq/stdlib/inputs.8ab81bc0.js">
-<link rel="modulepreload" href="./_import/regelboek.61b75940.js">
+<link rel="modulepreload" href="./_import/regelboek.51603869.js">
 <link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="./_npm/@viz-js/viz@3.12.0/0830eea0.js">
 <link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
 <link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
 <link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/a62ae5ce.js">
@@ -56,10 +58,12 @@
 <link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
 <script type="module">
 
-import {define} from "./_observablehq/client.11c45270.js";
+import {define} from "./_observablehq/client.1b9a870b.js";
 
-define({id: "73f58d27", outputs: ["Plot","Inputs","Regelboek","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
-const [Plot, Inputs, Regelboek] = await Promise.all([import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.8ab81bc0.js"), import("./_import/regelboek.61b75940.js")]);
+define({id: "d9926e67", outputs: ["dot","Plot","Inputs","Regelboek","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
+const [{default: dot}, Plot, Inputs, Regelboek] = await Promise.all([import("./_observablehq/stdlib/dot.13e15508.js"), import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.8ab81bc0.js"), import("./_import/regelboek.51603869.js")]);
+
+
 
 const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
 
@@ -72,10 +76,12 @@ const range = (start, stop, step) =>
 const inkomen_van = 0;
 const inkomen_tot = 50000;
 const x = range(inkomen_van, inkomen_tot, 10);
-return {Plot,Inputs,Regelboek,intarray,range,inkomen_van,inkomen_tot,x};
+
+return {dot,Plot,Inputs,Regelboek,intarray,range,inkomen_van,inkomen_tot,x};
 }});
 
-define({id: "7a5c7003", inputs: ["Inputs","inkomen_van","inkomen_tot","Generators","html"], outputs: ["inkomenInput","inkomen","vermogenInput","vermogen","inkomenPartnerInput","inkomenPartner","vermogenPartnerInput","vermogenPartner","toeslagpartnerInput","toeslagpartner","kinderbijslagInput","kinderbijslag","kinderenInput","kinderen","ondernemerInput","ondernemer","winstInput","winst"], body: (Inputs,inkomen_van,inkomen_tot,Generators,html) => {
+define({id: "1a819a5b", inputs: ["Inputs","inkomen_van","inkomen_tot","Generators","html"], outputs: ["inkomenInput","inkomen","vermogenInput","vermogen","inkomenPartnerInput","inkomenPartner","vermogenPartnerInput","vermogenPartner","toeslagpartnerInput","toeslagpartner","kinderbijslagInput","kinderbijslag","kinderenInput","kinderen","ondernemerInput","ondernemer","winstInput","winst"], body: (Inputs,inkomen_van,inkomen_tot,Generators,html) => {
+
 const inkomenInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is uw inkomen?"})
 const inkomen = Generators.input(inkomenInput);
 
@@ -106,11 +112,15 @@ const winst = Generators.input(winstInput);
 return {inkomenInput,inkomen,vermogenInput,vermogen,inkomenPartnerInput,inkomenPartner,vermogenPartnerInput,vermogenPartner,toeslagpartnerInput,toeslagpartner,kinderbijslagInput,kinderbijslag,kinderenInput,kinderen,ondernemerInput,ondernemer,winstInput,winst};
 }});
 
-define({id: "d4991985", inputs: ["x","Regelboek","toeslagpartner","vermogen","intarray","kinderen","kinderbijslag","Plot"], outputs: ["vermogenTotaal","zorgdata","kgbdata","lines"], body: (x,Regelboek,toeslagpartner,vermogen,intarray,kinderen,kinderbijslag,Plot) => {
- 
+define({id: "be0528ce", inputs: ["x","Regelboek","toeslagpartner","vermogen","intarray","kinderen","kinderbijslag","Plot"], outputs: ["vermogenTotaal","zorgdata","kgbdata","lines"], body: (x,Regelboek,toeslagpartner,vermogen,intarray,kinderen,kinderbijslag,Plot) => {
+
  // TODO toeslag inkomen en vermogen optellen
+ // TODO cumlatieve waarde toevoegen
+ // TODO standaardwaarde kinderen
+ // TODO hogere waarden dan toegestaan?
+ // TODO kleuren terug laten komen bij de regelingen
 
-
+ 
  const vermogenTotaal = (vermogen, toeslagpartner, vermogenPartner) => vermogen + (toeslagpartner ? vermogenPartner : 0)
 
  const zorgdata =  x.map((e,i) => (
@@ -214,18 +224,20 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
     <li class="observablehq-link observablehq-link-active"><a href="./">Proefberekening</a></li>
   </ol>
   <ol>
-    <li class="observablehq-link"><a href="./zorgtoeslag">Toeslagen</a></li>
+    <li class="observablehq-link"><a href="./huurtoeslag">Huurtoeslag</a></li>
+    <li class="observablehq-link"><a href="./kgb">Kindgebonden budget</a></li>
+    <li class="observablehq-link"><a href="./zorgtoeslag">Zorgtoeslag</a></li>
   </ol>
 </nav>
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<div class="observablehq observablehq--block"><!--:73f58d27:--></div>
+<div class="observablehq observablehq--block"><!--:d9926e67:--></div>
 <h1 id="proefberekening" tabindex="-1"><a class="observablehq-header-anchor" href="#proefberekening">Proefberekening</a></h1>
-<div class="observablehq observablehq--block"><!--:7a5c7003:--></div>
-<div class="observablehq observablehq--block"><!--:d4991985:--></div>
-<div class="grid grid-cols-4" style="grid-auto-rows: auto;">
-  <div class="card grid-colspan-2">
+<div class="observablehq observablehq--block"><!--:1a819a5b:--></div>
+<div class="observablehq observablehq--block"><!--:be0528ce:--></div>
+<div class="grid grid-cols-3">
+  <div class="card grid-colspan-1">
       <observablehq-loading></observablehq-loading><!--:112eb2e5:-->
       <observablehq-loading></observablehq-loading><!--:da161e72:-->
       <observablehq-loading></observablehq-loading><!--:87a8dae8:-->
@@ -240,6 +252,8 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
     <h2>Inkomen</h2>
     <observablehq-loading></observablehq-loading><!--:d037f640:-->
   </div>
+  </div>
+  <div class="grid grid-cols-3">
   <div class="card" style="max-height: 100px;">
     <h2>Zorgtoeslag</h2>
     <span class="big">€ <observablehq-loading></observablehq-loading><!--:d4aa59e9:-->,- per jaar</span>
@@ -256,9 +270,10 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
     <h2>Stadspas Amsterdam</h2>
     <span class="big">U kunt voldoen</span>
   </div>
-</div></main>
+</div>
+</main>
 <footer id="observablehq-footer">
-<nav><a rel="next" href="./zorgtoeslag"><span>Toeslagen</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-02-26T23:16:48">Feb 26, 2025</a>.</div>
+<nav><a rel="next" href="./huurtoeslag"><span>Huurtoeslag</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-08T23:47:20">May 8, 2025</a>.</div>
 </footer>
 </div>

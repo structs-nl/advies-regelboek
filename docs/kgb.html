@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.12.0">
+<title>Kindgebonden budget | Proefberekening</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_import/custom-style.38815a6d.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.38815a6d.css">
+<link rel="modulepreload" href="./_observablehq/client.1b9a870b.js">
+<link rel="modulepreload" href="./_observablehq/runtime.ff688eaa.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.4d34ce26.js">
+<script type="module">
+
+import "./_observablehq/client.1b9a870b.js";
+
+</script>
+<input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
+<label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
+<nav id="observablehq-sidebar">
+  <ol>
+    <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
+    <li class="observablehq-link"><a href="./">Proefberekening</a></li>
+  </ol>
+  <ol>
+    <li class="observablehq-link"><a href="./huurtoeslag">Huurtoeslag</a></li>
+    <li class="observablehq-link observablehq-link-active"><a href="./kgb">Kindgebonden budget</a></li>
+    <li class="observablehq-link"><a href="./zorgtoeslag">Zorgtoeslag</a></li>
+  </ol>
+</nav>
+<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<div id="observablehq-center">
+<aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
+<nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#invoergegevens">Invoergegevens</a></li>
+<li class="observablehq-secondary-link"><a href="#awir-partner">AWIR partner</a></li>
+<li class="observablehq-secondary-link"><a href="#dezelfde-partner-tijdens-berekeningsjaar">Dezelfde partner tijdens berekeningsjaar</a></li>
+<li class="observablehq-secondary-link"><a href="#leeftijden-kinderen-met-kinderbijslag">Leeftijden kinderen met kinderbijslag</a></li>
+<li class="observablehq-secondary-link"><a href="#toetsingsinkomen">Toetsingsinkomen</a></li>
+<li class="observablehq-secondary-link"><a href="#rendementsgrondslag">Rendementsgrondslag</a></li>
+<li class="observablehq-secondary-link"><a href="#definities">Definities</a></li>
+<li class="observablehq-secondary-link"><a href="#kgb-hoogte">KGB hoogte</a></li>
+<li class="observablehq-secondary-link"><a href="#kgb-per-kind">KGB per kind</a></li>
+<li class="observablehq-secondary-link"><a href="#kgb-basis">KGB basis</a></li>
+<li class="observablehq-secondary-link"><a href="#kgb-leeftijdafhankelijk">KGB leeftijdafhankelijk</a></li>
+<li class="observablehq-secondary-link"><a href="#kgb-toevoeging-geen-partner">KGB toevoeging geen partner</a></li>
+<li class="observablehq-secondary-link"><a href="#rendementsgrondslag-norm">Rendementsgrondslag norm</a></li>
+<li class="observablehq-secondary-link"><a href="#drempelinkomen">Drempelinkomen</a></li>
+<li class="observablehq-secondary-link"><a href="#minimumloon-per-maand">Minimumloon per maand</a></li>
+</ol>
+</nav>
+</aside>
+<main id="observablehq-main" class="observablehq">
+<h1 id="kindgebonden-budget" tabindex="-1"><a class="observablehq-header-anchor" href="#kindgebonden-budget">Kindgebonden budget</a></h1>
+<dl>
+	<dt>Geldigheidsdatum</dt>
+	<dd>1 januari 2025</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer"> Wet op het kindgebonden budget</a></dd>	
+</dl>
+<p>In dit document beschrijven we de definities van het kindgebonden
+budget (KGB). Dit is een regeling van het ministerie van Sociale Zaken
+en Werkgelegenheid. Dienst Toeslagen (ministerie van financieen) is
+belast met de uitvoering van de regeling.</p>
+<p>Met deze definities en de benodigde invoergegevens kan een berekening
+worden gemaakt van een <strong>mogelijk recht</strong> en de <strong>hoogte</strong> van het
+KGB.</p>
+<div class="caution">
+De analyse van het kindgebondenbudget is <strong>nog niet</strong> gevalideerd door vakinhoudelijk experts.
+</div>
+<p>&nbsp;</p>
+<h1 id="invoergegevens" tabindex="-1"><a class="observablehq-header-anchor" href="#invoergegevens">Invoergegevens</a></h1>
+<p>De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:</p>
+<h2 id="awir-partner" tabindex="-1"><a class="observablehq-header-anchor" href="#awir-partner">AWIR partner</a></h2>
+<p>Het KGB maakt gebruik van het partnerbegrip uit de Algemene wet
+inkomensafhankelijke regelingen. Voor het KGB beschouwen wij dit als
+een gegeven.</p>
+<div class="note">
+<p>Dienst Toeslagen heeft een aparte <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner" target="_blank" rel="noopener noreferrer">tool</a>
+voor het vaststellen van het partnerbegrip.  Het is mogelijk om de
+condities van dit partnerbegrip expliciet te maken in een aparte
+sectie.</p>
+</div>
+<dl>
+	<dt>Naam</dt>
+	<dd>AWIR partner</dd>
+	<dt>Type</dt>
+	<dd>ja / nee</dd>
+    <dt>Geldigheidsdatum</dt>
+	<dd>1 januari 2025</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=2&amp;artikel=3&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 3 Algemene wet inkomensafhankelijke regelingen</a></dd>	
+</dl>
+<h2 id="dezelfde-partner-tijdens-berekeningsjaar" tabindex="-1"><a class="observablehq-header-anchor" href="#dezelfde-partner-tijdens-berekeningsjaar">Dezelfde partner tijdens berekeningsjaar</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>dezelfde partner tijdens berekeningsjaar</dd>
+	<dt>Type</dt>
+	<dd>ja / nee</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=1&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 1, vierde lid van de  Wet op het kindgebonden budget</a></dd>	
+</dl>
+<div class="warning">
+<p>In de proefberekening van Dienst Toeslagen wordt <strong>niet</strong> gevraagd of
+de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
+bepalen van de hoogte van het vermogen. Moeten wij deze fijnmazigheid
+meenemen?</p>
+</div>
+<h2 id="leeftijden-kinderen-met-kinderbijslag" tabindex="-1"><a class="observablehq-header-anchor" href="#leeftijden-kinderen-met-kinderbijslag">Leeftijden kinderen met kinderbijslag</a></h2>
+<p>Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen.</p>
+<div class="warning"> Alleen de ouder die kinderbijslag voor het kind
+ontvangt heeft recht op KGB. Dit is relevant voor gescheiden ouders.
+</div>
+<div class="note"> Wij maken voor de berekening nu gebruik van
+leeftijden, waarbij we veronderstellen dat de aanvragende ouder
+kinderbijslag ontvangt. Dit moet expliciet worden uitgevraagd.  De
+berekening moet worden gedaan op geboortedatums: er is recht op KGB na
+de maand na geboorte tot en met de maand van 18 worden. Dit passen we
+nog aan.  </div>
+<dl>
+	<dt>Naam</dt>
+	<dd>Leeftijden kinderen</dd>
+	<dt>Type</dt>
+	<dd>Lijst met leeftijden</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 2, eerste lid van de  Wet op het kindgebonden budget; <br>
+	Artikel 2, tiende lid van de  Wet op het kindgebonden budget</a></dd>	
+</dl>
+<h2 id="toetsingsinkomen" tabindex="-1"><a class="observablehq-header-anchor" href="#toetsingsinkomen">Toetsingsinkomen</a></h2>
+<p>Het inkomen van de aanvrager. In het geval van een toeslagpartner gaat het om het gezamenlijk inkomen van partner en aanvrager.</p>
+<p><strong>TODO: volgt dit uit de definitie van kgb of van awir? In het eerste geval: een apart toetsingsinkomen voor de partner introduceren</strong></p>
+<dl>
+	<dt>Naam</dt>
+	<dd>Toetsingsinkomen</dd>
+	<dt>Type</dt>
+	<dd>Bedrag</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8 Algemene wet inkomensafhankelijke regelingen</a></dd>
+</dl>
+<h2 id="rendementsgrondslag" tabindex="-1"><a class="observablehq-header-anchor" href="#rendementsgrondslag">Rendementsgrondslag</a></h2>
+<p>De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
+verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
+op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
+investeringen echter niet mee worden genomen.</p>
+<dl>
+	<dt>Naam</dt>
+	<dd>rendemengsgrondslag</dd>
+	<dt>Type</dt>
+	<dd>Bedrag</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=1&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 1, vierde lid van de Wet op het kindgebonden budget</a><br>
+	<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0011353&amp;hoofdstuk=5&amp;afdeling=5.1&amp;artikel=5.3&amp;z=2025-03-15&amp;g=2025-03-15" target="_blank" rel="noopener noreferrer">
+	Artikel 5.3 Wet inkomstenbelasting 2001</a>
+	<br>
+	<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0011353&amp;hoofdstuk=5&amp;afdeling=5.3&amp;artikel=5.13&amp;z=2025-03-15&amp;g=2025-03-15" target="_blank" rel="noopener noreferrer">
+	Artikel 5.13 Wet inkomstenbelasting 2001</a>
+	</dd>
+</dl>
+<h1 id="definities" tabindex="-1"><a class="observablehq-header-anchor" href="#definities">Definities</a></h1>
+<p>De definities met afhankelijkheden van invoergegevens en/of andere definities.</p>
+<h2 id="kgb-hoogte" tabindex="-1"><a class="observablehq-header-anchor" href="#kgb-hoogte">KGB hoogte</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB hoogte</dd>
+	<dt>Definitie</dt>
+	<dd>
+		(<span class="operator">De som van</span> <a href="#kgb-per-kind">KGB per kind</a> <span class="operator">voor</span> <a href="#leeftijden-kinderen">leeftijden kinderen</a>
+		<br><span class="operator">plus</span> <a href="#kgb-toevoeging-geen-partner">KGB toevoeging geen partner</a>)<br>
+		<span class="operator">min</span>
+		7,1 <span class="operator">procent van</span> <a href="#toetsingsinkomen">toetsingsinkomen</a> 	<span class="operator">min</span> <a href="#toetsingsinkomen">drempelinkomen</a>
+	</dd>
+	<dt>Voorwaarde</dt>
+	<dd>
+		<a href="#awir-partner">AWIR partner</a>  <span class="operator">is onwaar</span>
+		<br><span class="operator">en</span><br>
+		<a href="#toetsingsinkomen">toetsingsinkomen</a> <span class="operator"> groter dan</span> <a href="./drempelinkomen">drempelinkomen</a>
+        <br><span class="operator">en</span><br>
+		<a href="#rendementsgrondslag">rendementsgrondslag</a> <span class="operator">kleiner dan</span> <a href="#rendementsgrondslag-norm">rendementsgrondslag-norm</a>
+	</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 2, zevende lid van de  Wet op het kindgebonden budget</a></dd>
+	<dt>Brontekst</dt>
+	<dd><i>Bij een toetsingsinkomen van de ouder die geen partner heeft, van meer dan het drempelinkomen wordt de som van de bedragen waarop recht bestaat op grond van het tweede, vierde, vijfde en zesde lid verminderd met 7,10% van het verschil tussen het toetsingsinkomen en het drempelinkomen.</i></dd>
+</dl>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB hoogte</dd>
+	<dt>Definitie</dt>
+	<dd>
+		<span class="operator">De som van</span> <a href="#kgb-per-kind">KGB per kind</a> <span class="operator">voor</span> <a href="#leeftijden-kinderen">leeftijden kinderen</a>
+		<br><span class="operator">plus</span> <a href="#kgb-toevoeging-geen-partner">KGB toevoeging geen partner</a>
+	</dd>
+	<dt>Voorwaarde</dt>
+	<dd>
+		<a href="#awir-partner">AWIR partner</a>  <span class="operator">is onwaar</span>
+		<br><span class="operator">en</span><br>
+		<a href="#toetsingsinkomen">toetsingsinkomen</a> <span class="operator"> kleiner of gelijk aan</span> <a href="./drempelinkomen">drempelinkomen</a>
+		<br><span class="operator">en</span><br>
+		<a href="#rendementsgrondslag">rendementsgrondslag</a> <span class="operator">kleiner dan</span> <a href="#rendementsgrondslag-norm">rendementsgrondslag-norm</a>
+	</dd>
+</dl>
+<div class="note">
+<p>De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
+maar is de complementering van de definitie in Artikel 2, zevende lid.
+Het tweede, vierde, vijfde en zesde lid zijn van toepassing zonder conditie
+op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
+om de condities niet-overlappend te maken. Gebruikt de wetgever hier
+een vorm van default redeneren, waarbij de meer specifieke regel de
+generiekere overschrijft?</p>
+</div>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB hoogte</dd>
+	<dt>Definitie</dt>
+	<dd>
+		<span class="operator">De som van</span> <a href="#kgb-per-kind">KGB per kind</a> <span class="operator">voor</span> <a href="#leeftijden-kinderen">leeftijden kinderen</a>
+	    <br><span class="operator">min</span>
+		7,1 <span class="operator">procent van</span> <a href="#toetsingsinkomen">toetsingsinkomen</a> <br><span class="operator">min</span> <a href="./drempelinkomen">drempelinkomen</a> <span class="operator">plus</span> 9139 
+	</dd>
+	<dt>Voorwaarde</dt>
+	<dd>
+        <a href="#awir-partner">AWIR partner</a>  <span class="operator">is waar</span>
+		<br><span class="operator">en</span><br>
+		<a href="#toetsingsinkomen">toetsingsinkomen</a> <span class="operator"> groter dan</span> (<a href="./drempelinkomen">drempelinkomen</a> <span class="operator">plus</span> 9139 )
+		<br><span class="operator">en</span><br>
+		<a href="#rendementsgrondslag">rendementsgrondslag</a> <span class="operator">kleiner dan</span> <a href="#rendementsgrondslag-norm">rendementsgrondslag-norm</a>
+	</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 2, achtste lid van de  Wet op het kindgebonden budget</a></dd>
+	<dt>Brontekst</dt>
+	<dd><i>Bij een gezamenlijk toetsingsinkomen van de ouder en zijn partner van meer dan het met € 9.139,00 verhoogde drempelinkomen wordt de som van de bedragen waarop recht bestaat op grond van het tweede, vierde en vijfde lid verminderd met 7,10% van het verschil tussen het gezamenlijk toetsingsinkomen en het met € 9.139,00 verhoogde drempelinkomen</i></dd>
+</dl>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB hoogte</dd>
+	<dt>Definitie</dt>
+	<dd>
+		<span class="operator">De som van</span> <a href="#kgb-per-kind">KGB per kind</a> <span class="operator">voor</span> <a href="#leeftijden-kinderen">leeftijden kinderen</a>
+	</dd>
+	<dt>Voorwaarde</dt>
+	<dd>
+        <a href="#awir-partner">AWIR partner</a>  <span class="operator">is waar</span>
+		<br><span class="operator">en</span><br>
+		<a href="#toetsingsinkomen">toetsingsinkomen</a> <span class="operator"> kleiner of gelijk aan</span> (<a href="./drempelinkomen">drempelinkomen</a> <span class="operator">plus</span> 9139 )
+		<br><span class="operator">en</span><br>
+		<a href="#rendementsgrondslag">rendementsgrondslag</a> <span class="operator">kleiner dan</span> <a href="#rendementsgrondslag-norm">rendementsgrondslag-norm</a>
+	</dd>
+</dl>
+<div class="note">
+<p>De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
+maar is de complementering van de definitie in Artikel 2, achtste lid.
+Het tweede, vierde en vijfde lid zijn van toepassing zonder conditie
+op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
+om de condities niet-overlappend te maken. Gebruikt de wetgever hier
+een vorm van default redeneren, waarbij de meer specifieke regel de
+generiekere overschrijft?</p>
+</div>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB hoogte</dd>
+	<dt>Standaardwaarde</dt>
+	<dd>0</dd>
+</dl>
+<h2 id="kgb-per-kind" tabindex="-1"><a class="observablehq-header-anchor" href="#kgb-per-kind">KGB per kind</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB per kind</dd>
+	<dt>Definitie</dt>
+	<dd>
+	<a href="#kgb-basis">KGB basis</a>
+	<span class="operator">plus</span>
+	<a href="#kgb-leeftijdafhankelijk">KGB leeftijdafhankelijk</a>
+	</dd>	
+</dl>
+<h2 id="kgb-basis" tabindex="-1"><a class="observablehq-header-anchor" href="#kgb-basis">KGB basis</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB basis</dd>
+	<dt>Definitie</dt>
+	<dd>2511</dd>
+	<dt>Voorwaarde</dt>
+	<dd>leeftijd <span class="operator">kleiner dan</span> 18</dd>
+	<dt>Standaardwaarde</dt>
+	<dd>0</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 2, tweede lid van de  Wet op het kindgebonden budget</a>
+	</dd>	
+</dl>
+<div class="note">
+Het is onduidelijk waarom art 2, tweede lid is opgesplitst in onderdeel a en b: voor ieder kind is her hetzelfde basisbedrag
+</div>
+<h2 id="kgb-leeftijdafhankelijk" tabindex="-1"><a class="observablehq-header-anchor" href="#kgb-leeftijdafhankelijk">KGB leeftijdafhankelijk</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB leeftijdafhankelijk</dd>
+	<dt>Definitie</dt>
+	<dd>703</dd>
+	<dt>Voorwaarde</dt>
+	<dd>leeftijd <span class="operator">groter of gelijk aan</span> 12 <br> <span class="operator">en</span><br> leeftijd <span class="operator">kleiner of gelijk aan</span> 15</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 2, vierde lid van de  Wet op het kindgebonden budget</a></dd>	
+</dl>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB leeftijdafhankelijk</dd>
+	<dt>Definitie</dt>
+	<dd>936</dd>
+	<dt>Voorwaarde</dt>
+	<dd>leeftijd <span class="operator">groter of gelijk aan</span> 16 <span class="operator"><br>en<br></span> leeftijd <span class="operator">kleiner of gelijk aan</span> 17</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 2, vijfde lid van de Wet op het kindgebonden budget</a></dd>	
+</dl>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB leeftijdafhankelijk</dd>
+	<dt>Standaardwaarde</dt>
+	<dd>0</dd>
+</dl>
+<h2 id="kgb-toevoeging-geen-partner" tabindex="-1"><a class="observablehq-header-anchor" href="#kgb-toevoeging-geen-partner">KGB toevoeging geen partner</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>KGB toevoeging geen partner</dd>
+	<dt>Definitie</dt>
+	<dd>3389</dd>
+	<dt>Voorwaarde</dt>
+	<dd>partner <span class="operator">is niet waar</span></dd>
+	<dt>Standaardwaarde</dt>
+	<dd>0</dd>
+	<dt>Bron</dt>
+    <dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 2, zesde lid van de Wet op het kindgebonden budget</a></dd>	
+</dl>
+<h2 id="rendementsgrondslag-norm" tabindex="-1"><a class="observablehq-header-anchor" href="#rendementsgrondslag-norm">Rendementsgrondslag norm</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>rendementsgrondslag-norm</dd>
+	<dt>Definitie</dt>
+	<dd>141896</dd>
+	<dt>Voorwaarde</dt>
+	<dd><a href="#dezelfde-partner-tijdens-berekeningsjaar">dezelfde partner tijdens berekeningsjaar</a> <span class="operator">is niet waar</span></dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=1&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 1, vierde lid van de Wet op het kindgebonden budget</a></dd>	
+</dl>
+<dl>
+	<dt>Naam</dt>
+	<dd>rendementsgrondslag-norm</dd>
+	<dt>Definitie</dt>
+	<dd>179429</dd>
+	<dt>Voorwaarde</dt>
+	<dd><a href="#dezelfde-partner-tijdens-berekeningsjaar">dezelfde partner tijdens berekeningsjaar</a> <span class="operator">is waar</span></dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=1&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 1, vierde lid van de Wet op het kindgebonden budget</a></dd>	
+</dl>
+<h2 id="drempelinkomen" tabindex="-1"><a class="observablehq-header-anchor" href="#drempelinkomen">Drempelinkomen</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>drempelinkomen</dd>
+	<dt>Definitie</dt>
+	<dd>108 <span class="operator">procent </span> van 12 <span class="operator">maal</span> <a href="#minimumloon-per-maand">minimumloon-per-maand</a></dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=1&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 1, eerste lid van de Wet op het kindgebonden budget</a></dd>	
+</dl>
+<h2 id="minimumloon-per-maand" tabindex="-1"><a class="observablehq-header-anchor" href="#minimumloon-per-maand">Minimumloon per maand</a></h2>
+<dl>
+	<dt>Naam</dt>
+	<dd>minimumloon-per-maand</dd>
+	<dt>Definitie</dt>
+	<dd>2191,80</dd>
+	<dt>Geldigheidsdatum</dt>
+	<dd>1 januari 2025</dd>
+	<dt>Bron</dt>
+	<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0002638&amp;hoofdstuk=II&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">
+	Artikel 8, eerste lid, onderdeel b, van de Wet minimumloon en minimumvakantiebijslag</a></dd>	
+</dl>
+</main>
+<footer id="observablehq-footer">
+<nav><a rel="prev" href="./huurtoeslag"><span>Huurtoeslag</span></a><a rel="next" href="./zorgtoeslag"><span>Zorgtoeslag</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-08T23:47:20">May 8, 2025</a>.</div>
+</footer>
+</div>
