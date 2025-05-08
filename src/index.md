@@ -1,14 +1,20 @@
 ---
+
 theme: dashboard
 title: Toeslagen
 toc: false
+style: custom-style.css
 ---
 
 
 ```js
+
+import dot from "npm:@observablehq/dot";
+
 import * as Plot from "npm:@observablehq/plot";
-import * as Inputs from "npm:@observablehq/inputs"
-import * as Regelboek from "./regelboek.js"
+import * as Inputs from "npm:@observablehq/inputs";
+import * as Regelboek from "./regelboek.js";
+
 
 const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
 
@@ -21,11 +27,14 @@ const range = (start, stop, step) =>
 const inkomen_van = 0;
 const inkomen_tot = 50000;
 const x = range(inkomen_van, inkomen_tot, 10);
+
 ```
 
-# Integrale proefberekening
+# Proefberekening
+
 
 ```js
+
 
 const inkomenInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is uw inkomen?"})
 const inkomen = Generators.input(inkomenInput);
@@ -57,10 +66,15 @@ const winst = Generators.input(winstInput);
 ```
 
 ```js
- 
+
+
  // TODO toeslag inkomen en vermogen optellen
+ // TODO cumlatieve waarde toevoegen
+ // TODO standaardwaarde kinderen
+ // TODO hogere waarden dan toegestaan?
+ // TODO kleuren terug laten komen bij de regelingen
 
-
+ 
  const vermogenTotaal = (vermogen, toeslagpartner, vermogenPartner) => vermogen + (toeslagpartner ? vermogenPartner : 0)
 
  const zorgdata =  x.map((e,i) => (
@@ -84,9 +98,9 @@ const lines = Plot.plot({
 
 ```
 
-<div class="grid grid-cols-4" style="grid-auto-rows: auto;">
+<div class="grid grid-cols-3">
 
-  <div class="card grid-colspan-2">
+  <div class="card grid-colspan-1">
       ${inkomenInput}
       ${vermogenInput}
       ${toeslagpartnerInput}
@@ -98,10 +112,16 @@ const lines = Plot.plot({
       ${ondernemer ? winstInput : ''}
   </div>
 
+
   <div class="card grid-colspan-2">
     <h2>Inkomen</h2>
     ${display(lines)}
   </div>
+  
+  </div>
+  
+  <div class="grid grid-cols-3">
+
 
   <div class="card" style="max-height: 100px;">
     <h2>Zorgtoeslag</h2>
@@ -115,12 +135,13 @@ const lines = Plot.plot({
 
   <div class="card" style="max-height: 100px;">
     <h2>Individuele Inkomenstoeslag Amsterdam</h2>
-    <span class="big">€ x per jaar</span>
+    <span class="big">€ 85 per jaar</span>
   </div>
 
   <div class="card" style="max-height: 100px;">
     <h2>Stadspas Amsterdam</h2>
     <span class="big">U kunt voldoen</span>
   </div>
+
 
 </div>
