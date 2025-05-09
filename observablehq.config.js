@@ -1,3 +1,5 @@
+import MarkdownItDl from "markdown-it-deflist";
+
 // See https://observablehq.com/framework/config for documentation.
 export default {
   // The app’s title; used in the sidebar and webpage titles.
@@ -34,4 +36,6 @@ export default {
   // linkify: true, // convert URLs in Markdown to links
   // typographer: false, // smart quotes and other typographic improvements
   cleanUrls: true, // drop .html from URLs
+  markdownIt: (md) => md.use(MarkdownItDl)
+    
 };
