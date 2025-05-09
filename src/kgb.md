@@ -5,7 +5,7 @@ toc: true
 style: custom-style.css
 
 ---
-
+	
 # Kindgebonden budget
 
 Geldigheidsdatum
@@ -32,9 +32,7 @@ De analyse van het kindgebondenbudget is <strong>nog niet</strong> gevalideerd d
 
 # Invoergegevens
 
-
 De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:
-
 
 ## AWIR partner
 
