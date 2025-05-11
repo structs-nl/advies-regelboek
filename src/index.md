@@ -137,11 +137,5 @@ const lines = Plot.plot({
     <h2>Individuele Inkomenstoeslag Amsterdam</h2>
     <span class="big">€ 85 per jaar</span>
   </div>
-
-  <div class="card" style="max-height: 100px;">
-    <h2>Stadspas Amsterdam</h2>
-    <span class="big">U kunt voldoen</span>
-  </div>
-
-
+  
 </div>
