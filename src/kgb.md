@@ -57,7 +57,7 @@ Type
 : ja / nee
 
 Geldigheidsdatum
-: 1 januari 202
+: 1 januari 2025
 
 Bron
 : [Artikel 3 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=2&artikel=3&z=2025-01-01&g=2025-01-01)
@@ -84,9 +84,7 @@ meenemen?
 
 </div>
 
-
 ## Leeftijden kinderen met kinderbijslag
-
 
 Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen.
 
@@ -100,7 +98,6 @@ kinderbijslag ontvangt. Dit moet expliciet worden uitgevraagd.  De
 berekening moet worden gedaan op geboortedatums: er is recht op KGB na
 de maand na geboorte tot en met de maand van 18 worden. Dit passen we
 nog aan. </div>
-
 
 Naam
 : Leeftijden kinderen
@@ -117,8 +114,6 @@ Bron
 
 Het inkomen van de aanvrager. In het geval van een toeslagpartner gaat het om het gezamenlijk inkomen van partner en aanvrager.
 
-**TODO: volgt dit uit de definitie van kgb of van awir? In het eerste geval: een apart toetsingsinkomen voor de partner introduceren**
-
 Naam
 : Toetsingsinkomen
 
@@ -129,6 +124,16 @@ Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
 
+Inkomensgegeven 21 e
+https://wetten.overheid.nl/BWBR0002320/2025-01-01/#HoofdstukIVA_Artikel21
+
+belastbare loon of bij aangifte; verzamelinkomen
+
+
+
+
+[Artikel 3.1 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=3&afdeling=3.1&artikel=3.1&z=2025-03-15&g=2025-03-15)
+
 ## Rendementsgrondslag
 
 De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
@@ -138,7 +143,7 @@ investeringen echter niet mee worden genomen.
 
 
 Naam
-: rendemengsgrondslag
+: rendementsgrondslag
 
 Type
 : Bedrag
