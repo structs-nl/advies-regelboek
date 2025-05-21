@@ -34,34 +34,24 @@ De analyse van het kindgebondenbudget is <strong>nog niet</strong> gevalideerd d
 
 De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:
 
+	
 ## AWIR partner
 
-Het KGB maakt gebruik van het partnerbegrip uit de Algemene wet
-inkomensafhankelijke regelingen. Voor het KGB beschouwen wij dit als
+De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
+inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.
+
+Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.
 
 <div class="note">
 
 Dienst Toeslagen heeft een aparte <a
 href="https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner">tool</a>
-voor het vaststellen van het partnerbegrip.  Het is mogelijk om de
-condities van dit partnerbegrip expliciet te maken in een aparte
-sectie.
+voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonderingen tekstueel toegelicht die niet in de tool zijn meegenomen.
+
+Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities. Dat zou wel de eerstvolgende stap kunnen zijn.
 
 </div>
-
-Naam
-: AWIR partner
-
-Type
-: ja / nee
-
-Geldigheidsdatum
-: 1 januari 2025
-
-Bron
-: [Artikel 3 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=2&artikel=3&z=2025-01-01&g=2025-01-01)
-
 
 ## Dezelfde partner tijdens berekeningsjaar
 
@@ -79,9 +69,7 @@ Bron
 
 In de proefberekening van Dienst Toeslagen wordt **niet** gevraagd of
 de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
-bepalen van de hoogte van het vermogen. Moeten wij deze fijnmazigheid
-meenemen?
-
+bepalen van de hoogte van het vermogen.
 </div>
 
 ## Leeftijden kinderen met kinderbijslag
@@ -110,9 +98,39 @@ Bron
   [Artikel 2, tiende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
 
 
+
 ## Toetsingsinkomen
 
-Het inkomen van de aanvrager. In het geval van een toeslagpartner gaat het om het gezamenlijk inkomen van partner en aanvrager.
+Het relevante inkomen van de aanvrager, zoals gedefinieerd in de
+Algemene wet inkomensafhankelijke regelingen. Het toetsingsinkomen is
+gebaseerd op het inkomensgegeven uit
+[Artikel 21, onderdeel e van de Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=IVA&artikel=21&z=2025-01-01&g=2025-01-01).
+Dit inkomensgegeven is het belastbare loon in het geval er geen aangifte
+inkomstenbelating wordt gedaan. Als er wel aangifte wordt gedaan, dan
+is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
+[Artikel 2.18 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=2&afdeling=2.5&artikel=2.18&z=2025-01-01&g=2025-01-01).
+
+
+Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
+[Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
+
+<div class="warning">
+
+Bij de proefberekening van Dienst Toeslagen is een *tool* opgenomen
+voor het vaststellen van het toetsingsinkomen. Hier wordt met een
+flink aantal vragen een schatting gemaakt van het
+inkomensgegeven. Niet belast buitenlands inkomen wordt hier **niet**
+in uitgevraagd. Ook met de vele vragen die worden gesteld is de tool
+een toenadering van het inkomensgegeven: veel relevante
+aftrekposten. Inkomen uit box 2 of 3 (aanmerkelijk belang of vermogen)
+worden ook niet uitgevraagd.
+
+In de huidie versie van onze analyse beschouwen we het inkomensgegeven
+als een "gegeven".  Het lijkt wel relevant om het inkomensgegeven en
+het daarop gebaseerde toetsingsinkomen verder te specificeren, onder
+andere voor mensen met meerdere banen, kleine ondernemers, ect.
+
+</div>
 
 Naam
 : Toetsingsinkomen
@@ -124,15 +142,30 @@ Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
 
-Inkomensgegeven 21 e
-https://wetten.overheid.nl/BWBR0002320/2025-01-01/#HoofdstukIVA_Artikel21
+## Toetsingsinkomen partner
 
-belastbare loon of bij aangifte; verzamelinkomen
+Het toetsingsinkomen partner wordt op dezelfde wijze vastgesteld als
+het toetsingsinkomen. Bij het berekenen van de hoogte van de
+zorgtoeslag wordt ook dit bedrag meegenomen in de berekening. Alle
+opmerkingen die relevant zijn voor het toetsingsinkomen zijn ook voor
+het toetsingsinkomen partner van toepassing.
+
+<div class="warning">
+
+In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het inkomen van de partner of medebewoner na beeindiging van het partner- of medebewonerschap niet mee te tellen voor het toetsingsinkomen als dit tot verlaging van het toetsingsinkomen van minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt niet meegenomen in de proefberekening van Dienst Toeslagen.
+
+</div>
 
 
+Naam
+: Toetsingsinkomen partner
 
+Type
+: Bedrag
 
-[Artikel 3.1 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=3&afdeling=3.1&artikel=3.1&z=2025-03-15&g=2025-03-15)
+Bron
+: [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
+
 
 ## Rendementsgrondslag
 
@@ -142,7 +175,7 @@ op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
 investeringen echter niet mee worden genomen.
 
 
-Naam
+xNaam
 : rendementsgrondslag
 
 Type

@@ -1,14 +1,31 @@
 export {minimumloon_per_maand, drempelinkomen, rendementsgrondslag, rendementsgrondslag_met_partner, rendementsgrondslag_zonder_partner}
 
-const percentage = (getal, percentage) => (getal / 100) * percentage
-const som = (fn, arr) => arr.reduce((acc, arg) => acc + fn(arg), 0)
+const percentage = (getal, percentage) => (getal / 100) * percentage;
+const som = (fn, arr) => arr.reduce((acc, arg) => acc + fn(arg), 0);
 
-const minimumloon_per_maand = 2069.40
-const drempelinkomen = 1.08 * 12 * minimumloon_per_maand
+
+
+// Cumlatief
+
+export {cumlatief}
+
+
+const cumlatief =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
+      kgb(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
+      +
+      zorgtoeslag(partner, toetsingsinkomen, vermogen);
+
+
+// TODO namespaces
+
+
+const minimumloon_per_maand = 2069.40;
+const drempelinkomen = 1.08 * 12 * minimumloon_per_maand;
 
 const rendementsgrondslag = (partner) => rendementsgrondslag_met_partner(partner) + rendementsgrondslag_zonder_partner(partner)
 const rendementsgrondslag_met_partner = (partner) => (partner == true ? 177301 : 0)
 const rendementsgrondslag_zonder_partner = (partner) => (partner == false ? 140213 : 0)
+
 
 // KGB
 

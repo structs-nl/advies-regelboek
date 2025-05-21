@@ -24,9 +24,9 @@ import "./_observablehq/client.1b9a870b.js";
     <li class="observablehq-link"><a href="./">Proefberekening</a></li>
   </ol>
   <ol>
-    <li class="observablehq-link"><a href="./awir-partner">AWIR partner</a></li>
     <li class="observablehq-link"><a href="./iit">Individuele inkomenstoeslag</a></li>
     <li class="observablehq-link observablehq-link-active"><a href="./kgb">Kindgebonden budget</a></li>
+    <li class="observablehq-link"><a href="./test">Untitled</a></li>
     <li class="observablehq-link"><a href="./zorgtoeslag">Zorgtoeslag</a></li>
   </ol>
 </nav>
@@ -41,6 +41,7 @@ import "./_observablehq/client.1b9a870b.js";
 <li class="observablehq-secondary-link"><a href="#dezelfde-partner-tijdens-berekeningsjaar">Dezelfde partner tijdens berekeningsjaar</a></li>
 <li class="observablehq-secondary-link"><a href="#leeftijden-kinderen-met-kinderbijslag">Leeftijden kinderen met kinderbijslag</a></li>
 <li class="observablehq-secondary-link"><a href="#toetsingsinkomen">Toetsingsinkomen</a></li>
+<li class="observablehq-secondary-link"><a href="#toetsingsinkomen-partner">Toetsingsinkomen partner</a></li>
 <li class="observablehq-secondary-link"><a href="#rendementsgrondslag">Rendementsgrondslag</a></li>
 <li class="observablehq-secondary-link"><a href="#definities">Definities</a></li>
 <li class="observablehq-secondary-link"><a href="#kgb-hoogte">KGB hoogte</a></li>
@@ -76,25 +77,15 @@ De analyse van het kindgebondenbudget is <strong>nog niet</strong> gevalideerd d
 <h1 id="invoergegevens" tabindex="-1"><a class="observablehq-header-anchor" href="#invoergegevens">Invoergegevens</a></h1>
 <p>De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:</p>
 <h2 id="awir-partner" tabindex="-1"><a class="observablehq-header-anchor" href="#awir-partner">AWIR partner</a></h2>
-<p>Het KGB maakt gebruik van het partnerbegrip uit de Algemene wet
-inkomensafhankelijke regelingen. Voor het KGB beschouwen wij dit als
+<p>De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
+inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.</p>
+<p>Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet (<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0002320&amp;hoofdstuk=I&amp;artikel=5a&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 5a Algemene wet inzake rijksbelastingen</a>). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.</p>
 <div class="note">
 <p>Dienst Toeslagen heeft een aparte <a href="https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner" target="_blank" rel="noopener noreferrer">tool</a>
-voor het vaststellen van het partnerbegrip.  Het is mogelijk om de
-condities van dit partnerbegrip expliciet te maken in een aparte
-sectie.</p>
+voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonderingen tekstueel toegelicht die niet in de tool zijn meegenomen.</p>
+<p>Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities. Dat zou wel de eerstvolgende stap kunnen zijn.</p>
 </div>
-<dl>
-<dt>Naam</dt>
-<dd>AWIR partner</dd>
-<dt>Type</dt>
-<dd>ja / nee</dd>
-<dt>Geldigheidsdatum</dt>
-<dd>1 januari 2025</dd>
-<dt>Bron</dt>
-<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=2&amp;artikel=3&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 3 Algemene wet inkomensafhankelijke regelingen</a></dd>
-</dl>
 <h2 id="dezelfde-partner-tijdens-berekeningsjaar" tabindex="-1"><a class="observablehq-header-anchor" href="#dezelfde-partner-tijdens-berekeningsjaar">Dezelfde partner tijdens berekeningsjaar</a></h2>
 <dl>
 <dt>Naam</dt>
@@ -107,8 +98,7 @@ sectie.</p>
 <div class="warning">
 <p>In de proefberekening van Dienst Toeslagen wordt <strong>niet</strong> gevraagd of
 de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
-bepalen van de hoogte van het vermogen. Moeten wij deze fijnmazigheid
-meenemen?</p>
+bepalen van de hoogte van het vermogen.</p>
 </div>
 <h2 id="leeftijden-kinderen-met-kinderbijslag" tabindex="-1"><a class="observablehq-header-anchor" href="#leeftijden-kinderen-met-kinderbijslag">Leeftijden kinderen met kinderbijslag</a></h2>
 <p>Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen.</p>
@@ -131,7 +121,30 @@ nog aan. </div>
 <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0022751&amp;artikel=2&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 2, tiende lid van de  Wet op het kindgebonden budget</a></dd>
 </dl>
 <h2 id="toetsingsinkomen" tabindex="-1"><a class="observablehq-header-anchor" href="#toetsingsinkomen">Toetsingsinkomen</a></h2>
-<p>Het inkomen van de aanvrager. In het geval van een toeslagpartner gaat het om het gezamenlijk inkomen van partner en aanvrager.</p>
+<p>Het relevante inkomen van de aanvrager, zoals gedefinieerd in de
+Algemene wet inkomensafhankelijke regelingen. Het toetsingsinkomen is
+gebaseerd op het inkomensgegeven uit
+<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0002320&amp;hoofdstuk=IVA&amp;artikel=21&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 21, onderdeel e van de Algemene wet inzake rijksbelastingen</a>.
+Dit inkomensgegeven is het belastbare loon in het geval er geen aangifte
+inkomstenbelating wordt gedaan. Als er wel aangifte wordt gedaan, dan
+is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
+<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0011353&amp;hoofdstuk=2&amp;afdeling=2.5&amp;artikel=2.18&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 2.18 Wet inkomstenbelasting 2001</a>.</p>
+<p>Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
+<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen</a></p>
+<div class="warning">
+<p>Bij de proefberekening van Dienst Toeslagen is een <em>tool</em> opgenomen
+voor het vaststellen van het toetsingsinkomen. Hier wordt met een
+flink aantal vragen een schatting gemaakt van het
+inkomensgegeven. Niet belast buitenlands inkomen wordt hier <strong>niet</strong>
+in uitgevraagd. Ook met de vele vragen die worden gesteld is de tool
+een toenadering van het inkomensgegeven: veel relevante
+aftrekposten. Inkomen uit box 2 of 3 (aanmerkelijk belang of vermogen)
+worden ook niet uitgevraagd.</p>
+<p>In de huidie versie van onze analyse beschouwen we het inkomensgegeven
+als een "gegeven".  Het lijkt wel relevant om het inkomensgegeven en
+het daarop gebaseerde toetsingsinkomen verder te specificeren, onder
+andere voor mensen met meerdere banen, kleine ondernemers, ect.</p>
+</div>
 <dl>
 <dt>Naam</dt>
 <dd>Toetsingsinkomen</dd>
@@ -140,17 +153,30 @@ nog aan. </div>
 <dt>Bron</dt>
 <dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8 Algemene wet inkomensafhankelijke regelingen</a></dd>
 </dl>
-<p>Inkomensgegeven 21 e
-<a href="https://wetten.overheid.nl/BWBR0002320/2025-01-01/#HoofdstukIVA_Artikel21" target="_blank" rel="noopener noreferrer">https://wetten.overheid.nl/BWBR0002320/2025-01-01/#HoofdstukIVA_Artikel21</a></p>
-<p>belastbare loon of bij aangifte; verzamelinkomen</p>
-<p><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0011353&amp;hoofdstuk=3&amp;afdeling=3.1&amp;artikel=3.1&amp;z=2025-03-15&amp;g=2025-03-15" target="_blank" rel="noopener noreferrer">Artikel 3.1 Wet inkomstenbelasting 2001</a></p>
+<h2 id="toetsingsinkomen-partner" tabindex="-1"><a class="observablehq-header-anchor" href="#toetsingsinkomen-partner">Toetsingsinkomen partner</a></h2>
+<p>Het toetsingsinkomen partner wordt op dezelfde wijze vastgesteld als
+het toetsingsinkomen. Bij het berekenen van de hoogte van de
+zorgtoeslag wordt ook dit bedrag meegenomen in de berekening. Alle
+opmerkingen die relevant zijn voor het toetsingsinkomen zijn ook voor
+het toetsingsinkomen partner van toepassing.</p>
+<div class="warning">
+<p>In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het inkomen van de partner of medebewoner na beeindiging van het partner- of medebewonerschap niet mee te tellen voor het toetsingsinkomen als dit tot verlaging van het toetsingsinkomen van minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt niet meegenomen in de proefberekening van Dienst Toeslagen.</p>
+</div>
+<dl>
+<dt>Naam</dt>
+<dd>Toetsingsinkomen partner</dd>
+<dt>Type</dt>
+<dd>Bedrag</dd>
+<dt>Bron</dt>
+<dd><a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8 Algemene wet inkomensafhankelijke regelingen</a></dd>
+</dl>
 <h2 id="rendementsgrondslag" tabindex="-1"><a class="observablehq-header-anchor" href="#rendementsgrondslag">Rendementsgrondslag</a></h2>
 <p>De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
 verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
 op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
 investeringen echter niet mee worden genomen.</p>
 <dl>
-<dt>Naam</dt>
+<dt>xNaam</dt>
 <dd>rendementsgrondslag</dd>
 <dt>Type</dt>
 <dd>Bedrag</dd>
@@ -359,7 +385,7 @@ Het is onduidelijk waarom art 2, tweede lid is opgesplitst in onderdeel a en b: 
 </dl>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="./iit"><span>Individuele inkomenstoeslag</span></a><a rel="next" href="./zorgtoeslag"><span>Zorgtoeslag</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-11T20:49:12">May 11, 2025</a>.</div>
+<nav><a rel="prev" href="./iit"><span>Individuele inkomenstoeslag</span></a><a rel="next" href="./test"><span>Untitled</span></a></nav>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-21T16:29:00">May 21, 2025</a>.</div>
 </footer>
 </div>

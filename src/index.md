@@ -9,12 +9,9 @@ style: custom-style.css
 
 ```js
 
-import dot from "npm:@observablehq/dot";
-
 import * as Plot from "npm:@observablehq/plot";
 import * as Inputs from "npm:@observablehq/inputs";
 import * as Regelboek from "./regelboek.js";
-
 
 const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
 
@@ -32,9 +29,10 @@ const x = range(inkomen_van, inkomen_tot, 10);
 
 # Proefberekening
 
-
 ```js
 
+const woonplaatsInput = Inputs.select(["Amsterdam", "Elders"], { label: "Wat is uw woonplaats?"})
+const woonplaats = Generators.input(woonplaatsInput);
 
 const inkomenInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is uw inkomen?"})
 const inkomen = Generators.input(inkomenInput);
@@ -51,56 +49,74 @@ const vermogenPartner = Generators.input(vermogenPartnerInput);
 const toeslagpartnerInput = Inputs.toggle({label: "Heeft u een toeslagpartner?"})
 const toeslagpartner = Generators.input(toeslagpartnerInput)
 
-const kinderbijslagInput = Inputs.toggle({label: html`<span>Ontvangt u kinderbijslag?</span>`})
+const kinderbijslagInput = Inputs.toggle({label: "Ontvangt u kinderbijslag?"})
 const kinderbijslag = Generators.input(kinderbijslagInput)
 
 const kinderenInput = Inputs.text({label: "Wat zijn de leeftijden van uw kinderen?"})
 const kinderen = Generators.input(kinderenInput)
 
-const ondernemerInput = Inputs.toggle({label: "Bent u ondernemer?"})
-const ondernemer = Generators.input(ondernemerInput)
 
-const winstInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is de belastbare winst?"})
-const winst = Generators.input(winstInput);
+const inkomenMin1Input = Inputs.text({label: "Wat was uw inkomen vorig jaar?"})
+const inkomenMin2Input = Inputs.text({label: "Wat was uw inkomen twee jaar geleden?"})
+const inkomenMin3Input = Inputs.text({label: "Wat was uw inkomen drie jaar geleden?"})
+
+const inkomenMin1 = Generators.input(inkomenMin1Input)
+const inkomenMin2 = Generators.input(inkomenMin2Input)
+const inkomenMin3 = Generators.input(inkomenMin3Input)
+
+
 
 ```
 
 ```js
 
-
  // TODO toeslag inkomen en vermogen optellen
- // TODO cumlatieve waarde toevoegen
  // TODO standaardwaarde kinderen
  // TODO hogere waarden dan toegestaan?
- // TODO kleuren terug laten komen bij de regelingen
 
  
  const vermogenTotaal = (vermogen, toeslagpartner, vermogenPartner) => vermogen + (toeslagpartner ? vermogenPartner : 0)
 
  const zorgdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.zorgtoeslag(toeslagpartner, e, vermogen)
+      "Bedrag": Regelboek.zorgtoeslag(toeslagpartner, e, vermogen),
+	  regeling: "Zorgtoeslag"
     }
   ))
 
  const kgbdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen)
+      "Bedrag": Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
+	  regeling: "KGB"
+    }
+ ))
+ 
+ const cumlatiefdata =  x.map((e,i) => (
+    { "Inkomen": e,
+      "Bedrag": Regelboek.cumlatief(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
+	  regeling: "Totaal"
     }
   ))
 
-const lines = Plot.plot({
-  marks: [
-    Plot.lineY(zorgdata, {x: "Inkomen", y: "Bedrag", stroke: "red"}),
-    Plot.lineY(kgbdata, {x: "Inkomen", y: "Bedrag", stroke: "blue"})
+ const lines = Plot.plot({
+	 color: {
+		 legend: true,
+		 scheme: "Observable10"
+	 },
+	 grid: true,
+	 marks: [
+		 Plot.lineY(zorgdata, {x: "Inkomen", y: "Bedrag", stroke: "regeling", strokeWidth: 4, strokeOpacity:0.8}),
+		 Plot.lineY(kgbdata, {x: "Inkomen", y: "Bedrag", stroke: "regeling", strokeWidth: 4, strokeOpacity:0.8}),
+		 Plot.lineY(cumlatiefdata, {x: "Inkomen", y: "Bedrag", stroke: "regeling", strokeWidth: 4, strokeOpacity:0.8})
   ]
 })
 
 ```
 
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-2">
 
   <div class="card grid-colspan-1">
+      ${woonplaatsInput}
       ${inkomenInput}
       ${vermogenInput}
       ${toeslagpartnerInput}
@@ -108,19 +124,20 @@ const lines = Plot.plot({
       ${toeslagpartner ? vermogenPartnerInput: ''}
       ${kinderbijslagInput}
       ${kinderbijslag ? kinderenInput: ''}
-      ${ondernemerInput}
-      ${ondernemer ? winstInput : ''}
-  </div>
-
-
-  <div class="card grid-colspan-2">
-    <h2>Inkomen</h2>
-    ${display(lines)}
+	  ${woonplaats == "Amsterdam" ? inkomenMin1Input : ''}
+	  ${woonplaats == "Amsterdam" ? inkomenMin2Input : ''}
+	  ${woonplaats == "Amsterdam" ? inkomenMin3Input : ''}
   </div>
   
-  </div>
   
-  <div class="grid grid-cols-3">
+
+<div class="grid grid-cols-1">
+
+    
+  <div class="card" style="max-height: 100px;">
+    <h2>Totaal</h2>
+	<span class="big">€ ${Math.round(Regelboek.cumlatief(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen))},- per jaar</span>
+  </div>
 
 
   <div class="card" style="max-height: 100px;">
@@ -137,5 +154,12 @@ const lines = Plot.plot({
     <h2>Individuele Inkomenstoeslag Amsterdam</h2>
     <span class="big">€ 85 per jaar</span>
   </div>
-  
+
+</div>
+
+  <div class="card grid-colspan-1">
+    <h2>Inkomen</h2>
+    ${display(lines)}
+  </div>
+
 </div>
