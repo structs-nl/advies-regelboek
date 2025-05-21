@@ -10,6 +10,7 @@ style: custom-style.css
 
 Geldigheidsdatum
 : 1 januari 2021
+
 Bron
 : [Verordening Individuele Inkomenstoeslag Participatiewet Amsterdam  2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3)
 
@@ -17,6 +18,7 @@ Bron
 
 Geldigheidsdatum
 : 15 april 2021
+
 Bron
 : [Beleidsregels Individuele Inkomenstoeslag Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR656509/2)
 
@@ -258,6 +260,8 @@ Type
 
 # Definities
 
+&nbsp;
+
 ## Hoogte IIT
 
 Naam
@@ -291,7 +295,7 @@ Voorwaarde
   en \
   ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen)) \
   en \
-  ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen)) \
+  ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen))
 
 Standaardwaarde
 : 0

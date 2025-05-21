@@ -3,29 +3,60 @@ export {minimumloon_per_maand, drempelinkomen, rendementsgrondslag, rendementsgr
 const percentage = (getal, percentage) => (getal / 100) * percentage;
 const som = (fn, arr) => arr.reduce((acc, arg) => acc + fn(arg), 0);
 
-
-
 // Cumlatief
 
 export {cumlatief}
-
 
 const cumlatief =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
       kgb(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
       +
       zorgtoeslag(partner, toetsingsinkomen, vermogen);
 
-
-// TODO namespaces
+// TODO namespaces, geldigheidsdatums
 
 
 const minimumloon_per_maand = 2069.40;
 const drempelinkomen = 1.08 * 12 * minimumloon_per_maand;
 
-const rendementsgrondslag = (partner) => rendementsgrondslag_met_partner(partner) + rendementsgrondslag_zonder_partner(partner)
-const rendementsgrondslag_met_partner = (partner) => (partner == true ? 177301 : 0)
-const rendementsgrondslag_zonder_partner = (partner) => (partner == false ? 140213 : 0)
+const rendementsgrondslag = (partner) => rendementsgrondslag_met_partner(partner) + rendementsgrondslag_zonder_partner(partner);
+const rendementsgrondslag_met_partner = (partner) => (partner == true ? 177301 : 0);
+const rendementsgrondslag_zonder_partner = (partner) => (partner == false ? 140213 : 0);
 
+
+// IIT Amsterdam
+
+export {iit_adam}
+
+const iit_adam = (zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
+		  inkomensgegeven_2024, inkomensgegeven_2023, inkomensgegeven_2022,
+		  inkomensgegeven_partner_2024, inkomensgegeven_partner_2023, inkomensgegeven_partner_2022) =>
+      (
+      woonplaats == "Amsterdam" &&
+      zichtopverbetering == false &&
+      vermogen < vermogensgrens(partner) &&
+      leeftijd >= 21 &&
+      leeftijd < aow_leeftijd &&
+      (partner == false || leeftijd_partner >= 21) &&
+      (partner == false || leeftijd_partner < aow_leeftijd) &&
+      inkomensgegeven_2024 <= norm_laag_inkomen(partner, woningdeler) &&
+      inkomensgegeven_2023 <= norm_laag_inkomen(partner, woningdeler) &&      
+      inkomensgegeven_2022 <= norm_laag_inkomen(partner, woningdeler) &&
+      (partner == false || inkomensgegeven_partner_2024 <= norm_laag_inkomen(partner, woningdeler)) &&
+      (partner == false || inkomensgegeven_partner_2023 <= norm_laag_inkomen(partner, woningdeler)) &&
+      (partner == false || inkomensgegeven_partner_2022 <= norm_laag_inkomen(partner, woningdeler))
+      )
+      ? iit_bedrag(partner) : 0;
+
+
+const vermogensgrens = (partner) => (partner ? 15540 : 7700);
+const iit_bedrag = (partner) => (partner ? 170 : 85);
+const aow_leeftijd = 67;
+
+const norm_laag_inkomen = (partner, woningdeler) => iaow_norm(partner, woningdeler) * 12 * 1.2;
+
+const iaow_norm = (partner, woningdeler) => partner ? 2194.30
+					    : woningdeler ? 1097.15
+					    : 1697.32;
 
 // KGB
 
