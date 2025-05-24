@@ -1,14 +1,11 @@
-export {minimumloon_per_maand, drempelinkomen, rendementsgrondslag, rendementsgrondslag_met_partner, rendementsgrondslag_zonder_partner}
+export {minimumloon_per_maand, drempelinkomen, rendementsgrondslag_norm}
 
 const percentage = (getal, percentage) => (getal / 100) * percentage;
 const som = (fn, arr) => arr.reduce((acc, arg) => acc + fn(arg), 0);
 
-
-
 // Cumlatief
 
 export {cumlatief}
-
 
 const cumlatief =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
       kgb(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
@@ -16,15 +13,11 @@ const cumlatief =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkome
       zorgtoeslag(partner, toetsingsinkomen, vermogen);
 
 
-// TODO namespaces
+// TODO namespaces, geldigheidsdatums
 
-
-const minimumloon_per_maand = 2069.40;
+const minimumloon_per_maand = 2191.80;
 const drempelinkomen = 1.08 * 12 * minimumloon_per_maand;
-
-const rendementsgrondslag = (partner) => rendementsgrondslag_met_partner(partner) + rendementsgrondslag_zonder_partner(partner)
-const rendementsgrondslag_met_partner = (partner) => (partner == true ? 177301 : 0)
-const rendementsgrondslag_zonder_partner = (partner) => (partner == false ? 140213 : 0)
+const rendementsgrondslag_norm = (partner_tijdens_berekeningsjaar) => partner_tijdens_berekeningsjaar ? 179429 : 141896;
 
 
 // KGB
@@ -59,43 +52,86 @@ const kgb_partner_boven_drempelinkomen = (partner,leeftijden_kinderen, toetsings
     : 0
 
 const kgb = (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
-    (kinderbijslag == true && vermogen < rendementsgrondslag(partner)) ?
-
+    (kinderbijslag == true && vermogen < rendementsgrondslag_norm(partner)) ?
     kgb_geen_partner_onder_drempelinkomen (partner, leeftijden_kinderen, toetsingsinkomen) +
     kgb_geen_partner_boven_drempelinkomen(partner, leeftijden_kinderen, toetsingsinkomen)  +
     kgb_partner_onder_drempelinkomen (partner, leeftijden_kinderen, toetsingsinkomen) +
     kgb_partner_boven_drempelinkomen (partner, leeftijden_kinderen, toetsingsinkomen) 
-    : 0
+      : 0;
 
 // Zorgtoeslag
 
-export {standaardpremie, toetsingsinkomen_boven_drempelinkomen, normpremie_geen_partner, normpremie_partner, normpremie, zorgtoeslag_partner, zorgtoeslag_geen_partner, zorgtoeslag}
+export {standaardpremie, toetsingsinkomen_boven_drempelinkomen, normpremie, zorgtoeslag}
 
-const standaardpremie = 1987
+const standaardpremie = 2112;
 
 const toetsingsinkomen_boven_drempelinkomen = (toetsingsinkomen) =>
-    (toetsingsinkomen > drempelinkomen) ? (toetsingsinkomen - drempelinkomen) : 0
+      (toetsingsinkomen > drempelinkomen) ? (toetsingsinkomen - drempelinkomen) : 0;
 
-const normpremie_geen_partner = (partner, toetsingsinkomen) =>
-    (partner == false) ? percentage(drempelinkomen, 1.879) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen), 13.670) : 0
-
-const normpremie_partner =  (partner, toetsingsinkomen) =>
-    (partner == true) ? percentage(drempelinkomen, 4.256) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen), 13.670) : 0
-
-const normpremie =  (partner, toetsingsinkomen) => normpremie_partner(partner, toetsingsinkomen) + normpremie_geen_partner(partner, toetsingsinkomen)
-
-const zorgtoeslag_partner = (partner, toetsingsinkomen) =>
-    (partner == true && normpremie(partner, toetsingsinkomen) < (2 * standaardpremie)) ? (2 * standaardpremie) - normpremie(partner, toetsingsinkomen) : 0
-
-const zorgtoeslag_geen_partner = (partner, toetsingsinkomen) =>
-    (partner == false && normpremie(partner, toetsingsinkomen) < standaardpremie) ? standaardpremie - normpremie(partner, toetsingsinkomen) : 0
+const normpremie = (partner, toetsingsinkomen) =>
+      partner
+      ? (percentage(drempelinkomen, 4.273) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen),13.7))
+      : (percentage(drempelinkomen, 1.896) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen),13.7));						  
+						 
 
 const zorgtoeslag = (partner, toetsingsinkomen, vermogen) =>
-    vermogen < rendementsgrondslag(partner) ?
-        (zorgtoeslag_partner(partner, toetsingsinkomen) + zorgtoeslag_geen_partner(partner, toetsingsinkomen))
-      : 0
+      (partner == false
+       &&
+       normpremie(partner, toetsingsinkomen) < standaardpremie
+       &&
+       vermogen < rendementsgrondslag_norm(partner))
+      ? (standaardpremie - normpremie(partner, toetsingsinkomen))
+      :
+      ((partner == true
+       &&
+       normpremie(partner, toetsingsinkomen) < (2 * standaardpremie)
+       &&
+       vermogen < rendementsgrondslag_norm(partner))
+       ? ((2 * standaardpremie) - normpremie(partner, toetsingsinkomen))
+       : 0);
+
+
+
+
+
+// IIT Amsterdam
+
+export {iit_adam}
+
+const iit_adam = (zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
+		  inkomensgegeven_2024, inkomensgegeven_2023, inkomensgegeven_2022,
+		  inkomensgegeven_partner_2024, inkomensgegeven_partner_2023, inkomensgegeven_partner_2022) =>
+      (
+      woonplaats == "Amsterdam" &&
+      zichtopverbetering == false &&
+      vermogen < vermogensgrens(partner) &&
+      leeftijd >= 21 &&
+      leeftijd < aow_leeftijd &&
+      (partner == false || leeftijd_partner >= 21) &&
+      (partner == false || leeftijd_partner < aow_leeftijd) &&
+      inkomensgegeven_2024 <= norm_laag_inkomen(partner, woningdeler) &&
+      inkomensgegeven_2023 <= norm_laag_inkomen(partner, woningdeler) &&      
+      inkomensgegeven_2022 <= norm_laag_inkomen(partner, woningdeler) &&
+      (partner == false || inkomensgegeven_partner_2024 <= norm_laag_inkomen(partner, woningdeler)) &&
+      (partner == false || inkomensgegeven_partner_2023 <= norm_laag_inkomen(partner, woningdeler)) &&
+      (partner == false || inkomensgegeven_partner_2022 <= norm_laag_inkomen(partner, woningdeler))
+      )
+      ? iit_bedrag(partner) : 0;
+
+
+const vermogensgrens = (partner) => (partner ? 15540 : 7700);
+const iit_bedrag = (partner) => (partner ? 170 : 85);
+const aow_leeftijd = 67;
+
+const norm_laag_inkomen = (partner, woningdeler) => iaow_norm(partner, woningdeler) * 12 * 1.2;
+
+const iaow_norm = (partner, woningdeler) => partner ? 2194.30
+					    : woningdeler ? 1097.15
+					    : 1697.32;
 
 // Kinderopvangtoeslag
+
+// Niet in gebruik
 
 const kot_percentages = (toetsingsinkomen) =>
       toetsingsinkomen <= 47403 ? [96, 96] :
@@ -151,4 +187,4 @@ const kot_percentages = (toetsingsinkomen) =>
       toetsingsinkomen > 215328 && toetsingsinkomen <= 219065 ? [33.3,69.3] : 
       toetsingsinkomen > 219066 && toetsingsinkomen <= 222806 ? [33.3,68.5] : 
       toetsingsinkomen > 222807 && toetsingsinkomen <= 226545 ? [33.3,68.0] : 
-      [33.3,67.1]
+      [33.3,67.1];

@@ -6,6 +6,15 @@ style: custom-style.css
 
 ---
 
+
+```js
+
+import * as Parse from "./parse.js"
+import {instance} from "npm:@viz-js/viz";
+const viz = await instance();
+
+```
+
 # Zorgtoeslag
 
 Geldigheidsdatum
@@ -22,10 +31,19 @@ belast met de uitvoering van de regeling.
 Met deze definities en de benodigde invoergegevens kan een berekening
 worden gemaakt van een **mogelijk recht** en de **hoogte** van de ZT.
 
-<div class="caution"> De analyse van de zorgtoeslag is <strong>nog
-niet</strong> gevalideerd door vakinhoudelijk experts.  </div>
+::: caution
+De analyse van de zorgtoeslag is **nog
+niet** gevalideerd door vakinhoudelijk experts.
+:::
 
-&nbsp;
+
+```js 
+
+const graph = viz.renderSVGElement(Parse.getGraph())
+graph.setAttribute("id", "graph")
+display(graph);
+
+```
 
 # Invoergegevens
 
@@ -39,25 +57,23 @@ een gegeven.
 
 Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.
 
-<div class="note">
-
-Dienst Toeslagen heeft een aparte <a
-href="https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner">tool</a>
+::: note
+Dienst Toeslagen heeft een aparte [tool](https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner)
 voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonderingen tekstueel toegelicht die niet in de tool zijn meegenomen.
 
-Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities. Dat zou wel de eerstvolgende stap kunnen zijn.
+Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities.
+:::
 
-</div>
 
-<div class="warning"> In
-<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01">artikel 2, vierde lid van de wet op de zorgtoeslag</a>
+::: warning
+In <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01">artikel 2, vierde lid van de wet op de zorgtoeslag</a>
 wordt gesproken van de situatie waar de partner geen verzekerde
 is. Dit zou strikt genomen uit moeten worden gevraagd, bovenop de
-vraag naar de toeslagpartner. Dit wordt bij de proefberekening van
-Dienst Toeslagen niet gedaan. </div>
+vraag naar de toeslagpartner.
+:::
 
 Naam
-: AWIR partner
+: **AWIR partner**
 
 Type
 : ja / nee
@@ -72,7 +88,7 @@ Bron
 ## Dezelfde partner tijdens berekeningsjaar
 
 Naam
-: dezelfde partner tijdens berekeningsjaar
+: **Dezelfde partner tijdens berekeningsjaar**
 
 Type
 : ja / nee
@@ -81,14 +97,12 @@ Bron
 
 : [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
 
-<div class="warning">
 
+::: warning
 In de proefberekening van Dienst Toeslagen wordt **niet** gevraagd of
 de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
-bepalen van de hoogte van het vermogen. Moeten wij deze fijnmazigheid
-meenemen?
-
-</div>
+bepalen van de hoogte van het vermogen.
+:::
 
 
 ## Toetsingsinkomen
@@ -106,8 +120,8 @@ is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
 Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
 [Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
-<div class="warning">
 
+::: warning
 Bij de proefberekening van Dienst Toeslagen is een *tool* opgenomen
 voor het vaststellen van het toetsingsinkomen. Hier wordt met een
 flink aantal vragen een schatting gemaakt van het
@@ -121,11 +135,10 @@ In de huidie versie van onze analyse beschouwen we het inkomensgegeven
 als een "gegeven".  Het lijkt wel relevant om het inkomensgegeven en
 het daarop gebaseerde toetsingsinkomen verder te specificeren, onder
 andere voor mensen met meerdere banen, kleine ondernemers, ect.
-
-</div>
+:::
 
 Naam
-: Toetsingsinkomen
+: **Toetsingsinkomen**
 
 Type
 : Bedrag
@@ -142,15 +155,18 @@ zorgtoeslag wordt ook dit bedrag meegenomen in de berekening. Alle
 opmerkingen die relevant zijn voor het toetsingsinkomen zijn ook voor
 het toetsingsinkomen partner van toepassing.
 
-<div class="warning">
-
-In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het inkomen van de partner of medebewoner na beeindiging van het partner- of medebewonerschap niet mee te tellen voor het toetsingsinkomen als dit tot verlaging van het toetsingsinkomen van minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt niet meegenomen in de proefberekening van Dienst Toeslagen.
-
-</div>
+::: warning
+In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven
+om het inkomen van de partner of medebewoner na beeindiging van het
+partner- of medebewonerschap niet mee te tellen voor het
+toetsingsinkomen als dit tot verlaging van het toetsingsinkomen van
+minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt
+niet meegenomen in de proefberekening van Dienst Toeslagen.
+:::
 
 
 Naam
-: Toetsingsinkomen partner
+: **Toetsingsinkomen partner**
 
 Type
 : Bedrag
@@ -167,7 +183,7 @@ op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
 investeringen echter niet mee worden genomen.
 
 Naam
-: rendemengsgrondslag
+: **Rendementsgrondslag**
 
 Type
 : Bedrag
@@ -185,17 +201,17 @@ De definities met afhankelijkheden van invoergegevens en/of andere definities.
 ## ZT hoogte
 
 Naam
-: ZT hoogte
+: **ZT hoogte**
 
 Definitie
-: [standaardpremie](#standaardpremie) min [normpremie](#normpremie)
+: [standaardpremie](#standaardpremie) ::min:: [normpremie](#normpremie)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) is onwaar \
-  en \
-  [normpremie](#normpremie) kleiner dan [standaardpremie](#standaardpremie)
-  en \
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is onwaar:: \
+  ::en:: \
+  [normpremie](#normpremie) ::kleiner dan:: [standaardpremie](#standaardpremie) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
   
 Bron
 : [Artikel 2, eerste lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=1)
@@ -209,17 +225,17 @@ Brontekst
 &nbsp;
 
 Naam
-: ZT hoogte
+: **ZT hoogte**
 
 Definitie
 :  (2 maal [standaardpremie](#standaardpremie)) min [normpremie](#normpremie)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) is waar \
-  en \
-  [normpremie](#normpremie) kleiner dan (2 maal [standaardpremie](#standaardpremie))
-  en \
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is waar:: \
+  ::en:: \
+  [normpremie](#normpremie) ::kleiner dan:: (2 ::maal:: [standaardpremie](#standaardpremie)) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
 
   
 Bron
@@ -239,7 +255,7 @@ Brontekst
 &nbsp;
 
 Naam
-: ZT hoogte
+: **ZT hoogte**
 
 Standaardwaarde
 : 0
@@ -247,20 +263,18 @@ Standaardwaarde
 ## Normpremie
 
 Naam
-: Normpremie
+: **Normpremie**
 
 Definitie
-: 4.273 procent van [drempelinkomen](#drempelinkomen) \
-  plus 13,7 procent van ([toetsingsinkomen](#toetsingsinkomen) min \
-  [drempelinkomen](#drempelinkomen))
+: 4.273 ::procent van:: [drempelinkomen](#drempelinkomen) \
+  ::plus:: \
+  13,7 ::procent van:: [toetsingsinkomen boven drempelinkomen](#toetsingsinkomen-boven-drempelinkomen) 
 
 Voorwaarde
-: [AWIR partner](#awir-partner) is waar
+: [AWIR partner](#awir-partner) ::is waar::
 
 Bron
-: [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)\
-  [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
-
+: [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)
 
 Brontekst
 : *De percentages worden voor verzekerden met een partner vastgesteld
@@ -270,15 +284,15 @@ Brontekst
 &nbsp;
 
 Naam
-: Normpremie
+: **Normpremie**
 
 Definitie
-: 1,896 procent van [drempelinkomen](#drempelinkomen) \
-  plus 13,7 procent van ([toetsingsinkomen](#toetsingsinkomen) min \
-  [drempelinkomen](#drempelinkomen))
-
+: 1,896 ::procent van:: [drempelinkomen](#drempelinkomen) \
+  ::plus:: \
+  13,7 ::procent van:: [toetsingsinkomen boven drempelinkomen](#toetsingsinkomen-boven-drempelinkomen)
+  
 Voorwaarde
-: [AWIR partner](#awir-partner) is onwaar
+: [AWIR partner](#awir-partner) ::is onwaar::
 
 Bron
 : [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)
@@ -287,12 +301,34 @@ Brontekst
 : *[..]voor een verzekerde zonder partner op 1,896% van het
   drempelinkomen, vermeerderd met 13,700% van het toetsingsinkomen
   voor zover dat boven het drempelinkomen uitgaat*
+  
+  
+  
+## Toetsingsinkomen boven drempelinkomen
 
+Naam
+: **Toetsingsinkomen boven drempelinkomen**
+
+Definitie
+: [toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)
+
+Voorwaarde
+: [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen)
+
+Standaardwaarde
+: 0
+
+Bron
+: [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)
+
+Brontekst
+: *[..]voor zover dat boven het drempelinkomen uitgaat*
+  
 
 ## Standaardpremie
 
 Naam
-: Standaardpremie
+: **Standaardpremie**
 
 Definitie
 : 2112
@@ -307,13 +343,13 @@ Bron
 ## Rendementsgrondslag norm
 
 Naam
-: rendementsgrondslag-norm
+: **Rendementsgrondslag norm**
 
 Definitie
 : 141896
 
 Voorwaarde
-: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) <span class="operator">is niet waar</span>
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is niet waar::
 
 Bron
 : [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
@@ -321,13 +357,13 @@ Bron
 &nbsp;
 
 Naam
-: rendementsgrondslag-norm
+: **Rendementsgrondslag norm**
 
 Definitie
 : 179429
 
 Voorwaarde
-: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) <span class="operator">is waar</span>
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is waar::
 
 Bron
 : [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
@@ -336,10 +372,10 @@ Bron
 ## Drempelinkomen
 
 Naam
-: drempelinkomen
+: **Drempelinkomen**
 
 Definitie
-: 108 <span class="operator">procent </span> van 12 <span class="operator">maal</span> [minimumloon per maand](#minimumloon-per-maand)
+: 108 ::procent van:: 12 ::maal:: [minimumloon per maand](#minimumloon-per-maand)
 
 Bron
 : [Artikel 1, eerste lid, onderdeel f van de Wet op de zorgtoeslag](https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=1&z=2025-01-01&g=2025-01-01)
@@ -347,7 +383,7 @@ Bron
 ## Minimumloon per maand
 
 Naam
-: minimumloon per maand
+: **Minimumloon per maand**
 
 Definitie
 : 2191,80
@@ -357,6 +393,3 @@ Geldigheidsdatum
 
 Bron
 : [Artikel 8, eerste lid, onderdeel b, van de Wet minimumloon en minimumvakantiebijslag](https://wetten.overheid.nl/jci1.3:c:BWBR0002638&hoofdstuk=II&artikel=8&z=2025-01-01&g=2025-01-01)
-
-
-

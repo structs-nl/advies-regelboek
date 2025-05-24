@@ -13,6 +13,9 @@ import * as Plot from "npm:@observablehq/plot";
 import * as Inputs from "npm:@observablehq/inputs";
 import * as Regelboek from "./regelboek.js";
 
+import * as Parse from "./parse.js";
+
+
 const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
 
 const range = (start, stop, step) =>

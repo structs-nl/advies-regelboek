@@ -45,7 +45,7 @@ Hierbij moet in ieder geval aan de volgende voorwaarden worden voldaan:
 - er in de afgelopen 12 maanden geen IIT is verleend
 
 In de verordening en de beleidsregel van Amsterdam wordt verdere invulling gegeven aan de beleidsruimte en deze voorwaarden.
-
+x
 &nbsp;
 
 # Invoergegevens

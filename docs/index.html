@@ -1,21 +1,24 @@
 <!DOCTYPE html>
+<html>
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="generator" content="Observable Framework v1.12.0">
+<meta name="generator" content="Observable Framework v1.13.3">
 <title>Toeslagen | Proefberekening</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_import/custom-style.38815a6d.css">
+<link rel="preload" as="style" href="./_import/custom-style.7bab3268.css">
 <link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_import/custom-style.38815a6d.css">
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.7bab3268.css">
 <link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
-<link rel="modulepreload" href="./_observablehq/client.1b9a870b.js">
-<link rel="modulepreload" href="./_observablehq/runtime.ff688eaa.js">
-<link rel="modulepreload" href="./_observablehq/stdlib.4d34ce26.js">
+<link rel="modulepreload" href="./_observablehq/client.e51cd18b.js">
+<link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.fc5dbcd7.js">
 <link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/8d03128a.js">
-<link rel="modulepreload" href="./_observablehq/stdlib/inputs.8ab81bc0.js">
-<link rel="modulepreload" href="./_import/regelboek.21d00320.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.56af3ea0.js">
+<link rel="modulepreload" href="./_import/regelboek.f735f679.js">
+<link rel="modulepreload" href="./_import/parse.92b6c366.js">
 <link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
 <link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
 <link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
@@ -56,10 +59,12 @@
 <link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/8ac9039b.js">
 <script type="module">
 
-import {define} from "./_observablehq/client.1b9a870b.js";
+import {define} from "./_observablehq/client.e51cd18b.js";
 
-define({id: "4f95ec8f", outputs: ["Plot","Inputs","Regelboek","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
-const [Plot, Inputs, Regelboek] = await Promise.all([import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.8ab81bc0.js"), import("./_import/regelboek.21d00320.js")]);
+define({id: "ccc3bdc5", outputs: ["Plot","Inputs","Regelboek","Parse","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
+const [Plot, Inputs, Regelboek, Parse] = await Promise.all([import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.56af3ea0.js"), import("./_import/regelboek.f735f679.js"), import("./_import/parse.92b6c366.js")]);
+
+
 
 const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
 
@@ -73,10 +78,10 @@ const inkomen_van = 0;
 const inkomen_tot = 50000;
 const x = range(inkomen_van, inkomen_tot, 10);
 
-return {Plot,Inputs,Regelboek,intarray,range,inkomen_van,inkomen_tot,x};
+return {Plot,Inputs,Regelboek,Parse,intarray,range,inkomen_van,inkomen_tot,x};
 }});
 
-define({id: "fb61fe33", inputs: ["Inputs","Generators","inkomen_van","inkomen_tot"], outputs: ["woonplaatsInput","woonplaats","inkomenInput","inkomen","vermogenInput","vermogen","inkomenPartnerInput","inkomenPartner","vermogenPartnerInput","vermogenPartner","toeslagpartnerInput","toeslagpartner","kinderbijslagInput","kinderbijslag","kinderenInput","kinderen","inkomenMin1Input","inkomenMin2Input","inkomenMin3Input","inkomenMin1","inkomenMin2","inkomenMin3"], body: (Inputs,Generators,inkomen_van,inkomen_tot) => {
+define({id: "d884b9b1", inputs: ["Inputs","Generators","inkomen_van","inkomen_tot"], outputs: ["woonplaatsInput","woonplaats","inkomenInput","inkomen","vermogenInput","vermogen","inkomenToeslagpartnerInput","inkomenToeslagpartner","vermogenToeslagPartnerInput","vermogenToeslagPartner","toeslagpartnerInput","toeslagpartner","kinderbijslagInput","kinderbijslag","kinderenInput","kinderen","leeftijdInput","leeftijd","leeftijdPartnerInput","leeftijdPartner","gezamenlijkHuishoudenInput","gezamenlijkHuishouden","woningdelerInput","woningdeler","zichtopverbeteringInput","zichtopverbetering","vermogenHuishoudenInput","vermogenHuishouden","inkomen2024Input","inkomen2023Input","inkomen2022Input","inkomen2024","inkomen2023","inkomen2022","inkomenPartner2024Input","inkomenPartner2023Input","inkomenPartner2022Input","inkomenPartner2024","inkomenPartner2023","inkomenPartner2022"], body: (Inputs,Generators,inkomen_van,inkomen_tot) => {
 const woonplaatsInput = Inputs.select(["Amsterdam", "Elders"], { label: "Wat is uw woonplaats?"})
 const woonplaats = Generators.input(woonplaatsInput);
 
@@ -86,11 +91,11 @@ const inkomen = Generators.input(inkomenInput);
 const vermogenInput = Inputs.range([0, 200000], {step: 1, value: 1000, label: "Wat is uw vermogen?"})
 const vermogen = Generators.input(vermogenInput);
 
-const inkomenPartnerInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is het inkomen van uw partner?"})
-const inkomenPartner = Generators.input(inkomenPartnerInput);
+const inkomenToeslagpartnerInput = Inputs.range([inkomen_van, inkomen_tot], {step: 1, value: 2000, label: "Wat is het inkomen van uw toeslagpartner?"})
+const inkomenToeslagpartner = Generators.input(inkomenToeslagpartnerInput);
 
-const vermogenPartnerInput = Inputs.range([0, 200000], {step: 1, value: 1000, label: "Wat is het vermogen van uw partner?"})
-const vermogenPartner = Generators.input(vermogenPartnerInput);
+const vermogenToeslagPartnerInput = Inputs.range([0, 200000], {step: 1, value: 1000, label: "Wat is het vermogen van uw toeslagpartner?"})
+const vermogenToeslagPartner = Generators.input(vermogenToeslagPartnerInput);
 
 const toeslagpartnerInput = Inputs.toggle({label: "Heeft u een toeslagpartner?"})
 const toeslagpartner = Generators.input(toeslagpartnerInput)
@@ -98,21 +103,45 @@ const toeslagpartner = Generators.input(toeslagpartnerInput)
 const kinderbijslagInput = Inputs.toggle({label: "Ontvangt u kinderbijslag?"})
 const kinderbijslag = Generators.input(kinderbijslagInput)
 
-const kinderenInput = Inputs.text({label: "Wat zijn de leeftijden van uw kinderen?"})
+const kinderenInput = Inputs.text({label: "Wat zijn de leeftijden van uw kinderen voor wie u kinderbijslag ontvangt?"})
 const kinderen = Generators.input(kinderenInput)
 
+const leeftijdInput = Inputs.range([18, 100], {step: 1, value: 20, label: "Wat is uw leeftijd?"})
+const leeftijd = Generators.input(leeftijdInput);
 
-const inkomenMin1Input = Inputs.text({label: "Wat was uw inkomen vorig jaar?"})
-const inkomenMin2Input = Inputs.text({label: "Wat was uw inkomen twee jaar geleden?"})
-const inkomenMin3Input = Inputs.text({label: "Wat was uw inkomen drie jaar geleden?"})
-
-const inkomenMin1 = Generators.input(inkomenMin1Input)
-const inkomenMin2 = Generators.input(inkomenMin2Input)
-const inkomenMin3 = Generators.input(inkomenMin3Input)
+const leeftijdPartnerInput = Inputs.range([18, 100], {step: 1, value: 20, label: "Wat is uw partner's leeftijd?"})
+const leeftijdPartner = Generators.input(leeftijdPartnerInput)
 
 
+const gezamenlijkHuishoudenInput = Inputs.toggle({label: "Heeft u een gezamenlijk huishouden?"})
+const gezamenlijkHuishouden = Generators.input(gezamenlijkHuishoudenInput)
 
-return {woonplaatsInput,woonplaats,inkomenInput,inkomen,vermogenInput,vermogen,inkomenPartnerInput,inkomenPartner,vermogenPartnerInput,vermogenPartner,toeslagpartnerInput,toeslagpartner,kinderbijslagInput,kinderbijslag,kinderenInput,kinderen,inkomenMin1Input,inkomenMin2Input,inkomenMin3Input,inkomenMin1,inkomenMin2,inkomenMin3};
+const woningdelerInput = Inputs.toggle({label: "Deelt u uw woning met mensen met wie u geen huishouden deelt?"})
+const woningdeler = Generators.input(woningdelerInput)
+
+const zichtopverbeteringInput = Inputs.toggle({label: "Heeft u of uw partner zicht op een inkomensverbetering?"})
+const zichtopverbetering = Generators.input(zichtopverbeteringInput)
+
+const vermogenHuishoudenInput = Inputs.range([0, 200000], {step: 1, value: 1000, label: "Wat is het vermogen van uw huishouden?"})
+const vermogenHuishouden = Generators.input(vermogenHuishoudenInput)
+
+const inkomen2024Input = Inputs.text({label: "Wat was uw inkomen in 2024?"})
+const inkomen2023Input = Inputs.text({label: "Wat was uw inkomen in 2023?"})
+const inkomen2022Input = Inputs.text({label: "Wat was uw inkomen in 2022?"})
+
+const inkomen2024 = Generators.input(inkomen2024Input)
+const inkomen2023 = Generators.input(inkomen2023Input)
+const inkomen2022 = Generators.input(inkomen2022Input)
+
+
+const inkomenPartner2024Input = Inputs.text({label: "Wat was uw partners inkomen in 2024?"})
+const inkomenPartner2023Input = Inputs.text({label: "Wat was uw partners inkomen in 2023?"})
+const inkomenPartner2022Input = Inputs.text({label: "Wat was uw partners inkomen in 2022?"})
+
+const inkomenPartner2024 = Generators.input(inkomenPartner2024Input)
+const inkomenPartner2023 = Generators.input(inkomenPartner2023Input)
+const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
+return {woonplaatsInput,woonplaats,inkomenInput,inkomen,vermogenInput,vermogen,inkomenToeslagpartnerInput,inkomenToeslagpartner,vermogenToeslagPartnerInput,vermogenToeslagPartner,toeslagpartnerInput,toeslagpartner,kinderbijslagInput,kinderbijslag,kinderenInput,kinderen,leeftijdInput,leeftijd,leeftijdPartnerInput,leeftijdPartner,gezamenlijkHuishoudenInput,gezamenlijkHuishouden,woningdelerInput,woningdeler,zichtopverbeteringInput,zichtopverbetering,vermogenHuishoudenInput,vermogenHuishouden,inkomen2024Input,inkomen2023Input,inkomen2022Input,inkomen2024,inkomen2023,inkomen2022,inkomenPartner2024Input,inkomenPartner2023Input,inkomenPartner2022Input,inkomenPartner2024,inkomenPartner2023,inkomenPartner2022};
 }});
 
 define({id: "3bc4604d", inputs: ["x","Regelboek","toeslagpartner","vermogen","intarray","kinderen","kinderbijslag","Plot"], outputs: ["vermogenTotaal","zorgdata","kgbdata","cumlatiefdata","lines"], body: (x,Regelboek,toeslagpartner,vermogen,intarray,kinderen,kinderbijslag,Plot) => {
@@ -166,6 +195,12 @@ woonplaatsInput
 ))
 }});
 
+define({id: "b2d414f2", mode: "inline", inputs: ["leeftijdInput","display"], body: async (leeftijdInput,display) => {
+display(await(
+leeftijdInput
+))
+}});
+
 define({id: "112eb2e5", mode: "inline", inputs: ["inkomenInput","display"], body: async (inkomenInput,display) => {
 display(await(
 inkomenInput
@@ -184,15 +219,15 @@ toeslagpartnerInput
 ))
 }});
 
-define({id: "79a65f25", mode: "inline", inputs: ["toeslagpartner","inkomenPartnerInput","display"], body: async (toeslagpartner,inkomenPartnerInput,display) => {
+define({id: "decb6b35", mode: "inline", inputs: ["toeslagpartner","inkomenToeslagpartnerInput","display"], body: async (toeslagpartner,inkomenToeslagpartnerInput,display) => {
 display(await(
-toeslagpartner ? inkomenPartnerInput: ''
+toeslagpartner ? inkomenToeslagpartnerInput: ''
 ))
 }});
 
-define({id: "7d1a126a", mode: "inline", inputs: ["toeslagpartner","vermogenPartnerInput","display"], body: async (toeslagpartner,vermogenPartnerInput,display) => {
+define({id: "f31ad4ce", mode: "inline", inputs: ["toeslagpartner","vermogenToeslagPartnerInput","display"], body: async (toeslagpartner,vermogenToeslagPartnerInput,display) => {
 display(await(
-toeslagpartner ? vermogenPartnerInput: ''
+toeslagpartner ? vermogenToeslagPartnerInput: ''
 ))
 }});
 
@@ -208,21 +243,79 @@ kinderbijslag ? kinderenInput: ''
 ))
 }});
 
-define({id: "df26c3fc", mode: "inline", inputs: ["woonplaats","inkomenMin1Input","display"], body: async (woonplaats,inkomenMin1Input,display) => {
+define({id: "0e93beff", mode: "inline", inputs: ["woonplaats","inkomen2024Input","display"], body: async (woonplaats,inkomen2024Input,display) => {
 display(await(
-woonplaats == "Amsterdam" ? inkomenMin1Input : ''
+woonplaats == "Amsterdam" ? inkomen2024Input : ''
 ))
 }});
 
-define({id: "1789fe3a", mode: "inline", inputs: ["woonplaats","inkomenMin2Input","display"], body: async (woonplaats,inkomenMin2Input,display) => {
+define({id: "9636b22d", mode: "inline", inputs: ["woonplaats","inkomen2023Input","display"], body: async (woonplaats,inkomen2023Input,display) => {
 display(await(
-woonplaats == "Amsterdam" ? inkomenMin2Input : ''
+woonplaats == "Amsterdam" ? inkomen2023Input : ''
 ))
 }});
 
-define({id: "37e9316b", mode: "inline", inputs: ["woonplaats","inkomenMin3Input","display"], body: async (woonplaats,inkomenMin3Input,display) => {
+define({id: "cc44e0e1", mode: "inline", inputs: ["woonplaats","inkomen2022Input","display"], body: async (woonplaats,inkomen2022Input,display) => {
 display(await(
-woonplaats == "Amsterdam" ? inkomenMin3Input : ''
+woonplaats == "Amsterdam" ? inkomen2022Input : ''
+))
+}});
+
+define({id: "67ca2567", mode: "inline", inputs: ["woonplaats","gezamenlijkHuishoudenInput","display"], body: async (woonplaats,gezamenlijkHuishoudenInput,display) => {
+display(await(
+woonplaats == "Amsterdam" ? gezamenlijkHuishoudenInput : ''
+))
+}});
+
+define({id: "53572f09", mode: "inline", inputs: ["woonplaats","woningdelerInput","display"], body: async (woonplaats,woningdelerInput,display) => {
+display(await(
+woonplaats == "Amsterdam" ? woningdelerInput : ''
+))
+}});
+
+define({id: "0c448cd1", mode: "inline", inputs: ["woonplaats","gezamenlijkHuishouden","inkomenPartner2024Input","display"], body: async (woonplaats,gezamenlijkHuishouden,inkomenPartner2024Input,display) => {
+display(await(
+woonplaats == "Amsterdam" && gezamenlijkHuishouden ? inkomenPartner2024Input : ''
+))
+}});
+
+define({id: "97465b96", mode: "inline", inputs: ["woonplaats","gezamenlijkHuishouden","inkomenPartner2023Input","display"], body: async (woonplaats,gezamenlijkHuishouden,inkomenPartner2023Input,display) => {
+display(await(
+woonplaats == "Amsterdam" && gezamenlijkHuishouden ? inkomenPartner2023Input : ''
+))
+}});
+
+define({id: "dede9007", mode: "inline", inputs: ["woonplaats","gezamenlijkHuishouden","inkomenPartner2022Input","display"], body: async (woonplaats,gezamenlijkHuishouden,inkomenPartner2022Input,display) => {
+display(await(
+woonplaats == "Amsterdam" && gezamenlijkHuishouden ? inkomenPartner2022Input : ''
+))
+}});
+
+define({id: "ab06d4d8", mode: "inline", inputs: ["woonplaats","gezamenlijkHuishouden","leeftijdPartnerInput","display"], body: async (woonplaats,gezamenlijkHuishouden,leeftijdPartnerInput,display) => {
+display(await(
+woonplaats == "Amsterdam" && gezamenlijkHuishouden ? leeftijdPartnerInput : ''
+))
+}});
+
+define({id: "97649c29", mode: "inline", inputs: ["woonplaats","zichtopverbeteringInput","display"], body: async (woonplaats,zichtopverbeteringInput,display) => {
+display(await(
+woonplaats == "Amsterdam" ? zichtopverbeteringInput : ''
+))
+}});
+
+define({id: "b48c021b", mode: "inline", inputs: ["woonplaats","vermogenHuishoudenInput","display"], body: async (woonplaats,vermogenHuishoudenInput,display) => {
+display(await(
+woonplaats == "Amsterdam" ? vermogenHuishoudenInput : ''
+))
+}});
+
+define({id: "d037f640", mode: "inline", inputs: ["display","lines"], body: (display,lines) => {
+display(lines)
+}});
+
+define({id: "d077ea13", mode: "inline", inputs: ["Regelboek","zichtopverbetering","woonplaats","leeftijd","leeftijdPartner","vermogenHuishouden","gezamenlijkHuishouden","woningdeler","inkomen2024","inkomen2023","inkomen2022","inkomenPartner2024","inkomenPartner2023","inkomenPartner2022","display"], body: async (Regelboek,zichtopverbetering,woonplaats,leeftijd,leeftijdPartner,vermogenHuishouden,gezamenlijkHuishouden,woningdeler,inkomen2024,inkomen2023,inkomen2022,inkomenPartner2024,inkomenPartner2023,inkomenPartner2022,display) => {
+display(await(
+Regelboek.iit_adam(zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022)
 ))
 }});
 
@@ -244,11 +337,9 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
 ))
 }});
 
-define({id: "d037f640", mode: "inline", inputs: ["display","lines"], body: (display,lines) => {
-display(lines)
-}});
-
 </script>
+</head>
+<body>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
 <label id="observablehq-sidebar-backdrop" for="observablehq-sidebar-toggle"></label>
 <nav id="observablehq-sidebar">
@@ -259,57 +350,65 @@ display(lines)
   <ol>
     <li class="observablehq-link"><a href="./iit">Individuele inkomenstoeslag</a></li>
     <li class="observablehq-link"><a href="./kgb">Kindgebonden budget</a></li>
-    <li class="observablehq-link"><a href="./test">Untitled</a></li>
     <li class="observablehq-link"><a href="./zorgtoeslag">Zorgtoeslag</a></li>
   </ol>
 </nav>
-<script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
+<script>{const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<div class="observablehq observablehq--block"><!--:4f95ec8f:--></div>
+<div class="observablehq observablehq--block"><!--:ccc3bdc5:--></div>
 <h1 id="proefberekening" tabindex="-1"><a class="observablehq-header-anchor" href="#proefberekening">Proefberekening</a></h1>
-<div class="observablehq observablehq--block"><!--:fb61fe33:--></div>
+<div class="observablehq observablehq--block"><!--:d884b9b1:--></div>
 <div class="observablehq observablehq--block"><!--:3bc4604d:--></div>
-<div class="grid grid-cols-2">
-  <div class="card grid-colspan-1">
+<div class="grid grid-cols-2" style="grid-auto-rows: auto;">
+  <div class="card">
       <observablehq-loading></observablehq-loading><!--:caa7ac3b:-->
+	  <observablehq-loading></observablehq-loading><!--:b2d414f2:-->
       <observablehq-loading></observablehq-loading><!--:112eb2e5:-->
       <observablehq-loading></observablehq-loading><!--:da161e72:-->
       <observablehq-loading></observablehq-loading><!--:87a8dae8:-->
-      <observablehq-loading></observablehq-loading><!--:79a65f25:-->
-      <observablehq-loading></observablehq-loading><!--:7d1a126a:-->
+      <observablehq-loading></observablehq-loading><!--:decb6b35:-->
+      <observablehq-loading></observablehq-loading><!--:f31ad4ce:-->
       <observablehq-loading></observablehq-loading><!--:fa781dcc:-->
       <observablehq-loading></observablehq-loading><!--:e6809423:-->
-	  <observablehq-loading></observablehq-loading><!--:df26c3fc:-->
-	  <observablehq-loading></observablehq-loading><!--:1789fe3a:-->
-	  <observablehq-loading></observablehq-loading><!--:37e9316b:-->
+	  <observablehq-loading></observablehq-loading><!--:0e93beff:-->
+	  <observablehq-loading></observablehq-loading><!--:9636b22d:-->
+	  <observablehq-loading></observablehq-loading><!--:cc44e0e1:-->
+	  <observablehq-loading></observablehq-loading><!--:67ca2567:-->
+	  <observablehq-loading></observablehq-loading><!--:53572f09:-->
+      <observablehq-loading></observablehq-loading><!--:0c448cd1:-->
+	  <observablehq-loading></observablehq-loading><!--:97465b96:-->
+	  <observablehq-loading></observablehq-loading><!--:dede9007:-->
+	  <observablehq-loading></observablehq-loading><!--:ab06d4d8:-->
+	  <observablehq-loading></observablehq-loading><!--:97649c29:-->
+	  <observablehq-loading></observablehq-loading><!--:b48c021b:-->
   </div>
-<div class="grid grid-cols-1">
-  <div class="card" style="max-height: 100px;">
+  <div class="card">
+    <h2>Inkomen</h2>
+    <observablehq-loading></observablehq-loading><!--:d037f640:-->
+  </div>
+  <div class="card grid-colspan-1" style="max-height: 100px;">
+    <h2>Individuele Inkomenstoeslag Amsterdam</h2>
+    <span class="big">€ <observablehq-loading></observablehq-loading><!--:d077ea13:--> jaar</span>
+  </div>
+  <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Totaal</h2>
 	<span class="big">€ <observablehq-loading></observablehq-loading><!--:2679b46e:-->,- per jaar</span>
   </div>
-  <div class="card" style="max-height: 100px;">
+  <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Zorgtoeslag</h2>
     <span class="big">€ <observablehq-loading></observablehq-loading><!--:d4aa59e9:-->,- per jaar</span>
   </div>
-  <div class="card" style="max-height: 100px;">
+  <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Kindgebonden budget</h2>
     <span class="big">€ <observablehq-loading></observablehq-loading><!--:bcc87cf4:-->,- per jaar</span>
-  </div>
-  <div class="card" style="max-height: 100px;">
-    <h2>Individuele Inkomenstoeslag Amsterdam</h2>
-    <span class="big">€ 85 per jaar</span>
-  </div>
-</div>
-  <div class="card grid-colspan-1">
-    <h2>Inkomen</h2>
-    <observablehq-loading></observablehq-loading><!--:d037f640:-->
   </div>
 </div>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="next" href="./iit"><span>Individuele inkomenstoeslag</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-21T16:29:00">May 21, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-24T19:06:24">May 24, 2025</a>.</div>
 </footer>
 </div>
+</body>
+</html>

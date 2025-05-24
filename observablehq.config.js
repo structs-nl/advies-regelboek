@@ -1,4 +1,21 @@
 import MarkdownItDl from "markdown-it-deflist";
+import MarkdownCont from "markdown-it-container";
+import MarkdownSide from "markdown-it-sidenote";
+import MarkdownBrSpans from "markdown-it-bracketed-spans";
+import MarkdownAttrs from "markdown-it-attrs";
+import MarkdownSpans from "markdown-it-span";
+
+const mdplug = (md) => {
+    md.use(MarkdownItDl);
+    md.use(MarkdownSide);
+    md.use(MarkdownCont, 'warning');
+    md.use(MarkdownCont, 'caution');
+    md.use(MarkdownCont, 'note');
+    md.use(MarkdownBrSpans);
+    md.use(MarkdownAttrs);
+    md.use(MarkdownSpans);
+    return md;
+}
 
 // See https://observablehq.com/framework/config for documentation.
 export default {
@@ -36,6 +53,5 @@ export default {
   // linkify: true, // convert URLs in Markdown to links
   // typographer: false, // smart quotes and other typographic improvements
   cleanUrls: true, // drop .html from URLs
-  markdownIt: (md) => md.use(MarkdownItDl)
-    
+    markdownIt: mdplug
 };
