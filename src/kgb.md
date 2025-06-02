@@ -5,6 +5,10 @@ toc: true
 style: custom-style.css
 
 ---
+
+```js
+import {depDiagram} from "./dep-diagram.js"
+```
 	
 # Kindgebonden budget
 
@@ -13,7 +17,6 @@ Geldigheidsdatum
 
 Bron
 : [Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&z=2025-01-01&g=2025-01-01)
-
 
 In dit document beschrijven we de definities van het kindgebonden
 budget (KGB). Dit is een regeling van het ministerie van Sociale Zaken
@@ -24,16 +27,25 @@ Met deze definities en de benodigde invoergegevens kan een berekening
 worden gemaakt van een **mogelijk recht** en de **hoogte** van het
 KGB.
 
-<div class="caution">
-De analyse van het kindgebondenbudget is <strong>nog niet</strong> gevalideerd door vakinhoudelijk experts.
-</div>
+::: caution
+De analyse van het kindgebondenbudget is **nog niet** gevalideerd door vakinhoudelijk experts.
+:::
 
-&nbsp;
+# Definitie diagram
+
+Onderstaand diagram geeft de namen van de definties en de
+afhankelijkheden van andere definities weer. De namen linken naar de
+relevante secties in het document.
+
+```js
+
+depDiagram()
+
+```
 
 # Invoergegevens
 
 De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:
-
 	
 ## AWIR partner
 
@@ -41,22 +53,35 @@ De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
 inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.
 
-Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.
+Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de
+belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)).
+Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op
+hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Het
+AWIR partnerbegrip is breder en omvat onder andere:
 
-<div class="note">
+- Mensen die op hetzelfde adres ingeschreven staan en 
+  - samen een kind hebben,
+  - of samen een pensioenregeling hebben,
+  - of samen een woning hebben, 
+  - of het vorige jaar ook partner waren.
+- Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen
+- Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. 
 
-Dienst Toeslagen heeft een aparte <a
-href="https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner">tool</a>
+:::note
+Dienst Toeslagen heeft een aparte [tool](https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner)
 voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonderingen tekstueel toegelicht die niet in de tool zijn meegenomen.
 
-Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities. Dat zou wel de eerstvolgende stap kunnen zijn.
-
-</div>
+Voor een integrale proefberekening is deze tool niet afdoende. De IIT
+van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden,
+een begrip met veel overlap met het awir partnerbegrip. Dat vraagt om
+een analyse van deze verschillende begrippen om met zo weinig mogelijk
+vragen tot een zo goed mogelijk advies te komen.
+:::
 
 ## Dezelfde partner tijdens berekeningsjaar
 
 Naam
-: dezelfde partner tijdens berekeningsjaar
+: **dezelfde partner tijdens berekeningsjaar**
 
 Type
 : ja / nee
@@ -64,39 +89,40 @@ Type
 Bron
 : [Artikel 1, vierde lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
 
-
-<div class="warning">
-
+::: warning
 In de proefberekening van Dienst Toeslagen wordt **niet** gevraagd of
 de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
 bepalen van de hoogte van het vermogen.
-</div>
+:::
 
 ## Leeftijden kinderen met kinderbijslag
 
 Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen.
 
-<div class="warning"> Alleen de ouder die kinderbijslag voor het kind
-ontvangt heeft recht op KGB. Dit is relevant voor gescheiden ouders.
-</div>
+::: warning
 
-<div class="note"> Wij maken voor de berekening nu gebruik van
+Alleen de ouder die kinderbijslag voor het kind
+ontvangt heeft recht op KGB. Dit is relevant voor gescheiden ouders.
+:::
+
+::: note
+
+Wij maken voor de berekening nu gebruik van
 leeftijden, waarbij we veronderstellen dat de aanvragende ouder
 kinderbijslag ontvangt. Dit moet expliciet worden uitgevraagd.  De
 berekening moet worden gedaan op geboortedatums: er is recht op KGB na
-de maand na geboorte tot en met de maand van 18 worden. Dit passen we
-nog aan. </div>
+de maand na geboorte tot en met de maand van 18 worden.
+:::
 
 Naam
-: Leeftijden kinderen
+: **Leeftijden kinderen met kinderbijslag**
 
 Type
-: lijst met getallen (leeftijden)
+: lijst met getallen
 
 Bron
 : [Artikel 2, eerste lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)\
   [Artikel 2, tiende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
-
 
 
 ## Toetsingsinkomen
@@ -111,10 +137,11 @@ is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
 [Artikel 2.18 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=2&afdeling=2.5&artikel=2.18&z=2025-01-01&g=2025-01-01).
 
 
-Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
-[Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
+Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in
+aanmerking genomen voor het toetsingsinkomen [Artikel 8, tweede lid,
+van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
-<div class="warning">
+::: warning
 
 Bij de proefberekening van Dienst Toeslagen is een *tool* opgenomen
 voor het vaststellen van het toetsingsinkomen. Hier wordt met een
@@ -130,10 +157,10 @@ als een "gegeven".  Het lijkt wel relevant om het inkomensgegeven en
 het daarop gebaseerde toetsingsinkomen verder te specificeren, onder
 andere voor mensen met meerdere banen, kleine ondernemers, ect.
 
-</div>
+:::
 
 Naam
-: Toetsingsinkomen
+: **Toetsingsinkomen**
 
 Type
 : Bedrag
@@ -150,15 +177,19 @@ zorgtoeslag wordt ook dit bedrag meegenomen in de berekening. Alle
 opmerkingen die relevant zijn voor het toetsingsinkomen zijn ook voor
 het toetsingsinkomen partner van toepassing.
 
-<div class="warning">
+:::warning
 
-In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het inkomen van de partner of medebewoner na beeindiging van het partner- of medebewonerschap niet mee te tellen voor het toetsingsinkomen als dit tot verlaging van het toetsingsinkomen van minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt niet meegenomen in de proefberekening van Dienst Toeslagen.
+In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het
+inkomen van de partner of medebewoner na beeindiging van het partner-
+of medebewonerschap niet mee te tellen voor het toetsingsinkomen als
+dit tot verlaging van het toetsingsinkomen van minimaal 10% zorgt. Dit
+op verzoek van de belanghebbende. Dit wordt niet meegenomen in de
+proefberekening van Dienst Toeslagen.
 
-</div>
-
+:::
 
 Naam
-: Toetsingsinkomen partner
+: **Toetsingsinkomen partner**
 
 Type
 : Bedrag
@@ -174,9 +205,8 @@ verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
 op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
 investeringen echter niet mee worden genomen.
 
-
-xNaam
-: rendementsgrondslag
+Naam
+: **rendementsgrondslag**
 
 Type
 : Bedrag
@@ -186,7 +216,6 @@ Bron
   [Artikel 5.3 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.1&artikel=5.3&z=2025-03-15&g=2025-03-15)\
   [Artikel 5.13 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.3&artikel=5.13&z=2025-03-15&g=2025-03-15)
 
-
 # Definities
 
 De definities met afhankelijkheden van invoergegevens en/of andere definities.
@@ -195,45 +224,48 @@ De definities met afhankelijkheden van invoergegevens en/of andere definities.
 
 
 Naam
-: KGB hoogte
+: **KGB hoogte**
 
 Definitie
-: (<span class="operator">De som van</span> [KGB per kind](#kgb-per-kind) <span class="operator">voor</span> [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
-  <br/><span class="operator">plus</span> [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner))<br/>
-  <span class="operator">min</span>
-  7,1 <span class="operator">procent van</span> [toetsingsinkomen](#toetsingsinkomen) <span class="operator">min</span> [drempelinkomen](#drempelinkomen)
-
+: (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
+  ::plus:: [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)) \
+  ::min::
+  (7,1 ::procent van:: ([toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)))
 
 Voorwaarde
-: [AWIR partner](#awir-partner) <span class="operator">is onwaar</span>
-  <br/><span class="operator">en</span><br/>
-  [toetsingsinkomen](#toetsingsinkomen) <span class="operator"> groter dan</span> [drempelinkomen](#drempelinkomen)
-  <br/><span class="operator">en</span><br/>
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is onwaar:: \
+  ::en:: \
+  [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
 
 Bron
 : [Artikel 2, zevende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
 
 Brontekst
-: <i>Bij een toetsingsinkomen van de ouder die geen partner heeft, van meer dan het drempelinkomen wordt de som van de bedragen waarop recht bestaat op grond van het tweede, vierde, vijfde en zesde lid verminderd met 7,10% van het verschil tussen het toetsingsinkomen en het drempelinkomen.</i>
+: *Bij een toetsingsinkomen van de ouder die geen partner heeft, van
+  meer dan het drempelinkomen wordt de som van de bedragen waarop
+  recht bestaat op grond van het tweede, vierde, vijfde en zesde lid
+  verminderd met 7,10% van het verschil tussen het toetsingsinkomen en
+  het drempelinkomen.*
 
 &nbsp;
 
 Naam
-: KGB hoogte
+: **KGB hoogte**
 
 Definitie
-: <span class="operator">De som van</span> [KGB per kind](#kgb-per-kind) <span class="operator">voor</span> [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
-  <br/><span class="operator">plus</span>  [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)
+: ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)\
+  ::plus::  [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) <span class="operator">is onwaar</span>
-  <br/><span class="operator">en</span><br/>
-  [toetsingsinkomen](#toetsingsinkomen) <span class="operator"> kleiner of gelijk aan</span> [drempelinkomen](#drempelinkomen)
-  <br/><span class="operator">en</span><br/>
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is onwaar:: \
+  ::en:: \
+  [toetsingsinkomen](#toetsingsinkomen) ::kleiner of gelijk aan:: [drempelinkomen](#drempelinkomen) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
 
-<div class="note">
+:::note
 
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
 maar is de complementering van de definitie in Artikel 2, zevende lid.
@@ -242,49 +274,55 @@ op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
 om de condities niet-overlappend te maken. Gebruikt de wetgever hier
 een vorm van default redeneren, waarbij de meer specifieke regel de
 generiekere overschrijft?
-</div>
+:::
 
 Naam
-: KGB hoogte
+: **KGB hoogte**
 
 Definitie
-: <span class="operator">De som van</span> [KGB per kind](#kgb-per-kind) <span class="operator">voor</span> [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
-  <br/><span class="operator">min</span>
-  7,1 <span class="operator">procent van</span> [toetsingsinkomen](#toetsingsinkomen) <br/><span class="operator">min</span> [drempelinkomen](#drempelinkomen)<span class="operator">plus</span> 9139 </a>
+: ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
+  ::min::
+  7,1 ::procent van:: \
+  ([toetsingsinkomen](#toetsingsinkomen) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))
 
 
 Voorwaarde
-: [AWIR partner](#awir-partner) <span class="operator">is waar</span>
-  <br/><span class="operator">en</span><br/>
-  [toetsingsinkomen](#toetsingsinkomen) <span class="operator"> groter dan</span> ([drempelinkomen](#drempelinkomen) <span class="operator">plus</span> 9139 )
-  <br/><span class="operator">en</span><br/>
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is waar:: \
+  ::en:: \
+  [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
 		
 
 Bron
 : [Artikel 2, achtste lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
 
 Brontekst
-: <i>Bij een gezamenlijk toetsingsinkomen van de ouder en zijn partner van meer dan het met € 9.139,00 verhoogde drempelinkomen wordt de som van de bedragen waarop recht bestaat op grond van het tweede, vierde en vijfde lid verminderd met 7,10% van het verschil tussen het gezamenlijk toetsingsinkomen en het met € 9.139,00 verhoogde drempelinkomen</i>
+: *Bij een gezamenlijk toetsingsinkomen van de ouder en zijn partner
+  van meer dan het met € 9.139,00 verhoogde drempelinkomen wordt de
+  som van de bedragen waarop recht bestaat op grond van het tweede,
+  vierde en vijfde lid verminderd met 7,10% van het verschil tussen
+  het gezamenlijk toetsingsinkomen en het met € 9.139,00 verhoogde
+  drempelinkomen*
 
 &nbsp;
 
 
 Naam
-: KGB hoogte
+: **KGB hoogte**
 
 Definitie
-: <span class="operator">De som van</span> [KGB per kind](#kgb-per-kind) <span class="operator">voor</span> [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
+: ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) <span class="operator">is waar</span>
-  <br/><span class="operator">en</span><br/>
-   [toetsingsinkomen](#toetsingsinkomen) <span class="operator"> kleiner of gelijk aan</span> ([drempelinkomen](#drempelinkomen) <span class="operator">plus</span> 9139 )
-  <br/><span class="operator">en</span><br/>
-  [rendementsgrondslag](#rendementsgrondslag) <span class="operator">kleiner dan</span> [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+: [AWIR partner](#awir-partner) ::is waar:: \
+  ::en:: \
+   [toetsingsinkomen](#toetsingsinkomen) ::kleiner of gelijk aan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
+  ::en:: \
+  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
   
   
-<div class="note">
+:::note
 
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
 maar is de complementering van de definitie in Artikel 2, achtste lid.
@@ -293,10 +331,10 @@ op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
 om de condities niet-overlappend te maken. Gebruikt de wetgever hier
 een vorm van default redeneren, waarbij de meer specifieke regel de
 generiekere overschrijft?
-</div>
+:::
 
 Naam
-: KGB hoogte
+: **KGB hoogte**
 
 Standaardwaarde
 : 0
@@ -304,21 +342,21 @@ Standaardwaarde
 ## KGB per kind
 
 Naam
-: KGB per kind
+: **KGB per kind**
 
 Definitie
-: 	[KGB basis](#kgb-basis) <span class="operator">plus</span> [KGB leeftijdafhankelijk](#kgb-leeftijdafhankelijk)
+: 	[KGB basis](#kgb-basis) ::plus:: [KGB leeftijdafhankelijk](#kgb-leeftijdafhankelijk)
 
 ## KGB basis
 
 Naam
-: KGB basis
+: **KGB basis**
 
 Definitie
 : 2511
 
 Voorwaarde
-: [leeftijd](#leeftijd) <span class="operator">kleiner dan</span> 18
+: [leeftijd](#leeftijd) ::kleiner dan:: 18
 
 Standaardwaarde
 : 0
@@ -326,20 +364,18 @@ Standaardwaarde
 Bron
 : [Artikel 2, tweede lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
 
-<div class="note">
-Het is onduidelijk waarom art 2, tweede lid is opgesplitst in onderdeel a en b: voor ieder kind is her hetzelfde basisbedrag
-</div>
-
 ## KGB leeftijdafhankelijk
 
 Naam
-: KGB leeftijdafhankelijk
+: **KGB leeftijdafhankelijk**
 
 Definitie
 : 703
 
 Voorwaarde
-: [leeftijd](#leeftijd) <span class="operator">groter of gelijk aan</span> 12 <span class="operator"><br/>en<br/></span> [leeftijd](#leeftijd) <span class="operator">kleiner dan</span> 16
+: [leeftijd](#leeftijd) ::groter of gelijk aan:: 12 \
+  ::en:: \
+  [leeftijd](#leeftijd) ::kleiner dan:: 16
 
 Bron
 : [Artikel 2, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
@@ -347,13 +383,15 @@ Bron
 &nbsp;
 
 Naam
-: KGB leeftijdafhankelijk
+: **KGB leeftijdafhankelijk**
 
 Definitie
 : 936
 
 Voorwaarde
-: [leeftijd](#leeftijd) <span class="operator">groter of gelijk aan</span> 16 <span class="operator"><br/>en<br/></span> [leeftijd](#leeftijd) <span class="operator">kleiner of gelijk aan</span> 17
+: [leeftijd](#leeftijd) ::groter of gelijk aan:: 16 \
+  ::en::\
+  [leeftijd](#leeftijd) ::kleiner of gelijk aan:: 17
 
 Bron
 : [Artikel 2, vijfde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
@@ -361,22 +399,21 @@ Bron
 &nbsp;
 
 Naam
-: KGB leeftijdafhankelijk
+: **KGB leeftijdafhankelijk**
 
 Standaardwaarde
 : 0
 
-
 ## KGB toevoeging geen partner
 
 Naam
-: KGB toevoeging geen partner
+: **KGB toevoeging geen partner**
 
 Definitie
 : 3389
 
 Voorwaarde
-: [AWIR partner](#awir-partner) <span class="operator">is niet waar</span>
+: [AWIR partner](#awir-partner) ::is niet waar::
 
 Standaardwaarde
 : 0
@@ -384,17 +421,16 @@ Standaardwaarde
 Bron
 : [Artikel 2, zesde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
 
-
 ## Rendementsgrondslag norm
 
 Naam
-: rendementsgrondslag-norm
+: **rendementsgrondslag-norm**
 
 Definitie
 : 141896
 
 Voorwaarde
-: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) <span class="operator">is niet waar</span>
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is niet waar::
 
 Bron
 : [Artikel 1, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
@@ -402,13 +438,13 @@ Bron
 &nbsp;
 
 Naam
-: rendementsgrondslag-norm
+: **rendementsgrondslag-norm**
 
 Definitie
 : 179429
 
 Voorwaarde
-: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) <span class="operator">is waar</span>
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is waar::
 
 Bron
 : [Artikel 1, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
@@ -417,10 +453,10 @@ Bron
 ## Drempelinkomen
 
 Naam
-: drempelinkomen
+: **drempelinkomen**
 
 Definitie
-: 108 <span class="operator">procent </span> van 12 <span class="operator">maal</span> [minimumloon per maand](#minimumloon-per-maand)
+: 108 ::procent van:: 12 ::maal:: [minimumloon per maand](#minimumloon-per-maand)
 
 Bron
 : [Artikel 1, eerste lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
@@ -429,7 +465,7 @@ Bron
 ## Minimumloon per maand
 
 Naam
-: minimumloon per maand
+: **minimumloon per maand**
 
 Definitie
 : 2191,80

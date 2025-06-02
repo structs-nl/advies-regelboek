@@ -9,14 +9,11 @@ style: custom-style.css
 
 ```js
 
-import * as Plot from "npm:@observablehq/plot";
-import * as Inputs from "npm:@observablehq/inputs";
-import * as Regelboek from "./regelboek.js";
+import * as Plot from "npm:@observablehq/plot"
+import * as Inputs from "npm:@observablehq/inputs"
+import * as Regelboek from "./regelboek.js"
 
-import * as Parse from "./parse.js";
-
-
-const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
+const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)))
 
 const range = (start, stop, step) =>
   Array.from(
@@ -24,9 +21,9 @@ const range = (start, stop, step) =>
     (_, i) => start + i * step,
   );
 
-const inkomen_van = 0;
-const inkomen_tot = 50000;
-const x = range(inkomen_van, inkomen_tot, 10);
+const inkomen_van = 0
+const inkomen_tot = 50000
+const x = range(inkomen_van, inkomen_tot, 10)
 
 ```
 

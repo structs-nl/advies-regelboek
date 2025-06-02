@@ -3,16 +3,10 @@ theme: dashboard
 title: Zorgtoeslag
 toc: true
 style: custom-style.css
-
 ---
 
-
 ```js
-
-import * as Parse from "./parse.js"
-import {instance} from "npm:@viz-js/viz";
-const viz = await instance();
-
+import {depDiagram} from "./dep-diagram.js"
 ```
 
 # Zorgtoeslag
@@ -36,12 +30,16 @@ De analyse van de zorgtoeslag is **nog
 niet** gevalideerd door vakinhoudelijk experts.
 :::
 
+# Definitie diagram
 
-```js 
+Onderstaand diagram geeft de namen van de definties en de
+afhankelijkheden van andere definities weer. De namen linken naar de
+relevante secties in het document.
 
-const graph = viz.renderSVGElement(Parse.getGraph())
-graph.setAttribute("id", "graph")
-display(graph);
+
+```js
+
+depDiagram()
 
 ```
 
@@ -56,7 +54,7 @@ inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.
 
 Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.
-
+	
 ::: note
 Dienst Toeslagen heeft een aparte [tool](https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner)
 voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonderingen tekstueel toegelicht die niet in de tool zijn meegenomen.
@@ -94,7 +92,6 @@ Type
 : ja / nee
 
 Bron
-
 : [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
 
 
@@ -117,14 +114,15 @@ is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
 [Artikel 2.18 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=2&afdeling=2.5&artikel=2.18&z=2025-01-01&g=2025-01-01).
 
 
-Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
-[Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
+Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in
+aanmerking genomen voor het toetsingsinkomen [Artikel 8, tweede lid,
+van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
 
 ::: warning
-Bij de proefberekening van Dienst Toeslagen is een *tool* opgenomen
-voor het vaststellen van het toetsingsinkomen. Hier wordt met een
-flink aantal vragen een schatting gemaakt van het
+Bij de proefberekening van Dienst Toeslagen is een *tool*
+opgenomen voor het vaststellen van het toetsingsinkomen. Hier wordt
+met een flink aantal vragen een schatting gemaakt van het
 inkomensgegeven. Niet belast buitenlands inkomen wordt hier **niet**
 in uitgevraagd. Ook met de vele vragen die worden gesteld is de tool
 een toenadering van het inkomensgegeven: veel relevante
@@ -228,20 +226,19 @@ Naam
 : **ZT hoogte**
 
 Definitie
-:  (2 maal [standaardpremie](#standaardpremie)) min [normpremie](#normpremie)
+:  (2 ::maal:: [standaardpremie](#standaardpremie)) ::min:: [normpremie](#normpremie)
 
 Voorwaarde
+
 : [AWIR partner](#awir-partner) ::is waar:: \
   ::en:: \
   [normpremie](#normpremie) ::kleiner dan:: (2 ::maal:: [standaardpremie](#standaardpremie)) \
   ::en:: \
   [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
-
   
 Bron
-: [Artikel 2, eerste lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=1) \
-  [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
-
+: [Artikel 2, eerste lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=1)  
+  
 
 Brontekst
 : *Indien de normpremie voor een verzekerde in het berekeningsjaar
@@ -301,8 +298,6 @@ Brontekst
 : *[..]voor een verzekerde zonder partner op 1,896% van het
   drempelinkomen, vermeerderd met 13,700% van het toetsingsinkomen
   voor zover dat boven het drempelinkomen uitgaat*
-  
-  
   
 ## Toetsingsinkomen boven drempelinkomen
 
