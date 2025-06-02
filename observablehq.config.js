@@ -49,9 +49,9 @@ export default {
   // toc: true, // whether to show the table of contents
   // pager: true, // whether to show previous & next links in the footer
   output: "docs", // path to the output root for build
-  // search: true, // activate search
+  search: true,
   // linkify: true, // convert URLs in Markdown to links
   // typographer: false, // smart quotes and other typographic improvements
   cleanUrls: true, // drop .html from URLs
-    markdownIt: mdplug
+  markdownIt: mdplug
 };

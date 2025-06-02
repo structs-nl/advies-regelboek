@@ -7,18 +7,17 @@
 <title>Toeslagen | Proefberekening</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_import/custom-style.7bab3268.css">
+<link rel="preload" as="style" href="./_import/custom-style.c5d95faf.css">
 <link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_import/custom-style.7bab3268.css">
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.c5d95faf.css">
 <link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
 <link rel="modulepreload" href="./_observablehq/client.e51cd18b.js">
 <link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.fc5dbcd7.js">
 <link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/8d03128a.js">
 <link rel="modulepreload" href="./_observablehq/stdlib/inputs.56af3ea0.js">
-<link rel="modulepreload" href="./_import/regelboek.f735f679.js">
-<link rel="modulepreload" href="./_import/parse.92b6c366.js">
+<link rel="modulepreload" href="./_import/regelboek.0cce2678.js">
 <link rel="modulepreload" href="./_npm/htl@0.3.1/063eb405.js">
 <link rel="modulepreload" href="./_npm/isoformat@0.2.1/c68fbd73.js">
 <link rel="modulepreload" href="./_npm/d3@7.9.0/7055d4c5.js">
@@ -61,12 +60,10 @@
 
 import {define} from "./_observablehq/client.e51cd18b.js";
 
-define({id: "ccc3bdc5", outputs: ["Plot","Inputs","Regelboek","Parse","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
-const [Plot, Inputs, Regelboek, Parse] = await Promise.all([import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.56af3ea0.js"), import("./_import/regelboek.f735f679.js"), import("./_import/parse.92b6c366.js")]);
+define({id: "296a3990", outputs: ["Plot","Inputs","Regelboek","intarray","range","inkomen_van","inkomen_tot","x"], body: async () => {
+const [Plot, Inputs, Regelboek] = await Promise.all([import("./_npm/@observablehq/plot@0.6.17/8d03128a.js"), import("./_observablehq/stdlib/inputs.56af3ea0.js"), import("./_import/regelboek.0cce2678.js")]);
 
-
-
-const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)));
+const intarray = (input) =>  (input.split(" ").map((x) => parseInt(x)).filter((x) => !Number.isNaN(x)))
 
 const range = (start, stop, step) =>
   Array.from(
@@ -74,11 +71,11 @@ const range = (start, stop, step) =>
     (_, i) => start + i * step,
   );
 
-const inkomen_van = 0;
-const inkomen_tot = 50000;
-const x = range(inkomen_van, inkomen_tot, 10);
+const inkomen_van = 0
+const inkomen_tot = 50000
+const x = range(inkomen_van, inkomen_tot, 10)
 
-return {Plot,Inputs,Regelboek,Parse,intarray,range,inkomen_van,inkomen_tot,x};
+return {Plot,Inputs,Regelboek,intarray,range,inkomen_van,inkomen_tot,x};
 }});
 
 define({id: "d884b9b1", inputs: ["Inputs","Generators","inkomen_van","inkomen_tot"], outputs: ["woonplaatsInput","woonplaats","inkomenInput","inkomen","vermogenInput","vermogen","inkomenToeslagpartnerInput","inkomenToeslagpartner","vermogenToeslagPartnerInput","vermogenToeslagPartner","toeslagpartnerInput","toeslagpartner","kinderbijslagInput","kinderbijslag","kinderenInput","kinderen","leeftijdInput","leeftijd","leeftijdPartnerInput","leeftijdPartner","gezamenlijkHuishoudenInput","gezamenlijkHuishouden","woningdelerInput","woningdeler","zichtopverbeteringInput","zichtopverbetering","vermogenHuishoudenInput","vermogenHuishouden","inkomen2024Input","inkomen2023Input","inkomen2022Input","inkomen2024","inkomen2023","inkomen2022","inkomenPartner2024Input","inkomenPartner2023Input","inkomenPartner2022Input","inkomenPartner2024","inkomenPartner2023","inkomenPartner2022"], body: (Inputs,Generators,inkomen_van,inkomen_tot) => {
@@ -347,6 +344,9 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
     <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
     <li class="observablehq-link observablehq-link-active"><a href="./">Proefberekening</a></li>
   </ol>
+  <div id="observablehq-search"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.343dd412.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
   <ol>
     <li class="observablehq-link"><a href="./iit">Individuele inkomenstoeslag</a></li>
     <li class="observablehq-link"><a href="./kgb">Kindgebonden budget</a></li>
@@ -356,7 +356,7 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
 <script>{const e=document.querySelector("#observablehq-sidebar"),o=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?o.checked=r==="true":o.indeterminate=!0;for(const t of document.querySelectorAll("#observablehq-sidebar summary")){const s=t.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${t.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <div id="observablehq-center">
 <main id="observablehq-main" class="observablehq">
-<div class="observablehq observablehq--block"><!--:ccc3bdc5:--></div>
+<div class="observablehq observablehq--block"><!--:296a3990:--></div>
 <h1 id="proefberekening" tabindex="-1"><a class="observablehq-header-anchor" href="#proefberekening">Proefberekening</a></h1>
 <div class="observablehq observablehq--block"><!--:d884b9b1:--></div>
 <div class="observablehq observablehq--block"><!--:3bc4604d:--></div>
@@ -407,7 +407,7 @@ Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermog
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="next" href="./iit"><span>Individuele inkomenstoeslag</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-24T19:06:24">May 24, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-06-02T20:57:13">Jun 2, 2025</a>.</div>
 </footer>
 </div>
 </body>

@@ -1,6 +1,9 @@
-export {getGraph}
+import {instance} from "../_npm/@viz-js/viz@3.12.0/0830eea0.js";
+const viz = await instance();
 
-function getGraph() {
+export {depDiagram};
+
+function depDiagram() {
 
     const dls = document.querySelectorAll("dl");
 
@@ -45,7 +48,7 @@ function getGraph() {
     }
 
    
-    return {
+    const diagram = {
 	forcelabels: false,
 	nodeAttributes: {
 	    shape: "box",
@@ -55,6 +58,10 @@ function getGraph() {
 	nodes: nodes,
 	edges: edges
     };
+
+    const graph = viz.renderSVGElement(diagram);
+    graph.setAttribute("id", "graph");
+    return graph;
 }
 
 

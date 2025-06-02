@@ -7,31 +7,29 @@
 <title>Zorgtoeslag | Proefberekening</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="./_import/custom-style.7bab3268.css">
+<link rel="preload" as="style" href="./_import/custom-style.c5d95faf.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="./_import/custom-style.7bab3268.css">
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.c5d95faf.css">
 <link rel="modulepreload" href="./_observablehq/client.e51cd18b.js">
 <link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.fc5dbcd7.js">
-<link rel="modulepreload" href="./_import/parse.92b6c366.js">
+<link rel="modulepreload" href="./_import/dep-diagram.270e9638.js">
 <link rel="modulepreload" href="./_npm/@viz-js/viz@3.12.0/0830eea0.js">
 <script type="module">
 
 import {define} from "./_observablehq/client.e51cd18b.js";
 
-define({id: "7eba77e4", outputs: ["Parse","instance","viz"], body: async () => {
-const [Parse, {instance}] = await Promise.all([import("./_import/parse.92b6c366.js"), import("./_npm/@viz-js/viz@3.12.0/0830eea0.js")]);
-const viz = await instance();
+define({id: "813e37fc", outputs: ["depDiagram"], body: async () => {
+const {depDiagram} = await import("./_import/dep-diagram.270e9638.js");
 
-return {Parse,instance,viz};
+return {depDiagram};
 }});
 
-define({id: "3d377e7d", inputs: ["viz","Parse","display"], outputs: ["graph"], body: (viz,Parse,display) => {
-const graph = viz.renderSVGElement(Parse.getGraph())
-graph.setAttribute("id", "graph")
-display(graph);
+define({id: "6dd1b07b", inputs: ["depDiagram","display"], body: async (depDiagram,display) => {
+display(await(
+depDiagram()
 
-return {graph};
+))
 }});
 
 </script>
@@ -44,6 +42,9 @@ return {graph};
     <label id="observablehq-sidebar-close" for="observablehq-sidebar-toggle"></label>
     <li class="observablehq-link"><a href="./">Proefberekening</a></li>
   </ol>
+  <div id="observablehq-search"><input type="search" placeholder="Search"></div>
+  <div id="observablehq-search-results"></div>
+  <script>{const o=document.querySelector("#observablehq-search");o.setAttribute("data-shortcut",`${/Mac|iPhone/.test(navigator.platform)?"\u2318":"Alt-"}K`);const t=o.querySelector("input"),r=()=>import("./_observablehq/search.343dd412.js");t.addEventListener("focus",r,{once:!0}),t.addEventListener("keydown",r,{once:!0});const c=document.querySelector("#observablehq-sidebar-toggle");addEventListener("keydown",e=>{(e.code==="KeyK"&&e.metaKey&&!e.altKey&&!e.ctrlKey||e.key==="/"&&!e.metaKey&&!e.altKey&&!e.ctrlKey&&e.target===document.body)&&(c.checked?t.focus():(c.click(),t.focus(),c.click()),t.select(),e.preventDefault())});}</script>
   <ol>
     <li class="observablehq-link"><a href="./iit">Individuele inkomenstoeslag</a></li>
     <li class="observablehq-link"><a href="./kgb">Kindgebonden budget</a></li>
@@ -56,6 +57,7 @@ return {graph};
 <nav>
 <div>Contents</div>
 <ol>
+<li class="observablehq-secondary-link"><a href="#definitie-diagram">Definitie diagram</a></li>
 <li class="observablehq-secondary-link"><a href="#invoergegevens">Invoergegevens</a></li>
 <li class="observablehq-secondary-link"><a href="#awir-partner">AWIR partner</a></li>
 <li class="observablehq-secondary-link"><a href="#dezelfde-partner-tijdens-berekeningsjaar">Dezelfde partner tijdens berekeningsjaar</a></li>
@@ -74,7 +76,7 @@ return {graph};
 </nav>
 </aside>
 <main id="observablehq-main" class="observablehq">
-<div class="observablehq observablehq--block"><!--:7eba77e4:--></div>
+<div class="observablehq observablehq--block"><!--:813e37fc:--></div>
 <h1 id="zorgtoeslag" tabindex="-1"><a class="observablehq-header-anchor" href="#zorgtoeslag">Zorgtoeslag</a></h1>
 <dl>
 <dt>Geldigheidsdatum</dt>
@@ -92,7 +94,11 @@ worden gemaakt van een <strong>mogelijk recht</strong> en de <strong>hoogte</str
 <p>De analyse van de zorgtoeslag is <strong>nog
 niet</strong> gevalideerd door vakinhoudelijk experts.</p>
 </div>
-<div class="observablehq observablehq--block"><!--:3d377e7d:--></div>
+<h1 id="definitie-diagram" tabindex="-1"><a class="observablehq-header-anchor" href="#definitie-diagram">Definitie diagram</a></h1>
+<p>Onderstaand diagram geeft de namen van de definties en de
+afhankelijkheden van andere definities weer. De namen linken naar de
+relevante secties in het document.</p>
+<div class="observablehq observablehq--block"><observablehq-loading></observablehq-loading><!--:6dd1b07b:--></div>
 <h1 id="invoergegevens" tabindex="-1"><a class="observablehq-header-anchor" href="#invoergegevens">Invoergegevens</a></h1>
 <p>De volgende gegevens zijn nodig voor het berekenen van de hoogte van de ZT::</p>
 <h2 id="awir-partner" tabindex="-1"><a class="observablehq-header-anchor" href="#awir-partner">AWIR partner</a></h2>
@@ -144,12 +150,13 @@ Dit inkomensgegeven is het belastbare loon in het geval er geen aangifte
 inkomstenbelating wordt gedaan. Als er wel aangifte wordt gedaan, dan
 is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
 <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0011353&amp;hoofdstuk=2&amp;afdeling=2.5&amp;artikel=2.18&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 2.18 Wet inkomstenbelasting 2001</a>.</p>
-<p>Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in aanmerking genomen voor het toetsingsinkomen
-<a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8, tweede lid, van de Algemene wet inkomensafhankelijke regelingen</a></p>
+<p>Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in
+aanmerking genomen voor het toetsingsinkomen <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018472&amp;hoofdstuk=1&amp;paragraaf=3&amp;artikel=8&amp;z=2025-01-01&amp;g=2025-01-01" target="_blank" rel="noopener noreferrer">Artikel 8, tweede lid,
+van de Algemene wet inkomensafhankelijke regelingen</a></p>
 <div class="warning">
-<p>Bij de proefberekening van Dienst Toeslagen is een <em>tool</em> opgenomen
-voor het vaststellen van het toetsingsinkomen. Hier wordt met een
-flink aantal vragen een schatting gemaakt van het
+<p>Bij de proefberekening van Dienst Toeslagen is een <em>tool</em>
+opgenomen voor het vaststellen van het toetsingsinkomen. Hier wordt
+met een flink aantal vragen een schatting gemaakt van het
 inkomensgegeven. Niet belast buitenlands inkomen wordt hier <strong>niet</strong>
 in uitgevraagd. Ook met de vele vragen die worden gesteld is de tool
 een toenadering van het inkomensgegeven:: veel relevante
@@ -232,7 +239,7 @@ verschil.</em></dd>
 <dt>Naam</dt>
 <dd><strong>ZT hoogte</strong></dd>
 <dt>Definitie</dt>
-<dd>(2 maal <a href="#standaardpremie">standaardpremie</a>) min <a href="#normpremie">normpremie</a></dd>
+<dd>(2 <span><span>maal</span></span> <a href="#standaardpremie">standaardpremie</a>) <span><span>min</span></span> <a href="#normpremie">normpremie</a></dd>
 <dt>Voorwaarde</dt>
 <dd><a href="#awir-partner">AWIR partner</a> <span><span>is waar</span></span> <br>
 <span><span>en</span></span> <br>
@@ -240,8 +247,7 @@ verschil.</em></dd>
 <span><span>en</span></span> <br>
 <a href="#rendementsgrondslag">rendementsgrondslag</a> <span><span>kleiner dan</span></span> <a href="#rendementsgrondslag-norm">rendementsgrondslag norm</a></dd>
 <dt>Bron</dt>
-<dd><a href="http://wetten.overheid.nl/jci1.3:c:BWBR0018451&amp;artikel=2&amp;lid=1" target="_blank" rel="noopener noreferrer">Artikel 2, eerste lid, van de Wet op de zorgtoeslag</a> <br>
-<a href="http://wetten.overheid.nl/jci1.3:c:BWBR0018451&amp;artikel=3&amp;lid=1" target="_blank" rel="noopener noreferrer">Artikel 3 Wet op de zorgtoeslag</a></dd>
+<dd><a href="http://wetten.overheid.nl/jci1.3:c:BWBR0018451&amp;artikel=2&amp;lid=1" target="_blank" rel="noopener noreferrer">Artikel 2, eerste lid, van de Wet op de zorgtoeslag</a></dd>
 <dt>Brontekst</dt>
 <dd><em>Indien de normpremie voor een verzekerde in het berekeningsjaar
 minder bedraagt dan de standaardpremie in dat jaar, heeft de
@@ -363,7 +369,7 @@ voor zover dat boven het drempelinkomen uitgaat</em></dd>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./kgb"><span>Kindgebonden budget</span></a></nav>
-<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-05-24T19:06:24">May 24, 2025</a>.</div>
+<div>Built with <a href="https://observablehq.com/" target="_blank" rel="noopener noreferrer">Observable</a> on <a title="2025-06-02T20:57:13">Jun 2, 2025</a>.</div>
 </footer>
 </div>
 </body>
