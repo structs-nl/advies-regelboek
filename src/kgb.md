@@ -49,8 +49,8 @@ De volgende gegevens zijn nodig voor het berekenen van de hoogte van het KGB:
 	
 ## AWIR partner
 
-De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
-inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
+De KGB maakt gebruik van het partnerbegrip uit de Algemene wet
+inkomensafhankelijke regelingen. Voor de KGB beschouwen wij dit als
 een gegeven.
 
 Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de
