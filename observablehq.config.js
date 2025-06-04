@@ -35,6 +35,13 @@ export default {
   //   }
   // ],
 
+  pages: [
+      { name: "Zorgtoeslag", path: "/zorgtoeslag"},
+      { name: "Kindgebonden budget", path: "/kgb"},
+      { name: "Individuele inkomenstoeslag", path: "/iit"},
+      { name: "Proefberekening", path: "/berekening"},
+  ],
+
   // Content to add to the head of the page, e.g. for a favicon:
   //head: '<link rel="icon" href="observable.png" type="image/png" sizes="32x32">',
 
