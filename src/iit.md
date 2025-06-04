@@ -6,7 +6,7 @@ style: custom-style.css
 
 ---
 
-# Individuele inkomenstoeslag Amsterdam
+# Individuele inkomenstoeslag
 
 Geldigheidsdatum
 : 1 januari 2021
