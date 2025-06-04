@@ -3,7 +3,6 @@ theme: dashboard
 title: Individuele inkomenstoeslag
 toc: true
 style: custom-style.css
-
 ---
 
 # Individuele inkomenstoeslag Amsterdam
