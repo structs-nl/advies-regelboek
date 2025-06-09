@@ -2,14 +2,21 @@
 const percentage = (getal, percentage) => (getal / 100) * percentage;
 const som = (fn, arr) => arr.reduce((acc, arg) => acc + fn(arg), 0);
 
-// Cumlatief
+// Cumlatief per maand
 
-export {cumlatief}
+export {cumlatief_per_maand, cumlatief_per_maand_met_iit}
 
-const cumlatief =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
-      kgb(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
+const cumlatief_per_maand = (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
+      kgb_per_maand(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
       +
-      zorgtoeslag(partner, toetsingsinkomen, vermogen)
+      zorgtoeslag_per_maand(partner, toetsingsinkomen, vermogen)
+
+const cumlatief_per_maand_met_iit =  (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen, zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022 ) =>
+      kgb_per_maand(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen)
+      +
+      zorgtoeslag_per_maand(partner, toetsingsinkomen, vermogen)
+      +
+      iit_per_maand(zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022)
 
 
 // Generiek Toeslagen 2025
@@ -22,7 +29,7 @@ const rendementsgrondslag_norm = (partner_tijdens_berekeningsjaar) => partner_ti
 
 // KGB 2025
 
-export {kgb}
+export {kgb, kgb_per_maand}
 
 const kgb_toevoeging_geen_partner = 3389
 
@@ -32,15 +39,20 @@ const kgb_basis = (leeftijd) => (leeftijd < 18 ? 2511 : 0)
 const kgb_leeftijdafhankelijk = (leeftijd) => (leeftijd >= 12 && leeftijd < 16 ? 703 :
 					       leeftijd >= 16 && leeftijd <= 17 ? 936 : 0)
 
+const kgb_per_maand = (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
+      kgb(partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) / 12
+
 const kgb = (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, vermogen ) =>
       (
-	  (kinderbijslag == true && partner == false && toetsingsinkomen > drempelinkomen && vermogen < rendementsgrondslag_norm(partner)) ?
+	  (kinderbijslag == true && partner == false && toetsingsinkomen > drempelinkomen && vermogen < rendementsgrondslag_norm(partner))
+	  && ((som(kgb_per_kind, leeftijden_kinderen) +  kgb_toevoeging_geen_partner) - percentage(7.1, (toetsingsinkomen - drempelinkomen))) > 0 ?
 	      ((som(kgb_per_kind, leeftijden_kinderen) +  kgb_toevoeging_geen_partner) - percentage(7.1, (toetsingsinkomen - drempelinkomen)))
 	  :
 	  (kinderbijslag == true && partner == false && toetsingsinkomen <= drempelinkomen && vermogen < rendementsgrondslag_norm(partner)) ?
 	      (som(kgb_per_kind, leeftijden_kinderen) +  kgb_toevoeging_geen_partner)
 	  :
-	  (kinderbijslag == true && partner == true && toetsingsinkomen > (drempelinkomen + 9139) && vermogen < rendementsgrondslag_norm(partner)) ?
+	  (kinderbijslag == true && partner == true && toetsingsinkomen > (drempelinkomen + 9139) && vermogen < rendementsgrondslag_norm(partner))
+	  && (som(kgb_per_kind, leeftijden_kinderen) - percentage(7.1, (toetsingsinkomen - (drempelinkomen + 9139)))) > 0 ?
 	      (som(kgb_per_kind, leeftijden_kinderen) - percentage(7.1, (toetsingsinkomen - (drempelinkomen + 9139))))
 	  :
 	  (kinderbijslag == true && partner == true && toetsingsinkomen <= (drempelinkomen + 9139) && vermogen < rendementsgrondslag_norm(partner)) ?
@@ -50,7 +62,7 @@ const kgb = (partner, leeftijden_kinderen, kinderbijslag, toetsingsinkomen, verm
 
 // Zorgtoeslag 2025
 
-export {zorgtoeslag}
+export {zorgtoeslag, zorgtoeslag_per_maand}
 
 const standaardpremie = 2112;
 
@@ -60,7 +72,11 @@ const toetsingsinkomen_boven_drempelinkomen = (toetsingsinkomen) =>
 const normpremie = (partner, toetsingsinkomen) =>
       partner
       ? (percentage(drempelinkomen, 4.273) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen),13.7))
-      : (percentage(drempelinkomen, 1.896) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen),13.7));				 
+      : (percentage(drempelinkomen, 1.896) + percentage(toetsingsinkomen_boven_drempelinkomen(toetsingsinkomen),13.7));
+
+const zorgtoeslag_per_maand = (partner, toetsingsinkomen, vermogen) =>
+      zorgtoeslag(partner, toetsingsinkomen, vermogen) / 12
+
 
 const zorgtoeslag = (partner, toetsingsinkomen, vermogen) =>
       (partner == false
@@ -78,11 +94,20 @@ const zorgtoeslag = (partner, toetsingsinkomen, vermogen) =>
        ? ((2 * standaardpremie) - normpremie(partner, toetsingsinkomen))
        : 0);
 
-// IIT Amsterdam 2025
+// IIT 2025
 
-export {iit_adam}
+export {iit, iit_per_maand}
 
-const iit_adam = (zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
+const iit_per_maand = (zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
+		       inkomensgegeven_2024, inkomensgegeven_2023, inkomensgegeven_2022,
+		       inkomensgegeven_partner_2024, inkomensgegeven_partner_2023, inkomensgegeven_partner_2022) =>
+      
+      iit(zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
+	  inkomensgegeven_2024, inkomensgegeven_2023, inkomensgegeven_2022,
+	  inkomensgegeven_partner_2024, inkomensgegeven_partner_2023, inkomensgegeven_partner_2022) / 12
+      
+
+const iit = (zichtopverbetering, woonplaats, leeftijd, leeftijd_partner, vermogen, partner, woningdeler,
 		  inkomensgegeven_2024, inkomensgegeven_2023, inkomensgegeven_2022,
 		  inkomensgegeven_partner_2024, inkomensgegeven_partner_2023, inkomensgegeven_partner_2022) =>
       (

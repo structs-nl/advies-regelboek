@@ -54,7 +54,18 @@ De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
 inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.
 
-Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)). Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Een deel van het jaar belastingwet partner zijn betekent het hele jaar belastingwet partner zijn. Het AWIR partnerbegrip is breder en omvat onder andere: mensen die op hetzelfde adres ingeschreven staan en samen een kind hebben, of samen een pensioenregeling hebben, of samen een woning hebben, of het vorige jaar ook partner waren. Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen worden wel als partner voor de AWIR gezien.
+
+Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de
+belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)).
+Gehuwden, geregistreerd partners en mensen met een samenlevingscontract die op
+hetzelfde adres wonen vallen onder het belastingwet partnerbegrip. Het
+AWIR partnerbegrip is breder en omvat onder andere:
+
+- Mensen die op hetzelfde adres ingeschreven staan en 
+  - samen een kind hebben,
+  - of samen een pensioenregeling hebben,
+  - of samen een woning hebben, 
+- Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. 
 	
 ::: note
 Dienst Toeslagen heeft een aparte [tool](https://www.belastingdienst.nl/wps/wcm/connect/nl/toeslagen/content/toeslagpartner)
@@ -65,7 +76,7 @@ Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen
 
 
 ::: warning
-In <a href="https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01">artikel 2, vierde lid van de wet op de zorgtoeslag</a>
+In [artikel 2, vierde lid van de wet op de zorgtoeslag](https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01)
 wordt gesproken van de situatie waar de partner geen verzekerde
 is. Dit zou strikt genomen uit moeten worden gevraagd, bovenop de
 vraag naar de toeslagpartner.
@@ -179,7 +190,8 @@ Bron
 De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
 verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
 op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
-investeringen echter niet mee worden genomen.
+investeringen echter niet mee worden genomen. Deze vraag stellen wij
+nu niet expliciet. zoals in de proefberekening van Dienst Toeslagen.
 
 Naam
 : **Rendementsgrondslag**
@@ -257,6 +269,15 @@ Naam
 
 Standaardwaarde
 : 0
+
+## ZT Hoogte per maand
+
+Naam
+: **ZT Hoogte per maand**
+
+Definitie
+: [ZT Hoogte](#zt-hoogte) / 12
+
 
 ## Normpremie
 

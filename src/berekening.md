@@ -1,11 +1,9 @@
 ---
-
 theme: dashboard
 title: Proefberekening
 toc: false
 style: custom-style.css
 ---
-
 
 ```js
 
@@ -61,7 +59,6 @@ const leeftijd = Generators.input(leeftijdInput);
 const leeftijdPartnerInput = Inputs.range([18, 100], {step: 1, value: 20, label: "Wat is uw partner's leeftijd?"})
 const leeftijdPartner = Generators.input(leeftijdPartnerInput)
 
-
 const gezamenlijkHuishoudenInput = Inputs.toggle({label: "Heeft u een gezamenlijk huishouden?"})
 const gezamenlijkHuishouden = Generators.input(gezamenlijkHuishoudenInput)
 
@@ -81,7 +78,6 @@ const inkomen2022Input = Inputs.text({label: "Wat was uw inkomen in 2022?"})
 const inkomen2024 = Generators.input(inkomen2024Input)
 const inkomen2023 = Generators.input(inkomen2023Input)
 const inkomen2022 = Generators.input(inkomen2022Input)
-
 
 const inkomenPartner2024Input = Inputs.text({label: "Wat was uw partners inkomen in 2024?"})
 const inkomenPartner2023Input = Inputs.text({label: "Wat was uw partners inkomen in 2023?"})
@@ -103,21 +99,21 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
 
  const zorgdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.zorgtoeslag(toeslagpartner, e, vermogen),
+      "Bedrag": Regelboek.zorgtoeslag_per_maand(toeslagpartner, e, vermogen),
 	  regeling: "Zorgtoeslag"
     }
   ))
 
  const kgbdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
+      "Bedrag": Regelboek.kgb_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
 	  regeling: "KGB"
     }
  ))
  
  const cumlatiefdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.cumlatief(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
+      "Bedrag": Regelboek.cumlatief_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
 	  regeling: "Totaal"
     }
   ))
@@ -138,6 +134,7 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
 ```
 
 <div class="grid grid-cols-2" style="grid-auto-rows: auto;">
+
 
   <div class="card">
       ${woonplaatsInput}
@@ -163,31 +160,28 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
   </div>
 
   <div class="card">
-    <h2>Inkomen</h2>
+    <h2>Inkomen per maand</h2>
     ${display(lines)}
   </div>
 
-
   <div class="card grid-colspan-1" style="max-height: 100px;">
-    <h2>Individuele Inkomenstoeslag Amsterdam</h2>
-    <span class="big">€ ${Math.round(Regelboek.iit_adam(zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022))} jaar</span>
+    <h2>Individuele Inkomenstoeslag</h2>
+    <span class="big">€ ${Math.round(Regelboek.iit(zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022))},- per maand</span>
   </div>
-
     
   <div class="card grid-colspan-1"  style="max-height: 100px;">
     <h2>Totaal</h2>
-	<span class="big">€ ${Math.round(Regelboek.cumlatief(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen))},- per jaar</span>
+	<span class="big">€ ${Math.round(Regelboek.cumlatief_per_maand_met_iit (toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen, zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022))},- per maand</span>
   </div>
-
 
   <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Zorgtoeslag</h2>
-    <span class="big">€ ${Math.round(Regelboek.zorgtoeslag(toeslagpartner, inkomen, vermogen))},- per jaar</span>
+    <span class="big">€ ${Math.round(Regelboek.zorgtoeslag_per_maand(toeslagpartner, inkomen, vermogen))},- per maand</span>
   </div>
 
   <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Kindgebonden budget</h2>
-    <span class="big">€ ${Math.round(Regelboek.kgb(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen))},- per jaar</span>
+    <span class="big">€ ${Math.round(Regelboek.kgb_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen))},- per maand</span>
   </div>
 
 </div>

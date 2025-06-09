@@ -38,7 +38,6 @@ afhankelijkheden van andere definities weer. De namen linken naar de
 relevante secties in het document.
 
 ```js
-
 depDiagram()
 
 ```
@@ -64,7 +63,6 @@ AWIR partnerbegrip is breder en omvat onder andere:
   - of samen een pensioenregeling hebben,
   - of samen een woning hebben, 
   - of het vorige jaar ook partner waren.
-- Gehuwden / geregistreerd partners die niet op hetzelfde adres wonen
 - Onderhuurders, au-pais en vluchtelingen uit oekraine die ingeschreven staan op hetzelfde adres worden niet als partner gezien. 
 
 :::note
@@ -77,6 +75,18 @@ een begrip met veel overlap met het awir partnerbegrip. Dat vraagt om
 een analyse van deze verschillende begrippen om met zo weinig mogelijk
 vragen tot een zo goed mogelijk advies te komen.
 :::
+
+Naam
+: **AWIR partner**
+
+Type
+: ja / nee
+
+Geldigheidsdatum
+: 1 januari 20225
+
+Bron
+: [Artikel 3 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=2&artikel=3&z=2025-01-01&g=2025-01-01)
 
 ## Dezelfde partner tijdens berekeningsjaar
 
@@ -95,9 +105,25 @@ de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
 bepalen van de hoogte van het vermogen.
 :::
 
+## Kinderbijslag
+
+Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt
+ontvangen. Dit is de vraag of iemand kinderbijslag ontvangt.
+
+Naam
+: **Kinderbijslag**
+
+Type
+: Ja / Nee
+
+Bron
+: [Artikel 2, eerste lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)\
+  [Artikel 2, tiende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
+
+
 ## Leeftijden kinderen met kinderbijslag
 
-Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen.
+Het KGB is van toepassing voor kinderen voor wie kinderbijslag wordt ontvangen. Deze vraag is afhankelijk van 
 
 ::: warning
 
@@ -119,6 +145,9 @@ Naam
 
 Type
 : lijst met getallen
+
+Voorwaarde
+: [kinderbijslag](#kinderbijslag) ::is waar::
 
 Bron
 : [Artikel 2, eerste lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)\
@@ -197,7 +226,6 @@ Type
 Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
-
 ## Rendementsgrondslag
 
 De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
@@ -222,7 +250,6 @@ De definities met afhankelijkheden van invoergegevens en/of andere definities.
 
 ## KGB hoogte
 
-
 Naam
 : **KGB hoogte**
 
@@ -238,6 +265,11 @@ Voorwaarde
   [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen) \
   ::en:: \
   [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+  ::en:: \
+   (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
+  ::plus:: [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner) \
+  ::min::
+  (7,1 ::procent van:: ([toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)))) ::groter dan:: 0
 
 Bron
 : [Artikel 2, zevende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
@@ -266,14 +298,10 @@ Voorwaarde
   [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
 
 :::note
-
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
 maar is de complementering van de definitie in Artikel 2, zevende lid.
 Het tweede, vierde, vijfde en zesde lid zijn van toepassing zonder conditie
-op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
-om de condities niet-overlappend te maken. Gebruikt de wetgever hier
-een vorm van default redeneren, waarbij de meer specifieke regel de
-generiekere overschrijft?
+op het drempelinkomen.
 :::
 
 Naam
@@ -285,14 +313,18 @@ Definitie
   7,1 ::procent van:: \
   ([toetsingsinkomen](#toetsingsinkomen) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))
 
-
 Voorwaarde
 : [AWIR partner](#awir-partner) ::is waar:: \
   ::en:: \
   [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
   ::en:: \
   [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
-		
+ ::en:: \
+  (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
+  ::min::
+  7,1 ::procent van:: \
+  ([toetsingsinkomen](#toetsingsinkomen) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))) :: groter dan:: 0
+ 
 
 Bron
 : [Artikel 2, achtste lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
@@ -307,7 +339,6 @@ Brontekst
 
 &nbsp;
 
-
 Naam
 : **KGB hoogte**
 
@@ -321,16 +352,11 @@ Voorwaarde
   ::en:: \
   [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
   
-  
 :::note
-
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
 maar is de complementering van de definitie in Artikel 2, achtste lid.
 Het tweede, vierde en vijfde lid zijn van toepassing zonder conditie
-op het drempelinkomen. De conditie op het drempelinkomen voegen we toe
-om de condities niet-overlappend te maken. Gebruikt de wetgever hier
-een vorm van default redeneren, waarbij de meer specifieke regel de
-generiekere overschrijft?
+op het drempelinkomen.
 :::
 
 Naam
@@ -338,6 +364,15 @@ Naam
 
 Standaardwaarde
 : 0
+
+## KGB Hoogte per maand
+
+Naam
+: **KGB Hoogte per maand**
+
+Definitie
+: [KGB Hoogte per maand](#zt-hoogte-per-maand) / 12
+
 
 ## KGB per kind
 

@@ -4,6 +4,11 @@ title: Individuele inkomenstoeslag
 toc: true
 style: custom-style.css
 ---
+
+```js
+import {depDiagram} from "./dep-diagram.js"
+```
+
 # Individuele inkomenstoeslag
 
 Geldigheidsdatum
@@ -28,9 +33,9 @@ de publieke taak voor de gemeente zoals vastgesteld in
 Met deze definities en de benodigde invoergegevens kan een berekening
 worden gemaakt van een **mogelijk recht** en de **hoogte** van het IIT voor inwoners van Amsterdam.
 
-<div class="caution">
-De analyse van de IIT is <strong>nog niet</strong> gevalideerd door vakinhoudelijk experts.
-</div>
+::: caution
+De analyse van de IIT is **nog niet** gevalideerd door vakinhoudelijk experts.
+:::
 
 In de Participatiewet geeft de wetgever het college de mogelijkheid om
 een individuele inkomenstoeslag te verlenen, gezien de omstandigheden van de persoon.
@@ -43,8 +48,19 @@ Hierbij moet in ieder geval aan de volgende voorwaarden worden voldaan:
 - er in de afgelopen 12 maanden geen IIT is verleend
 
 In de verordening en de beleidsregel van Amsterdam wordt verdere invulling gegeven aan de beleidsruimte en deze voorwaarden.
-x
 &nbsp;
+
+# Definitie diagram
+
+Onderstaand diagram geeft de namen van de definties en de
+afhankelijkheden van andere definities weer. De namen linken naar de
+relevante secties in het document.
+
+```js
+
+depDiagram()
+
+```
 
 # Invoergegevens
 
@@ -59,10 +75,10 @@ kunnen worden geweken. Wij zien dit gegeven nu als een enkele
 vraag. Het volledig opnemen van de vragen lijkt wel voor de hand
 liggend.
 
-<div class="note">
+::: note
 In deze vraag nemen we ook het zicht op inkomensverbetering van een mogelijke
 partner mee. Dit kan uit worden gesplitsts.
-</div>
+:::
 
 Naam
 : Zicht op inkomstenverbetering
@@ -85,9 +101,9 @@ Type
 
 Het vermogen (bezittingen min schulden) voor de aanvrager en eventuele partner.
 
-<div class="note">
+::: note
 Wat wel en niet onder vermogen valt heeft overlap met de rendementsgrondslag van de Toeslagen. Dit dient verder te worden gespecificeerd.
-</div>
+:::
 
 Naam
 : Vermogen
@@ -98,8 +114,6 @@ Type
 Bron
 : [Artikel 34 Participatiewet](https://wetten.overheid.nl/BWBR0015703/2025-02-04/#Hoofdstuk3_Paragraaf3.4_Artikel34)
 
-
-
 ## Leeftijd partner
 
 Naam
@@ -107,7 +121,6 @@ Naam
 
 Type
 : Positief geheel getal
-
 
 ## Woonplaats
 
@@ -119,7 +132,6 @@ Type
 
 Bron
 : [Artikel 3, lid 2 van de Verordening Individuele Inkomenstoeslag Participatiewet Amsterdam  2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3)
-
 
 ## Partner
 
@@ -190,16 +202,15 @@ e) het inkomensgegeven zoals gedefinieerd in de belastingwet
 is, ook op basis van de beschrijving op de
 [website van de Gemeente Amsterdam](https://www.amsterdam.nl/werk-en-inkomen/regelingen-bij-laag-inkomen-pak-je-kans/wat-is-een-laag-inkomen-en-weinig/#majrlh061hf8zzuq764).
 
-<div class="note">
+::: note
 Dit kan veralgemeniseerd worden. Dit lijkt niet de beste manier om de inkomensgegevens uit te vragen
-</div>
+:::
 
 Bron
 : [Artikel 1, onderdeel c, d en e van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](http://lokaleregelgeving.overheid.nl/CVDR460812/3)\
   [Artikel 4, lid 1 van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](http://lokaleregelgeving.overheid.nl/CVDR460812/3)\
   [Artikel 21, onderdeel e van de Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/BWBR0002320/2025-01-01/#HoofdstukIVA_Artikel21)
   
-    
 ## Inkomensgegeven 2023
 
 Naam
@@ -229,12 +240,14 @@ hier van toepassing.  Het inkomen van de partner telt mee. Zoals
 hierboven beschreven: partner geven we weer als gezamenlijk
 huishouden.
 
-<div class="warning"> Als er niet tijdens de gehele referteperiode een
+::: warning
+Als er niet tijdens de gehele referteperiode een
 gezamenlijke huishouding wordt gevoerd, dan geeft het college een
 redelijke invulling op het vermogen, inkomen en het zicht op
 inkomensverbetering. Deze redelijke invulling nemen wij op dit moment
 niet mee, omdat deze op dit moment ons niet bekend is. Het is wel van
-belang dit nog mee te nemen.  </div>
+belang dit nog mee te nemen.
+:::
 
 Bron
 : [Artikel 2 van de Beleidsregels Individuele Inkomenstoeslag Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR656509/2)
@@ -260,43 +273,53 @@ Type
 
 &nbsp;
 
-## Hoogte IIT
+
+##  IIT Hoogte
 
 Naam
-: Hoogte IIT
+: IIT Hoogte
 
 Definitie
 : [IIT bedrag](#iit-bedrag)
 
 Voorwaarde
-: [Woonplaats](#woonplaats) is "Amsterdam" \
-  en \
-  [Zicht op inkomstenverbetering](#zicht-op-inkomstenverbetering) is onwaar \
-  en \
-  [Vermogen](#vermogen) kleiner dan [Vermogensgrens](#vermogensgrens) \
-  en \
-  [Leeftijd](#leeftijd) groter of gelijk aan 21 \
-  en \
-  [Leeftijd](#leeftijd) kleiner dan [AOW leeftijd](#aow-leeftijd) \
-  en \
-  ([Partner](#partner) is onwaar of [Leeftijd partner](#leeftijd-partner) groter of gelijk aan 21) \
-  en \
-  ([Partner](#partner) is onwaar of [Leeftijd partner](#leeftijd-partner) kleiner dan [AOW leeftijd](#aow-leeftijd)) \
-  en \
-  [Inkomensgegeven 2024](#inkomensgegeven-2024) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen) \
-  en \
-  [Inkomensgegeven 2023](#inkomensgegeven-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen) \
-  en \
-  [Inkomensgegeven 2022](#inkomensgegeven-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen) \
-  en \
-  ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2024](#inkomensgegeven-partner-2024) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen)) \
-  en \
-  ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen)) \
-  en \
-  ([Partner](#partner) is onwaar of [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) kleiner dan of gelijk aan [Norm laag inkomen](#norm-laag-inkomen))
+: [Woonplaats](#woonplaats) ::is:: "Amsterdam" \
+  ::en:: \
+  [Zicht op inkomstenverbetering](#zicht-op-inkomstenverbetering) ::is onwaar:: \
+  ::en:: \
+  [Vermogen](#vermogen) ::kleiner dan:: [Vermogensgrens](#vermogensgrens) \
+  ::en:: \
+  [Leeftijd](#leeftijd) ::groter of gelijk aan:: 21 \
+  ::en:: \
+  [Leeftijd](#leeftijd) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd) \
+  ::en:: \
+  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::groter of gelijk aan:: 21) \
+  ::en:: \
+  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd)) \
+  ::en:: \
+  [Inkomensgegeven 2024](#inkomensgegeven-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ::en:: \
+  [Inkomensgegeven 2023](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ::en:: \
+  [Inkomensgegeven 2022](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ::en:: \
+  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2024](#inkomensgegeven-partner-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
+  ::en:: \
+  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
+  ::en:: \
+  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen))
 
 Standaardwaarde
 : 0
+
+## IIT Hoogte  per maand
+
+Naam
+:  IIT Hoogte per maand
+
+Definitie:
+: [IIT Hoogte](#iit-hoogte) / 12
+
 
 ## Norm laag inkomen
 
@@ -304,7 +327,7 @@ Naam
 : Norm laag inkomen
 
 Definitie
-: 120 procent van [IAOW norm](#iaow-norm)
+: 120 ::procent van:: [IAOW norm](#iaow-norm)
 
 Bron
 : [Artikel 1, onderdeel c van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](http://lokaleregelgeving.overheid.nl/CVDR460812/3)
@@ -318,9 +341,9 @@ Definitie
 : 1.697,32
 
 Voorwaarde
-: [Partner](#partner) is onwaar \
-  en \
-  [Woningdeler](#woningdeler) is onwaar
+: [Partner](#partner) ::is onwaar:: \
+  ::en:: \
+  [Woningdeler](#woningdeler) ::is onwaar::
   
 &nbsp;
 
@@ -331,7 +354,7 @@ Definitie
 : 2.194,30
 
 Voorwaarde
-: [Partner](#partner) is waar
+: [Partner](#partner) ::is waar::
 
 &nbsp;
 
@@ -342,9 +365,9 @@ Definitie
 : 1097,15
 
 Voorwaarde
-: [Partner](#partner) is onwaar \
-  en \
-  [Woningdeler](#woningdeler) is waar
+: [Partner](#partner) ::is onwaar:: \
+  ::en:: \
+  [Woningdeler](#woningdeler) ::is waar::
 
 &nbsp;
 
@@ -361,7 +384,17 @@ Definitie
 : 85
 
 Voorwaarde
-: [Partner](#partner) is onwaar
+: [Partner](#partner) ::is onwaar::
+
+Toelichting:
+: In de toelichting op artikel 5 wordt het bedrag van 85,- per persoon
+  genoemd. In het artikel wordt een minimumbedrag van 85,- genoemd. In
+  de toelichting wordt enkel het bedrag genoemd. Wij gaan hier uit van
+  de toelichting op het artikel.
+
+Bron
+: [Artikel 5 van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3)
+
 
 &nbsp;
 
@@ -372,7 +405,15 @@ Definitie
 : 170
 
 Voorwaarde
-: [Partner](#partner) is waar
+: [Partner](#partner) ::is waar::
+
+
+Toelichting:
+: In de toelichting op artikel 5 wordt het bedrag van 85,- per persoon
+  genoemd. Indien de aanvrager en partner beide in aanmerking komen
+  krijgt men 2 keer 85 = 170. I  # n het artikel wordt een
+  minimumbedrag van 85,- genoemd. In de toelichting wordt enkel het
+  bedrag genoemd. Wij gaan hier uit van de toelichting op het artikel.
 
 &nbsp;
 
@@ -403,7 +444,7 @@ Definitie
 : 7700
 
 Voorwaarde
-: [Partner](#partner) is onwaar
+: [Partner](#partner) ::is onwaar::
 
 &nbsp;
 
@@ -414,7 +455,7 @@ Definitie
 : 15540
 
 Voorwaarde
-: [Partner](#partner) is waar
+: [Partner](#partner) ::is waar::
 
 &nbsp;
 
