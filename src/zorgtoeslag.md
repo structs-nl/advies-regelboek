@@ -5,7 +5,6 @@ toc: true
 style: custom-style.css
 ---
 
-
 ```js
 import {depDiagram} from "./dep-diagram.js"
 ```
@@ -47,13 +46,20 @@ depDiagram()
 # Invoergegevens
 
 De volgende gegevens zijn nodig voor het berekenen van de hoogte van de ZT:
+
+## Zorgverzekering
+
+Type
+: ja / nee
+
+Bron
+: [Artikel 1, eerste lid, onderdeel c  van de wet op de zorgtoeslag](https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01)
 	
 ## AWIR partner
 
 De ZT maakt gebruik van het partnerbegrip uit de Algemene wet
 inkomensafhankelijke regelingen. Voor de ZT beschouwen wij dit als
 een gegeven.
-
 
 Het AWIR partnerbegrip is gebaseerd op het parnerbegrip uit de
 belastingwet ([Artikel 5a Algemene wet inzake rijksbelastingen](https://wetten.overheid.nl/jci1.3:c:BWBR0002320&hoofdstuk=I&artikel=5a&z=2025-01-01&g=2025-01-01)).
@@ -74,14 +80,6 @@ voor het vaststellen van het partnerbegrip. Boven de tool worden enkele uitzonde
 Voor een integrale proefberekening is deze tool niet afdoende. Andere regelingen gebruiken andere partnerbegrippen. De IIT van Amsterdam gebruikt bijvoorbeeld het begrip gezamenlijk huishouden, een begrip met veel overlap met het awir partnerbegrip. Wij hebben in de huidige versie nog geen analyse gemaakt van deze condities.
 :::
 
-
-::: warning
-In [artikel 2, vierde lid van de wet op de zorgtoeslag](https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01)
-wordt gesproken van de situatie waar de partner geen verzekerde
-is. Dit zou strikt genomen uit moeten worden gevraagd, bovenop de
-vraag naar de toeslagpartner.
-:::
-
 Naam
 : **AWIR partner**
 
@@ -95,6 +93,20 @@ Bron
 : [Artikel 3 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=2&artikel=3&z=2025-01-01&g=2025-01-01)
 
 
+## Partner heeft zorgverzekering
+
+Naam
+: **Partner heeft zorgverzekering**
+
+Type
+: ja / nee
+
+Voorwaarde
+: [AWIR partner](#awir-partner) ::is waar::
+
+Bron
+: [Artikel 2, vierde lid van de wet op de zorgtoeslag](https://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&z=2025-01-01&g=2025-01-01)
+
 ## Dezelfde partner tijdens berekeningsjaar
 
 Naam
@@ -103,16 +115,17 @@ Naam
 Type
 : ja / nee
 
-Bron
-: [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
+Voorwaarde
+: [AWIR partner](#awir-partner) ::is waar::
 
+Bron
+: [Artikel 3 eerste lid Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
 
 ::: warning
 In de proefberekening van Dienst Toeslagen wordt **niet** gevraagd of
 de aanvrager het hele berekeningsjaar dezelfde partner heeft voor het
 bepalen van de hoogte van het vermogen.
 :::
-
 
 ## Toetsingsinkomen
 
@@ -125,11 +138,9 @@ inkomstenbelating wordt gedaan. Als er wel aangifte wordt gedaan, dan
 is het inkomensgegeven het verzamelinkomen, zoals gedefinieerd in
 [Artikel 2.18 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=2&afdeling=2.5&artikel=2.18&z=2025-01-01&g=2025-01-01).
 
-
 Buitenlands inkomen dat niet in Nederland wordt belast wordt ook in
 aanmerking genomen voor het toetsingsinkomen [Artikel 8, tweede lid,
 van de Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
-
 
 ::: warning
 Bij de proefberekening van Dienst Toeslagen is een *tool*
@@ -156,7 +167,6 @@ Type
 Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
 
-
 ## Toetsingsinkomen partner
 
 Het toetsingsinkomen partner wordt op dezelfde wijze vastgesteld als
@@ -174,16 +184,17 @@ minimaal 10% zorgt. Dit op verzoek van de belanghebbende. Dit wordt
 niet meegenomen in de proefberekening van Dienst Toeslagen.
 :::
 
-
 Naam
 : **Toetsingsinkomen partner**
 
 Type
 : Bedrag
 
+Voorwaarde
+: [AWIR partner](#awir-partner) ::is waar::
+
 Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
-
 
 ## Rendementsgrondslag
 
@@ -195,6 +206,26 @@ nu niet expliciet. zoals in de proefberekening van Dienst Toeslagen.
 
 Naam
 : **Rendementsgrondslag**
+
+Type
+: Bedrag
+
+Bron
+: [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)\
+  [Artikel 5.3 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.1&artikel=5.3&z=2025-03-15&g=2025-03-15)\
+  [Artikel 5.13 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.3&artikel=5.13&z=2025-03-15&g=2025-03-15)
+  
+  
+## Rendementsgrondslag partner
+
+De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
+verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
+op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
+investeringen echter niet mee worden genomen. Deze vraag stellen wij
+nu niet expliciet. zoals in de proefberekening van Dienst Toeslagen.
+
+Naam
+: **Rendementsgrondslag partner**
 
 Type
 : Bedrag
@@ -218,11 +249,14 @@ Definitie
 : [standaardpremie](#standaardpremie) ::min:: [normpremie](#normpremie)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is onwaar:: \
+
+: [zorgverzekering](#zorgverzekering) ::is waar:: \
+  ::en:: \
+  [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is onwaar:: \
   ::en:: \
   [normpremie](#normpremie) ::kleiner dan:: [standaardpremie](#standaardpremie) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som)  ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
   
 Bron
 : [Artikel 2, eerste lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=1)
@@ -243,11 +277,13 @@ Definitie
 
 Voorwaarde
 
-: [AWIR partner](#awir-partner) ::is waar:: \
+: [zorgverzekering](#zorgverzekering) ::is waar:: \
+  ::en:: \
+  [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is waar:: \
   ::en:: \
   [normpremie](#normpremie) ::kleiner dan:: (2 ::maal:: [standaardpremie](#standaardpremie)) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som) ::kleiner dan:: [rendementsgrondslag norm](#rendementsgrondslag-norm)
   
 Bron
 : [Artikel 2, eerste lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=1)  
@@ -290,7 +326,7 @@ Definitie
   13,7 ::procent van:: [toetsingsinkomen boven drempelinkomen](#toetsingsinkomen-boven-drempelinkomen) 
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is waar::
+: [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is waar::
 
 Bron
 : [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)
@@ -311,7 +347,7 @@ Definitie
   13,7 ::procent van:: [toetsingsinkomen boven drempelinkomen](#toetsingsinkomen-boven-drempelinkomen)
   
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is onwaar::
+: [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is onwaar::
 
 Bron
 : [Artikel 2, derde lid, van de Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=2&lid=3)
@@ -330,7 +366,25 @@ Definitie
 : [toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)
 
 Voorwaarde
-: [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen)
+: [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is onwaar:: \
+  ::en:: \
+  [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen)
+
+
+&nbsp;
+
+Naam
+: **Toetsingsinkomen boven drempelinkomen**
+
+Definitie
+: ([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner)) ::min:: [drempelinkomen](#drempelinkomen)
+
+Voorwaarde
+: [partner heeft zorgverzekering](#partner-heeft-zorgverzekering) ::is waar:: \
+  ::en:: \
+  ([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner)) ::groter dan:: [drempelinkomen](#drempelinkomen)
+
+&nbsp;
 
 Standaardwaarde
 : 0
@@ -355,6 +409,38 @@ Geldigheidsdatum
 
 Bron
 : [Artikel 1 Regeling vaststelling standaardpremie en bestuursrechtelijke premies 2025](https://wetten.overheid.nl/jci1.3:c:BWBR0050536&artikel=1&z=2025-01-01&g=2025-01-01)
+
+
+
+## Rendementsgrondslag som
+
+Naam
+: **Rendementsgrondslag som**
+
+Definitie
+: [rendementsgrondslag](#rendementsgrondslag)
+
+Voorwaarde
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is niet waar::
+
+Bron
+: [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
+
+&nbsp;
+
+Naam
+: **Rendementsgrondslag som**
+
+Definitie
+: [rendementsgrondslag](#rendementsgrondslag) ::plus::  [rendementsgrondslag partner](#rendementsgrondslag-partner)
+
+Voorwaarde
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is waar::
+
+Bron
+: [Artikel 3 Wet op de zorgtoeslag](http://wetten.overheid.nl/jci1.3:c:BWBR0018451&artikel=3&lid=1)
+
+
 
 
 ## Rendementsgrondslag norm

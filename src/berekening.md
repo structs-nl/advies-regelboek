@@ -47,6 +47,15 @@ const vermogenToeslagPartner = Generators.input(vermogenToeslagPartnerInput);
 const toeslagpartnerInput = Inputs.toggle({label: "Heeft u een toeslagpartner?"})
 const toeslagpartner = Generators.input(toeslagpartnerInput)
 
+const zorgverzekeringInput = Inputs.toggle({label: "Betaalt u zorgverzekeringspremie?"})
+const zorgverzekering = Generators.input(zorgverzekeringInput)
+
+const partnerZorgverzekeringInput = Inputs.toggle({label: "Betaalt uw partner zorgverzekeringspremie?"})
+const partnerZorgverzekering = Generators.input(partnerZorgverzekeringInput)
+
+const helejaarPartnerInput = Inputs.toggle({label: "Heeft u het hele berekeningsjaar dezelfde partner?"})
+const helejaarPartner = Generators.input(helejaarPartnerInput)
+
 const kinderbijslagInput = Inputs.toggle({label: "Ontvangt u kinderbijslag?"})
 const kinderbijslag = Generators.input(kinderbijslagInput)
 
@@ -94,30 +103,26 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
  // TODO standaardwaarde kinderen
  // TODO hogere waarden dan toegestaan?
 
- 
- const vermogenTotaal = (vermogen, toeslagpartner, vermogenPartner) => vermogen + (toeslagpartner ? vermogenPartner : 0)
-
  const zorgdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.zorgtoeslag_per_maand(toeslagpartner, e, vermogen),
+      "Bedrag": Regelboek.zorgtoeslag_per_maand(zorgverzekering, partnerZorgverzekering, helejaarPartner, e,inkomenToeslagpartner, vermogen,vermogenToeslagPartner),
 	  regeling: "Zorgtoeslag"
-    }
-  ))
-
- const kgbdata =  x.map((e,i) => (
-    { "Inkomen": e,
-      "Bedrag": Regelboek.kgb_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
-	  regeling: "KGB"
     }
  ))
  
+ const kgbdata =  x.map((e,i) => (
+    { "Inkomen": e,
+      "Bedrag": Regelboek.kgb_per_maand(toeslagpartner, helejaarPartner, intarray(kinderen), kinderbijslag, e,inkomenToeslagpartner, vermogen,vermogenToeslagPartner),
+	  regeling: "KGB"
+    }
+ )) 
  const cumlatiefdata =  x.map((e,i) => (
     { "Inkomen": e,
-      "Bedrag": Regelboek.cumlatief_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, e, vermogen),
+      "Bedrag": Regelboek.cumlatief_per_maand(zorgverzekering, partnerZorgverzekering,toeslagpartner,helejaarPartner, intarray(kinderen), kinderbijslag, e,inkomenToeslagpartner, vermogen,vermogenToeslagPartner),
 	  regeling: "Totaal"
     }
   ))
-
+ 
  const lines = Plot.plot({
 	 color: {
 		 legend: true,
@@ -135,13 +140,15 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
 
 <div class="grid grid-cols-2" style="grid-auto-rows: auto;">
 
-
   <div class="card">
       ${woonplaatsInput}
 	  ${leeftijdInput}
       ${inkomenInput}
       ${vermogenInput}
+	  ${zorgverzekeringInput}
       ${toeslagpartnerInput}
+      ${toeslagpartner ? helejaarPartnerInput: ''}	  
+      ${toeslagpartner ? partnerZorgverzekeringInput: ''}
       ${toeslagpartner ? inkomenToeslagpartnerInput: ''}
       ${toeslagpartner ? vermogenToeslagPartnerInput: ''}
       ${kinderbijslagInput}
@@ -158,9 +165,9 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
 	  ${woonplaats == "Amsterdam" ? zichtopverbeteringInput : ''}
 	  ${woonplaats == "Amsterdam" ? vermogenHuishoudenInput : ''}
   </div>
-
+  
+  
   <div class="card">
-    <h2>Inkomen per maand</h2>
     ${display(lines)}
   </div>
 
@@ -171,17 +178,17 @@ const inkomenPartner2022 = Generators.input(inkomenPartner2022Input)
     
   <div class="card grid-colspan-1"  style="max-height: 100px;">
     <h2>Totaal</h2>
-	<span class="big">€ ${Math.round(Regelboek.cumlatief_per_maand_met_iit (toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen, zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022))},- per maand</span>
+	<span class="big">€ ${Math.round(Regelboek.cumlatief_per_maand_met_iit (zorgverzekering, partnerZorgverzekering,toeslagpartner,helejaarPartner, intarray(kinderen), kinderbijslag, inkomen,inkomenToeslagpartner, vermogen,vermogenToeslagPartner, zichtopverbetering, woonplaats, leeftijd, leeftijdPartner, vermogenHuishouden, gezamenlijkHuishouden, woningdeler, inkomen2024, inkomen2023, inkomen2022, inkomenPartner2024, inkomenPartner2023, inkomenPartner2022))},- per maand</span>
   </div>
 
   <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Zorgtoeslag</h2>
-    <span class="big">€ ${Math.round(Regelboek.zorgtoeslag_per_maand(toeslagpartner, inkomen, vermogen))},- per maand</span>
+    <span class="big">€ ${Math.round(Regelboek.zorgtoeslag_per_maand(zorgverzekering, partnerZorgverzekering, helejaarPartner, inkomen,inkomenToeslagpartner, vermogen, vermogenToeslagPartner))},- per maand</span>
   </div>
 
   <div class="card grid-colspan-1" style="max-height: 100px;">
     <h2>Kindgebonden budget</h2>
-    <span class="big">€ ${Math.round(Regelboek.kgb_per_maand(toeslagpartner, intarray(kinderen), kinderbijslag, inkomen, vermogen))},- per maand</span>
+	    <span class="big">€ ${Math.round(Regelboek.kgb_per_maand(toeslagpartner, helejaarPartner, intarray(kinderen), kinderbijslag, inkomen,inkomenToeslagpartner, vermogen, vermogenToeslagPartner))},- per maand</span>
   </div>
 
 </div>

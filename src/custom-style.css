@@ -38,6 +38,11 @@ aside.sidenote {
     margin-top: 0.3rem;
     margin-bottom: 0;
     position: relative;
+    margin-right: -60%;
+    width: 50%;
+    vertical-align: baseline;
+    position: relative;
+    
 }
 
 

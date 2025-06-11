@@ -96,6 +96,9 @@ Naam
 Type
 : ja / nee
 
+Voorwaarde
+: [AWIR partner](#awir-partner) ::is waar::
+
 Bron
 : [Artikel 1, vierde lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
 
@@ -132,11 +135,7 @@ ontvangt heeft recht op KGB. Dit is relevant voor gescheiden ouders.
 :::
 
 ::: note
-
-Wij maken voor de berekening nu gebruik van
-leeftijden, waarbij we veronderstellen dat de aanvragende ouder
-kinderbijslag ontvangt. Dit moet expliciet worden uitgevraagd.  De
-berekening moet worden gedaan op geboortedatums: er is recht op KGB na
+De berekening moet worden gedaan op geboortedatums: er is recht op KGB na
 de maand na geboorte tot en met de maand van 18 worden.
 :::
 
@@ -207,7 +206,7 @@ opmerkingen die relevant zijn voor het toetsingsinkomen zijn ook voor
 het toetsingsinkomen partner van toepassing.
 
 :::warning
-
+ 
 In lid 3 en 4 van artikel 8 wordt de mogelijkheid gegeven om het
 inkomen van de partner of medebewoner na beeindiging van het partner-
 of medebewonerschap niet mee te tellen voor het toetsingsinkomen als
@@ -222,6 +221,9 @@ Naam
 
 Type
 : Bedrag
+
+Voorwaarde
+: [AWIR partner](#awir-partner) ::is waar::
 
 Bron
 : [Artikel 8 Algemene wet inkomensafhankelijke regelingen](https://wetten.overheid.nl/jci1.3:c:BWBR0018472&hoofdstuk=1&paragraaf=3&artikel=8&z=2025-01-01&g=2025-01-01)
@@ -243,6 +245,26 @@ Bron
 : [Artikel 1, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)\
   [Artikel 5.3 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.1&artikel=5.3&z=2025-03-15&g=2025-03-15)\
   [Artikel 5.13 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.3&artikel=5.13&z=2025-03-15&g=2025-03-15)
+  
+  
+  
+## Rendementsgrondslag partner
+
+De rendementsgrondslag (het vermogen) is de waarde van de bezittingen
+verminderd met de waarde van de schulden, zoals gedefinierd in de Wet
+op de inkomstenbelasting. Daarbij mag de aftrekpost op groene
+investeringen echter niet mee worden genomen.
+
+Naam
+: **rendementsgrondslag partner**
+
+Type
+: Bedrag
+
+Bron
+: [Artikel 1, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)\
+  [Artikel 5.3 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.1&artikel=5.3&z=2025-03-15&g=2025-03-15)\
+  [Artikel 5.13 Wet inkomstenbelasting 2001](https://wetten.overheid.nl/jci1.3:c:BWBR0011353&hoofdstuk=5&afdeling=5.3&artikel=5.13&z=2025-03-15&g=2025-03-15)
 
 # Definities
 
@@ -254,22 +276,25 @@ Naam
 : **KGB hoogte**
 
 Definitie
-: (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
+: (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
   ::plus:: [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)) \
-  ::min::
+  ::min::\
   (7,1 ::procent van:: ([toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)))
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is onwaar:: \
+: [kinderbijslag](#kinderbijslag) ::is waar:: \
+  ::en::\
+  [AWIR partner](#awir-partner) ::is onwaar:: \
   ::en:: \
   [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: [drempelinkomen](#drempelinkomen) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm) \
   ::en:: \
-   (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
-  ::plus:: [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner) \
-  ::min::
-  (7,1 ::procent van:: ([toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)))) ::groter dan:: 0
+   ((::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
+  ::plus:: [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)) \
+  ::min:: \
+  (7,1 ::procent van:: ([toetsingsinkomen](#toetsingsinkomen) ::min:: [drempelinkomen](#drempelinkomen)))) \
+  ::groter dan:: 0
 
 Bron
 : [Artikel 2, zevende lid van de  Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
@@ -287,15 +312,17 @@ Naam
 : **KGB hoogte**
 
 Definitie
-: ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)\
+: ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
   ::plus::  [KGB toevoeging geen partner](#kgb-toevoeging-geen-partner)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is onwaar:: \
+: [kinderbijslag](#kinderbijslag) ::is waar:: \
+  ::en::\
+  [AWIR partner](#awir-partner) ::is onwaar:: \
   ::en:: \
   [toetsingsinkomen](#toetsingsinkomen) ::kleiner of gelijk aan:: [drempelinkomen](#drempelinkomen) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
 
 :::note
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
@@ -309,21 +336,23 @@ Naam
 
 Definitie
 : ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
-  ::min::
+  ::min:: \
   7,1 ::procent van:: \
-  ([toetsingsinkomen](#toetsingsinkomen) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))
+  (([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner)) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is waar:: \
+: [kinderbijslag](#kinderbijslag) ::is waar:: \
+  ::en::\
+  [AWIR partner](#awir-partner) ::is waar:: \
   ::en:: \
-  [toetsingsinkomen](#toetsingsinkomen) ::groter dan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
+  ([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner)) ::groter dan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm) \
  ::en:: \
   (::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag) \
-  ::min::
+  ::min:: \
   7,1 ::procent van:: \
-  ([toetsingsinkomen](#toetsingsinkomen) ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))) :: groter dan:: 0
+  ( ([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner))  ::min:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ))) ::groter dan:: 0
  
 
 Bron
@@ -346,11 +375,13 @@ Definitie
 : ::De som van:: [KGB per kind](#kgb-per-kind) ::voor:: [leeftijden kinderen met kinderbijslag](#leeftijden-kinderen-met-kinderbijslag)
 
 Voorwaarde
-: [AWIR partner](#awir-partner) ::is waar:: \
+: [kinderbijslag](#kinderbijslag) ::is waar:: \
+  ::en::\
+  [AWIR partner](#awir-partner) ::is waar:: \
   ::en:: \
-   [toetsingsinkomen](#toetsingsinkomen) ::kleiner of gelijk aan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
+  ([toetsingsinkomen](#toetsingsinkomen) ::plus:: [toetsingsinkomen partner](#toetsingsinkomen-partner)) ::kleiner of gelijk aan:: ([drempelinkomen](#drempelinkomen) ::plus:: 9139 ) \
   ::en:: \
-  [rendementsgrondslag](#rendementsgrondslag) ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
+  [rendementsgrondslag som](#rendementsgrondslag-som)  ::kleiner dan:: [rendementsgrondslag-norm](#rendementsgrondslag-norm)
   
 :::note
 De conditie op het drempelinkomen volgt niet lettelijk uit de tekst,
@@ -371,7 +402,7 @@ Naam
 : **KGB Hoogte per maand**
 
 Definitie
-: [KGB Hoogte per maand](#zt-hoogte-per-maand) / 12
+: [KGB Hoogte](#zt-hoogte) / 12
 
 
 ## KGB per kind
@@ -455,6 +486,36 @@ Standaardwaarde
 
 Bron
 : [Artikel 2, zesde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=2&z=2025-01-01&g=2025-01-01)
+
+
+
+## Rendementsgrondslag som
+
+Naam
+: **Rendementsgrondslag som**
+
+Definitie
+: [rendementsgrondslag](#rendementsgrondslag)
+
+Voorwaarde
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is niet waar::
+
+
+&nbsp;
+
+Naam
+: **Rendementsgrondslag som**
+
+Definitie
+: [rendementsgrondslag](#rendementsgrondslag) ::plus::  [rendementsgrondslag partner](#rendementsgrondslag-partner)
+
+Voorwaarde
+: [dezelfde partner tijdens berekeningsjaar](#dezelfde-partner-tijdens-berekeningsjaar) ::is waar::
+
+&nbsp;
+
+Bron
+: [Artikel 1, vierde lid van de Wet op het kindgebonden budget](https://wetten.overheid.nl/jci1.3:c:BWBR0022751&artikel=1&z=2025-01-01&g=2025-01-01)
 
 ## Rendementsgrondslag norm
 
