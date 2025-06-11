@@ -81,7 +81,7 @@ dd {
     content: "Let op"
 }
 
-span {
+dd span {
   color: var(--theme-red);
 }    
 
