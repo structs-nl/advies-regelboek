@@ -40,9 +40,8 @@ kunnen verschillende situaties ("cases") worden onderscheiden. Deze
 manier van schrijven probeert zo leesbaar mogelijk te zijn en heeft
 daarnaast generieke content beheer toepassingen in het achterhoofd. De
 operatoren gebruiken we op een liberale wijze: de expressies kunnen op
-verschillende manieren worden geschreven. **kleiner dan** of **<** is
-beide valide. Wij zullen in een later stadium deze "syntax" uitvoerig
-beschrijven.
+verschillende manieren worden geschreven. Wij zullen in een later
+stadium deze "syntax" uitvoerig beschrijven.
 
 De proefberekening laat zien dat de technische implementatie vanuit de
 conceptuele analyse niet ingewikkeld is. Dit is niet bedoeld als een
