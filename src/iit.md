@@ -81,7 +81,7 @@ partner mee. Dit kan uit worden gesplitsts.
 :::
 
 Naam
-: Zicht op inkomstenverbetering
+: **Zicht op inkomstenverbetering**
 
 Type
 : Ja / Nee
@@ -92,7 +92,7 @@ Bron
 ## Leeftijd
 
 Naam
-: Leeftijd
+: **Leeftijd**
 
 Type
 : Positief geheel getal
@@ -106,7 +106,7 @@ Wat wel en niet onder vermogen valt heeft overlap met de rendementsgrondslag van
 :::
 
 Naam
-: Vermogen
+: **Vermogen**
 
 Type
 : Bedrag
@@ -117,7 +117,7 @@ Bron
 ## Leeftijd partner
 
 Naam
-: Leeftijd partner
+: **Leeftijd partner**
 
 Type
 : Positief geheel getal
@@ -125,7 +125,7 @@ Type
 ## Woonplaats
 
 Naam
-: Woonplaats
+: **Woonplaats**
 
 Type
 : String
@@ -143,7 +143,7 @@ ieder geval de volgende situaties onder vallen:
 - Samenlevingscontract
 - gescheiden, maar op hetzelfde adres
 
-Het begrip gezamenlijke huishouding uit de IAOW wordt ook gebruik 
+Het begrip gezamenlijke huishouding uit de IOAW wordt ook gebruik 
 voor de definitie van het laag inkomen. Daar wordt met echtgenoot
 ook gezamenlijk huishouden bedoeld.
 
@@ -152,7 +152,7 @@ gezamenlijk huishouden hanteert en dat de beleidsregel met de open
 norm prevaleert.
 
 Naam
-: Partner
+: **Partner**
 
 Type
 : Ja / Nee
@@ -166,7 +166,7 @@ Bron
 ## Woningdeler
 
 Naam
-: Woningdeler
+: **Woningdeler**
 
 Type
 : Ja / Nee
@@ -187,7 +187,7 @@ Bron
 ## Inkomensgegeven 2024
 
 Naam
-: Inkomensgegeven 2024
+: **Inkomensgegeven 2024**
 
 Type
 : Bedrag
@@ -214,7 +214,7 @@ Bron
 ## Inkomensgegeven 2023
 
 Naam
-: Inkomensgegeven 2023
+: **Inkomensgegeven 2023**
 
 Type
 : Bedrag
@@ -222,7 +222,7 @@ Type
 ## Inkomensgegeven 2022
 
 Naam
-: Inkomensgegeven 2022
+: **Inkomensgegeven 2022**
 
 Type
 : Bedrag
@@ -230,7 +230,7 @@ Type
 ## Inkomensgegeven partner 2024
 
 Naam
-: Inkomensgegeven partner 2024
+: **Inkomensgegeven partner 2024**
 
 Type
 : Bedrag
@@ -256,7 +256,7 @@ Bron
 ## Inkomensgegeven partner 2023
 
 Naam
-: Inkomensgegeven partner 2023
+: **Inkomensgegeven partner 2023**
 
 Type
 : Bedrag
@@ -264,7 +264,7 @@ Type
 ## Inkomensgegeven partner 2022
 
 Naam
-: Inkomensgegeven partner 2022
+: **Inkomensgegeven partner 2022**
 
 Type
 : Bedrag
@@ -273,11 +273,10 @@ Type
 
 &nbsp;
 
-
 ##  IIT Hoogte
 
 Naam
-: IIT Hoogte
+: **IIT Hoogte**
 
 Definitie
 : [IIT bedrag](#iit-bedrag)
@@ -315,7 +314,7 @@ Standaardwaarde
 ## IIT Hoogte  per maand
 
 Naam
-:  IIT Hoogte per maand
+:  **IIT Hoogte per maand**
 
 Definitie:
 : [IIT Hoogte](#iit-hoogte) / 12
@@ -324,18 +323,18 @@ Definitie:
 ## Norm laag inkomen
 
 Naam
-: Norm laag inkomen
+: **Norm laag inkomen**
 
 Definitie
-: 120 ::procent van:: [IAOW norm](#iaow-norm)
+: 120 ::procent van:: [IOAW norm](#ioaw-norm)
 
 Bron
 : [Artikel 1, onderdeel c van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](http://lokaleregelgeving.overheid.nl/CVDR460812/3)
 
-## IAOW norm
+## IOAW norm
 
 Naam
-: IAOW norm
+: **IOAW norm**
 
 Definitie
 : 1.697,32
@@ -348,7 +347,7 @@ Voorwaarde
 &nbsp;
 
 Naam
-: IAOW norm
+: **IOAW norm**
 
 Definitie
 : 2.194,30
@@ -359,7 +358,7 @@ Voorwaarde
 &nbsp;
 
 Naam
-: IAOW norm
+: **IOAW norm**
 
 Definitie
 : 1097,15
@@ -378,7 +377,7 @@ Bron
 ## IIT bedrag
 
 Naam
-: IIT bedrag
+: **IIT bedrag**
 
 Definitie
 : 85
@@ -399,7 +398,7 @@ Bron
 &nbsp;
 
 Naam
-: IIT bedrag
+: **IIT bedrag**
 
 Definitie
 : 170
@@ -424,7 +423,7 @@ Bron
 ### AOW leeftijd
 
 Naam
-: AOW leeftijd
+: **AOW leeftijd**
 
 Definitie
 : 67
@@ -438,7 +437,7 @@ Bron
 ### Vermogensgrens
 
 Naam
-: Vermogensgrens
+: **Vermogensgrens**
 
 Definitie
 : 7700
@@ -449,7 +448,7 @@ Voorwaarde
 &nbsp;
 
 Naam
-: Vermogensgrens
+: **Vermogensgrens**
 
 Definitie
 : 15540
