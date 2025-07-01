@@ -273,7 +273,7 @@ Type
 
 &nbsp;
 
-##  IIT Hoogte
+## IIT Hoogte
 
 Naam
 : **IIT Hoogte**
@@ -283,6 +283,8 @@ Definitie
 
 Voorwaarde
 : [Woonplaats](#woonplaats) ::is:: "Amsterdam" \
+  ::en:: \
+  [Laag inkomen](#laag-inkomen) ::is waar:: \
   ::en:: \
   [Zicht op inkomstenverbetering](#zicht-op-inkomstenverbetering) ::is onwaar:: \
   ::en:: \
@@ -294,9 +296,27 @@ Voorwaarde
   ::en:: \
   ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::groter of gelijk aan:: 21) \
   ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd)) \
-  ::en:: \
-  [Inkomensgegeven 2024](#inkomensgegeven-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd))
+  
+Standaardwaarde
+: 0
+
+## IIT Hoogte per maand
+
+Naam
+:  **IIT Hoogte per maand**
+
+Definitie
+: [IIT hoogte](#iit-hoogte) / 12
+
+
+## Laag inkomen
+
+Naam
+: **Laag inkomen**
+
+Definitie
+:  [Inkomensgegeven 2024](#inkomensgegeven-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
   ::en:: \
   [Inkomensgegeven 2023](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
   ::en:: \
@@ -307,17 +327,23 @@ Voorwaarde
   ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
   ::en:: \
   ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen))
-
+  
 Standaardwaarde
-: 0
+: ::onwaar::
 
-## IIT Hoogte  per maand
+Bron
+: [Artikel 4, lid 1 van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3#hoofdstuk_n1_artikel_n4)
 
-Naam
-:  **IIT Hoogte per maand**
+Brontekst
+: *Een persoon komt alleen voor een toeslag in aanmerking, als hij als alleenstaande, alleenstaande ouder of als partner, gedurende de gehele referteperiode een laag inkomen had.* 
 
-Definitie:
-: [IIT Hoogte](#iit-hoogte) / 12
+Bron
+: [ Artikel 1, onderdeel b, c, d van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3#hoofdstuk_n1_artikel_n1)
+
+Brontekst
+: *aanvraagdatum: datum waarop een persoon een individuele inkomenstoeslag aanvraagt* \
+*peildatum: 31 december van het kalenderjaar dat vooraf gaat aan de aanvraagdatum* \
+*referteperiode: periode van drie kalenderjaren voorafgaand aan de peildatum* 
 
 
 ## Norm laag inkomen
