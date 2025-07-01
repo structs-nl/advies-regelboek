@@ -327,9 +327,6 @@ Definitie
   ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
   ::en:: \
   ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen))
-  
-Standaardwaarde
-: ::onwaar::
 
 Bron
 : [Artikel 4, lid 1 van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3#hoofdstuk_n1_artikel_n4)
@@ -424,7 +421,7 @@ Bron
 &nbsp;
 
 Naam
-: **IIT bedrag**
+: **IIT bedrag Amsterdam**
 
 Definitie
 : 170
