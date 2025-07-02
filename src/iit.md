@@ -290,13 +290,7 @@ Voorwaarde
   ::en:: \
   [Vermogen](#vermogen) ::kleiner dan:: [Vermogensgrens](#vermogensgrens) \
   ::en:: \
-  [Leeftijd](#leeftijd) ::groter of gelijk aan:: 21 \
-  ::en:: \
-  [Leeftijd](#leeftijd) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd) \
-  ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::groter of gelijk aan:: 21) \
-  ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Leeftijd partner](#leeftijd-partner) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd))
+  [Leeftijds Criterium](#leeftijds-criterium) ::is waar::
   
 Standaardwaarde
 : 0
@@ -310,6 +304,38 @@ Definitie
 : [IIT hoogte](#iit-hoogte) / 12
 
 
+## Leeftijds Criterium
+
+Naam
+: **Leeftijds criterium**
+
+Definitie
+: [Leeftijd](#leeftijd) ::groter of gelijk aan:: 21 \
+  ::en:: \
+  [Leeftijd](#leeftijd) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd)
+
+Voorwaarde
+:  [Partner](#partner) ::is onwaar:: 
+
+&nbsp;
+
+Naam
+: **Leeftijds criterium**
+
+Definitie
+: [Leeftijd](#leeftijd) ::groter of gelijk aan:: 21 \
+  ::en:: \
+  [Leeftijd](#leeftijd) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd) \
+  ::en:: \
+  [Leeftijd partner](#leeftijd-partner) ::groter of gelijk aan:: 21 \
+  ::en:: \
+  [Leeftijd partner](#leeftijd-partner) ::kleiner dan:: [AOW leeftijd](#aow-leeftijd)
+
+Voorwaarde
+:  [Partner](#partner) ::is waar:: 
+
+
+
 ## Laag inkomen
 
 Naam
@@ -320,13 +346,33 @@ Definitie
   ::en:: \
   [Inkomensgegeven 2023](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
   ::en:: \
+  [Inkomensgegeven 2022](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)
+  
+Voorwaarde
+:  [Partner](#partner) ::is onwaar:: 
+
+&nbsp;
+
+Naam
+: **Laag inkomen**
+
+Definitie
+:  [Inkomensgegeven 2024](#inkomensgegeven-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ::en:: \
+  [Inkomensgegeven 2023](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+  ::en:: \
   [Inkomensgegeven 2022](#inkomensgegeven-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
+    ::en:: \
+  [Inkomensgegeven partner 2024](#inkomensgegeven-partner-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
   ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2024](#inkomensgegeven-partner-2024) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
+   [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen) \
   ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2023](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)) \
-  ::en:: \
-  ([Partner](#partner) ::is onwaar of:: [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen))
+  [Inkomensgegeven partner 2022](#inkomensgegeven-partner-2023) ::kleiner dan of gelijk aan:: [Norm laag inkomen](#norm-laag-inkomen)
+  
+Voorwaarde
+:  [Partner](#partner) ::is waar:: 
+  
+&nbsp;
 
 Bron
 : [Artikel 4, lid 1 van de verordening Individuele Inkomenstoeslag Participatiewet Amsterdam 2021](https://lokaleregelgeving.overheid.nl/CVDR460812/3#hoofdstuk_n1_artikel_n4)

@@ -50,9 +50,15 @@ function depDiagram() {
    
     const diagram = {
 	forcelabels: false,
+
+	graphAttributes: {
+	    ratio: 0.3,
+	    rank:"same"
+	},
+	
 	nodeAttributes: {
 	    shape: "box",
-	    fontsize: 10,
+	    fontsize: 12,
 	    fontname: "helvetica"
 	},
 	nodes: nodes,

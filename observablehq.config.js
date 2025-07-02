@@ -1,6 +1,6 @@
 import MarkdownItDl from "markdown-it-deflist";
 import MarkdownCont from "markdown-it-container";
-import MarkdownSide from "markdown-it-sidenote";
+import MarkdownSide from "markdown-it-footnote";
 import MarkdownBrSpans from "markdown-it-bracketed-spans";
 import MarkdownAttrs from "markdown-it-attrs";
 import MarkdownSpans from "markdown-it-span";
